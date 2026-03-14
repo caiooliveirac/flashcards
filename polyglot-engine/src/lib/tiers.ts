@@ -54,7 +54,8 @@ export function getFamily(langCode: LangCode): FamilyName {
 
 /** Generation batches for split-by-family pipeline */
 export const GENERATION_BATCHES = [
-    { name: "romance_germanic", langs: ["DE", "EN", "FR", "IT", "ES", "NL", "SV", "NO", "DA"] },
+    { name: "romance", langs: ["FR", "IT", "ES"] },
+    { name: "germanic", langs: ["DE", "EN", "NL", "SV", "NO", "DA"] },
     { name: "cjk", langs: ["JA", "KO", "ZH"] },
     { name: "slavic_uralic", langs: ["RU", "PL", "CS", "BCS", "FI", "HU"] },
     { name: "semitic_hellenic", langs: ["AR", "HE", "EL"] },
