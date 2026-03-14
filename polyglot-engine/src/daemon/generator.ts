@@ -41,7 +41,8 @@ function parseJSONOutput(raw: string): {
 } {
     type ModelOutput = {
         nota_global?: string;
-        translations?: Record<string, Record<string, string>>;
+        tag_line?: string;
+        translations?: Record<string, Record<string, unknown>>;
     };
 
     let json: ModelOutput;
@@ -62,9 +63,45 @@ function parseJSONOutput(raw: string): {
     const parsed: Record<string, Record<string, string>> = {};
     const translations = json.translations ?? {};
 
-    for (const [langCode, block] of Object.entries(translations)) {
-        // All translation block fields are flat strings — spread them directly.
-        parsed[langCode] = { langCode, ...(block as Record<string, string>) };
+    // JSON field name → assembler/DB field name mapping
+    const FIELD_RENAMES: Record<string, string> = {
+        typical_error: "erroTipico",
+        reusable_pattern: "padraoReutilizavel",
+        trigger: "gatilho",
+        register: "registro",
+        trap: "armadilha",
+        contrast: "contraste",
+        note: "obs",
+        pattern: "padrao",
+        grammar: "gramatica",
+        colloquial: "variacaoNativa",
+        romanization: "romanizacao",
+    };
+
+    for (const [langCode, rawBlock] of Object.entries(translations)) {
+        const block = rawBlock as Record<string, unknown>;
+        const flat: Record<string, string> = { langCode };
+
+        for (const [key, value] of Object.entries(block)) {
+            // Flatten the thesaurus object into top-level fields
+            if (key === "thesaurus" && typeof value === "object" && value !== null) {
+                const th = value as Record<string, unknown>;
+                if (th.synonyms) flat.sinonimos = Array.isArray(th.synonyms) ? (th.synonyms as string[]).join(";") : String(th.synonyms);
+                if (th.antonym) flat.antonimo = String(th.antonym);
+                if (th.collocations) flat.collocations = Array.isArray(th.collocations) ? (th.collocations as string[]).join(",") : String(th.collocations);
+                if (th.semantic_field) flat.campoSemantico = Array.isArray(th.semantic_field) ? (th.semantic_field as string[]).join(",") : String(th.semantic_field);
+                if (th.register_variations) {
+                    const rv = th.register_variations as Record<string, string>;
+                    flat.registroVariacoes = Object.entries(rv).map(([k, v]) => `${k}:${v}`).join(";");
+                }
+                continue;
+            }
+
+            const mappedKey = FIELD_RENAMES[key] ?? key;
+            flat[mappedKey] = value == null ? "" : String(value);
+        }
+
+        parsed[langCode] = flat;
     }
 
     return {
