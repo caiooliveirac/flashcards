@@ -111,10 +111,10 @@ function parseJSONOutput(raw: string): {
 }
 
 /** Estimate max output tokens for a batch. JSON format is richer than the old pipe format.
- *  ~600 tokens/lang avg + JSON structural overhead + optional nota_global. */
+ *  ~1000 tokens/lang avg + JSON structural overhead + optional nota_global. */
 function maxTokensForBatch(langCount: number, includeNota: boolean): number {
-    const notaTokens = includeNota ? 480 : 0;
-    return Math.min(8190, Math.ceil(langCount * 600 * 1.2) + notaTokens + 800);
+    const notaTokens = includeNota ? 500 : 0;
+    return Math.min(8192, Math.ceil(langCount * 1000 * 1.15) + notaTokens + 800);
 }
 
 async function callHaiku(
