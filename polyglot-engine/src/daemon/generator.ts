@@ -34,53 +34,50 @@ export interface BatchOutput {
     durationMs: number;
 }
 
-function parseBatchOutput(raw: string): Record<string, Record<string, string>> {
-    const result: Record<string, Record<string, string>> = {};
-    const blocks = raw.split("||").map((b) => b.trim()).filter(Boolean);
+/** Parse JSON output from Haiku into a per-language flat field map. */
+function parseJSONOutput(raw: string): {
+    parsed: Record<string, Record<string, string>>;
+    notaGlobal?: string;
+} {
+    type ModelOutput = {
+        nota_global?: string;
+        translations?: Record<string, Record<string, string>>;
+    };
 
-    for (const block of blocks) {
-        const fields: Record<string, string> = {};
-        const pairs = block.split("|").map((p) => p.trim());
-
-        for (const pair of pairs) {
-            const eqIdx = pair.indexOf("=");
-            if (eqIdx === -1) continue;
-            const key = pair.substring(0, eqIdx).trim();
-            const value = pair.substring(eqIdx + 1).trim();
-            fields[key] = value;
+    let json: ModelOutput;
+    try {
+        json = JSON.parse(raw) as ModelOutput;
+    } catch {
+        // Fallback: extract the first complete JSON object from the response
+        // in case the model prepended or appended stray text.
+        const match = raw.match(/\{[\s\S]*\}/);
+        if (!match) {
+            throw new Error(
+                `Model output is not JSON. First 300 chars: ${raw.substring(0, 300)}`
+            );
         }
-
-        if (fields.langCode) {
-            result[fields.langCode] = fields;
-        }
+        json = JSON.parse(match[0]) as ModelOutput;
     }
 
-    return result;
+    const parsed: Record<string, Record<string, string>> = {};
+    const translations = json.translations ?? {};
+
+    for (const [langCode, block] of Object.entries(translations)) {
+        // All translation block fields are flat strings — spread them directly.
+        parsed[langCode] = { langCode, ...(block as Record<string, string>) };
+    }
+
+    return {
+        parsed,
+        notaGlobal: json.nota_global || undefined,
+    };
 }
 
-/** Estimate max output tokens needed based on batch size */
+/** Estimate max output tokens for a batch. JSON format is richer than the old pipe format.
+ *  ~600 tokens/lang avg + JSON structural overhead + optional nota_global. */
 function maxTokensForBatch(langCount: number, includeNota: boolean): number {
-    // Measured: ~420 tokens/lang avg output. Use 500/lang + buffer.
-    // notaGlobal adds ~400-600 tokens
-    const notaTokens = includeNota ? 600 : 0;
-    return Math.min(7000, Math.ceil(langCount * 500 * 1.3) + notaTokens);
-}
-
-/** Separate NOTA_GLOBAL section from TSV blocks */
-function extractNotaGlobal(raw: string): { nota: string; tsv: string } {
-    const separator = "===";
-    const idx = raw.indexOf(separator);
-    if (idx === -1) return { nota: "", tsv: raw };
-
-    const before = raw.substring(0, idx).trim();
-    const after = raw.substring(idx + separator.length).trim();
-
-    const notaPrefix = "NOTA_GLOBAL=";
-    const nota = before.startsWith(notaPrefix)
-        ? before.substring(notaPrefix.length).trim()
-        : before;
-
-    return { nota, tsv: after };
+    const notaTokens = includeNota ? 480 : 0;
+    return Math.min(8190, Math.ceil(langCount * 600 * 1.2) + notaTokens + 800);
 }
 
 async function callHaiku(
@@ -174,19 +171,11 @@ export async function generateBatch(
     const result = await callHaiku(chunkPt, contexto, batch.langs, batch.name, includeNota, grammarFocus, teaches);
     const durationMs = Date.now() - start;
 
-    let notaGlobal: string | undefined;
-    let tsvText = result.text;
+    const { parsed, notaGlobal } = parseJSONOutput(result.text);
 
-    if (includeNota) {
-        const extracted = extractNotaGlobal(result.text);
-        notaGlobal = extracted.nota || undefined;
-        tsvText = extracted.tsv;
-        if (notaGlobal) {
-            console.log(`[GEN] ${batch.name}: notaGlobal extracted (${notaGlobal.length} chars)`);
-        }
+    if (notaGlobal) {
+        console.log(`[GEN] ${batch.name}: notaGlobal extracted (${notaGlobal.length} chars)`);
     }
-
-    const parsed = parseBatchOutput(tsvText);
 
     // Verify all expected langs are present
     const missing = batch.langs.filter((l) => !parsed[l]);
