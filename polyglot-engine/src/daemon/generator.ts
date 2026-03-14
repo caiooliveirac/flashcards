@@ -167,6 +167,16 @@ NOTA: ${includeNota ? "yes" : "no"}`;
 
     if (!response.ok) {
         const errBody = await response.text();
+
+        // Retry on rate-limit (429) with exponential backoff
+        if (response.status === 429) {
+            const retryAfter = parseInt(response.headers.get("retry-after") ?? "0", 10);
+            const waitMs = Math.max(retryAfter * 1000, 30_000);
+            console.warn(`[GEN] ${batchName}: rate limited, waiting ${waitMs / 1000}s...`);
+            await new Promise((r) => setTimeout(r, waitMs));
+            return callHaiku(chunkPt, contexto, batchLangs, batchName, includeNota, grammarFocus, teaches);
+        }
+
         throw new Error(`Anthropic API ${response.status}: ${errBody}`);
     }
 
@@ -237,10 +247,26 @@ export async function generateAllBatches(
     grammarFocus?: string[],
     teaches?: string
 ): Promise<BatchOutput[]> {
-    // Run all batches in parallel — shares prompt cache across calls
-    // Batch 0 (romance_germanic) also generates the notaGlobal
-    const promises = GENERATION_BATCHES.map((_, i) =>
-        generateBatch(chunkPt, contexto, i, i === 0, grammarFocus, teaches)
-    );
-    return Promise.all(promises);
+    // Run batches in pairs with 15s delay between pairs to stay under
+    // 10k output tokens/min rate limit. Cache TTL is 5 min — sequential
+    // execution within ~3 min still hits the cache after the first batch.
+    const results: BatchOutput[] = [];
+    const pairDelay = 15_000;
+
+    for (let i = 0; i < GENERATION_BATCHES.length; i += 2) {
+        const pair = [i, i + 1].filter((idx) => idx < GENERATION_BATCHES.length);
+        const pairResults = await Promise.all(
+            pair.map((idx) =>
+                generateBatch(chunkPt, contexto, idx, idx === 0, grammarFocus, teaches)
+            )
+        );
+        results.push(...pairResults);
+
+        // Pause between pairs (skip after last pair)
+        if (i + 2 < GENERATION_BATCHES.length) {
+            await new Promise((r) => setTimeout(r, pairDelay));
+        }
+    }
+
+    return results;
 }
