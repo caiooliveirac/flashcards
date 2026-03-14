@@ -1,0 +1,1395 @@
+[
+    {
+        "id": "A1-GRT-001",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Bom dia! Tudo bem?",
+        "grammar_focus": [
+            "informal_greeting",
+            "fixed_expression"
+        ],
+        "teaches": "Basic greeting + welfare check as a single social unit"
+    },
+    {
+        "id": "A1-GRT-002",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Meu nome é... e eu sou do Brasil.",
+        "grammar_focus": [
+            "ser_vs_estar",
+            "nationality",
+            "self_introduction"
+        ],
+        "teaches": "Identity verbs + origin preposition patterns"
+    },
+    {
+        "id": "A1-GRT-003",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Prazer em conhecer você. Você é daqui?",
+        "grammar_focus": [
+            "infinitive_after_preposition",
+            "interrogative"
+        ],
+        "teaches": "Formal meeting + yes/no question formation"
+    },
+    {
+        "id": "A1-SRV-001",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Eu não entendo. Pode repetir mais devagar?",
+        "grammar_focus": [
+            "negation",
+            "imperative_polite",
+            "adverb"
+        ],
+        "teaches": "Essential repair strategy — the #1 phrase any learner needs"
+    },
+    {
+        "id": "A1-SRV-002",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Onde fica o banheiro, por favor?",
+        "grammar_focus": [
+            "interrogative_onde",
+            "ficar_location"
+        ],
+        "teaches": "Location questions with 'ficar' — universal survival pattern"
+    },
+    {
+        "id": "A1-SRV-003",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Eu preciso de ajuda. É uma emergência.",
+        "grammar_focus": [
+            "precisar_de",
+            "ser_identification"
+        ],
+        "teaches": "Urgency expression — precisar de + noun"
+    },
+    {
+        "id": "A1-SRV-004",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Eu sou alérgico a amendoim e frutos do mar.",
+        "grammar_focus": [
+            "ser_permanent_state",
+            "preposition_a",
+            "enumeration"
+        ],
+        "teaches": "Health-critical declaration — ser for conditions + specific allergens"
+    },
+    {
+        "id": "A1-NUM-001",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Quanto custa isso? É muito caro.",
+        "grammar_focus": [
+            "interrogative_quanto",
+            "demonstrative_isso",
+            "ser_price"
+        ],
+        "teaches": "Price inquiry + value judgment — the commerce survival kit"
+    },
+    {
+        "id": "A1-NUM-002",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Que horas são? Eu tenho que sair às três.",
+        "grammar_focus": [
+            "ser_time",
+            "ter_que_obligation",
+            "preposition_a_contracted"
+        ],
+        "teaches": "Time telling + obligation with ter que + contracted preposition"
+    },
+    {
+        "id": "A1-NUM-003",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Posso pagar com cartão ou só aceita dinheiro?",
+        "grammar_focus": [
+            "modal_poder",
+            "disjunctive_ou",
+            "aceitar_subject"
+        ],
+        "teaches": "Payment negotiation — modal verb + alternative question"
+    },
+    {
+        "id": "A1-FOD-001",
+        "level": "A1",
+        "category": "food_drink",
+        "pt": "Eu gostaria de um café com leite, por favor.",
+        "grammar_focus": [
+            "conditional_polite_gostaria",
+            "partitive_de_um"
+        ],
+        "teaches": "Polite ordering — conditional as courtesy form"
+    },
+    {
+        "id": "A1-NAV-001",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "Como eu chego ao centro da cidade?",
+        "grammar_focus": [
+            "interrogative_como",
+            "chegar_a_contracted",
+            "de_possession"
+        ],
+        "teaches": "Directions request — chegar a with contracted article"
+    },
+    {
+        "id": "A1-NAV-002",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "Este ônibus vai para a estação de trem?",
+        "grammar_focus": [
+            "demonstrative_este",
+            "ir_para",
+            "compound_noun"
+        ],
+        "teaches": "Transport confirmation — demonstrative + destination with para"
+    },
+    {
+        "id": "A2-SOC-001",
+        "level": "A2",
+        "category": "social",
+        "pt": "O que você faz da vida? Eu trabalho como médico.",
+        "grammar_focus": [
+            "interrogative_o_que",
+            "fazer_da_vida_idiom",
+            "trabalhar_como"
+        ],
+        "teaches": "Occupation exchange — idiomatic 'fazer da vida' + profession with como"
+    },
+    {
+        "id": "A2-SOC-002",
+        "level": "A2",
+        "category": "social",
+        "pt": "No meu tempo livre eu gosto de cozinhar e ler.",
+        "grammar_focus": [
+            "preposition_em_contracted",
+            "gostar_de_infinitive",
+            "enumerated_infinitives"
+        ],
+        "teaches": "Hobby discussion — gostar de + infinitive, the universal hobby pattern"
+    },
+    {
+        "id": "A2-SOC-003",
+        "level": "A2",
+        "category": "social",
+        "pt": "Você tem irmãos? Eu tenho uma irmã mais velha.",
+        "grammar_focus": [
+            "ter_possession",
+            "comparative_mais",
+            "family_vocabulary"
+        ],
+        "teaches": "Family description — ter for family + comparative age"
+    },
+    {
+        "id": "A2-TRV-001",
+        "level": "A2",
+        "category": "travel",
+        "pt": "Eu tenho uma reserva para duas noites no nome de...",
+        "grammar_focus": [
+            "ter_possession",
+            "para_duration",
+            "no_nome_de_idiom"
+        ],
+        "teaches": "Hotel check-in — reservation vocabulary + duration with para"
+    },
+    {
+        "id": "A2-TRV-002",
+        "level": "A2",
+        "category": "travel",
+        "pt": "O quarto tem ar-condicionado? A que horas é o café da manhã?",
+        "grammar_focus": [
+            "ter_existence",
+            "compound_noun",
+            "ser_scheduled_event"
+        ],
+        "teaches": "Hotel inquiries — ter for amenities + ser for schedules"
+    },
+    {
+        "id": "A2-TRV-003",
+        "level": "A2",
+        "category": "travel",
+        "pt": "Eu perdi meu passaporte. Onde fica o consulado mais próximo?",
+        "grammar_focus": [
+            "preterite_perder",
+            "possessive_meu",
+            "superlative_mais_próximo"
+        ],
+        "teaches": "Emergency travel — past tense crisis + superlative for nearest location"
+    },
+    {
+        "id": "A2-SHP-001",
+        "level": "A2",
+        "category": "shopping",
+        "pt": "Posso experimentar este em outro tamanho? Este ficou apertado.",
+        "grammar_focus": [
+            "modal_poder",
+            "demonstrative_este",
+            "ficar_result_state"
+        ],
+        "teaches": "Shopping negotiation — ficar as 'turned out to be' (result state)"
+    },
+    {
+        "id": "A2-SHP-002",
+        "level": "A2",
+        "category": "shopping",
+        "pt": "Existe desconto para estudantes? Eu tenho minha carteirinha aqui.",
+        "grammar_focus": [
+            "existir_impersonal",
+            "para_beneficiary",
+            "demonstrative_aqui"
+        ],
+        "teaches": "Discount negotiation — existir for availability + proof offering"
+    },
+    {
+        "id": "A2-HLT-001",
+        "level": "A2",
+        "category": "health",
+        "pt": "Eu estou com dor de cabeça desde ontem. Preciso de um médico.",
+        "grammar_focus": [
+            "estar_com_symptoms",
+            "desde_temporal",
+            "precisar_de"
+        ],
+        "teaches": "Medical complaint — estar com for symptoms + desde for onset"
+    },
+    {
+        "id": "A2-HLT-002",
+        "level": "A2",
+        "category": "health",
+        "pt": "Eu tomo este remédio todos os dias. Tem alguma farmácia por perto?",
+        "grammar_focus": [
+            "present_habitual_tomar",
+            "demonstrative",
+            "ter_impersonal_existence"
+        ],
+        "teaches": "Medication routine — habitual present + impersonal ter for 'is there'"
+    },
+    {
+        "id": "A2-WRK-001",
+        "level": "A2",
+        "category": "daily_routine",
+        "pt": "Eu acordo às sete, tomo café e saio de casa às oito.",
+        "grammar_focus": [
+            "reflexive_acordar",
+            "preposition_a_time",
+            "sequence_narrative"
+        ],
+        "teaches": "Daily routine narration — sequenced present tense verbs"
+    },
+    {
+        "id": "A2-WRK-002",
+        "level": "A2",
+        "category": "daily_routine",
+        "pt": "Hoje eu não posso, estou ocupado. Que tal amanhã à tarde?",
+        "grammar_focus": [
+            "negation_modal",
+            "estar_temporary_state",
+            "suggestion_que_tal"
+        ],
+        "teaches": "Scheduling — declining + counter-proposing with que tal"
+    },
+    {
+        "id": "A1-GRT-001",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Bom dia! Tudo bem?",
+        "grammar_focus": [
+            "informal_greeting",
+            "fixed_expression"
+        ],
+        "teaches": "Basic greeting + welfare check as a single social unit"
+    },
+    {
+        "id": "A1-GRT-002",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Meu nome é... e eu sou do Brasil.",
+        "grammar_focus": [
+            "ser_identity",
+            "preposition_de_origin",
+            "self_introduction"
+        ],
+        "teaches": "Identity with ser + origin with de — the first two things you say about yourself"
+    },
+    {
+        "id": "A1-GRT-003",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Prazer em conhecer você. Você mora aqui?",
+        "grammar_focus": [
+            "infinitive_after_preposition",
+            "yes_no_question",
+            "morar_location"
+        ],
+        "teaches": "Meeting formula + simple yes/no question with morar"
+    },
+    {
+        "id": "A1-GRT-004",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Boa noite! Como você está?",
+        "grammar_focus": [
+            "time_based_greeting",
+            "estar_temporary_state",
+            "interrogative_como"
+        ],
+        "teaches": "Time-appropriate greeting + estar for current state (not ser)"
+    },
+    {
+        "id": "A1-GRT-005",
+        "level": "A1",
+        "category": "greetings",
+        "pt": "Tchau! Até amanhã.",
+        "grammar_focus": [
+            "farewell_formula",
+            "até_future_reference"
+        ],
+        "teaches": "Goodbye + future meeting reference with até"
+    },
+    {
+        "id": "A1-SRV-001",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Eu não entendo. Pode repetir mais devagar?",
+        "grammar_focus": [
+            "negation_não",
+            "imperative_polite_poder",
+            "comparative_mais"
+        ],
+        "teaches": "Repair strategy — the single most important phrase for any learner"
+    },
+    {
+        "id": "A1-SRV-002",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Onde fica o banheiro, por favor?",
+        "grammar_focus": [
+            "interrogative_onde",
+            "ficar_location"
+        ],
+        "teaches": "Location questions with ficar — universal survival pattern"
+    },
+    {
+        "id": "A1-SRV-003",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Eu preciso de ajuda. É uma emergência.",
+        "grammar_focus": [
+            "precisar_de",
+            "ser_classification"
+        ],
+        "teaches": "Urgency expression — precisar de + noun, ser to classify situations"
+    },
+    {
+        "id": "A1-SRV-004",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Como se diz isto em alemão?",
+        "grammar_focus": [
+            "reflexive_impersonal_se",
+            "demonstrative_isto",
+            "interrogative_como"
+        ],
+        "teaches": "Meta-language question — how to ask about words you don't know yet"
+    },
+    {
+        "id": "A1-SRV-005",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Desculpe, eu não falo bem este idioma.",
+        "grammar_focus": [
+            "imperative_desculpe",
+            "negation_não",
+            "adverb_bem",
+            "demonstrative_este"
+        ],
+        "teaches": "Apology + limitation disclosure — setting expectations politely"
+    },
+    {
+        "id": "A1-SRV-006",
+        "level": "A1",
+        "category": "survival",
+        "pt": "Você fala inglês ou português?",
+        "grammar_focus": [
+            "disjunctive_ou",
+            "falar_language",
+            "yes_no_question"
+        ],
+        "teaches": "Language negotiation — or-question to find common ground"
+    },
+    {
+        "id": "A1-SRV-007",
+        "level": "A1",
+        "category": "survival",
+        "pt": "O que significa esta palavra?",
+        "grammar_focus": [
+            "interrogative_o_que",
+            "significar_meaning",
+            "demonstrative_esta"
+        ],
+        "teaches": "Vocabulary acquisition in real time — asking for definitions"
+    },
+    {
+        "id": "A1-IDN-001",
+        "level": "A1",
+        "category": "identity",
+        "pt": "Eu tenho vinte e cinco anos.",
+        "grammar_focus": [
+            "ter_age",
+            "cardinal_numbers"
+        ],
+        "teaches": "Age with ter (not ser) — a key structural difference from English/German"
+    },
+    {
+        "id": "A1-IDN-002",
+        "level": "A1",
+        "category": "identity",
+        "pt": "Eu sou médico e trabalho em um hospital.",
+        "grammar_focus": [
+            "ser_profession_no_article",
+            "trabalhar_em",
+            "indefinite_article_um"
+        ],
+        "teaches": "Profession without article (sou médico, not sou um médico) + workplace"
+    },
+    {
+        "id": "A1-IDN-003",
+        "level": "A1",
+        "category": "identity",
+        "pt": "Eu moro em Salvador, mas sou de São Paulo.",
+        "grammar_focus": [
+            "morar_em",
+            "ser_de_origin",
+            "adversative_mas"
+        ],
+        "teaches": "Residence vs origin — morar em for where you live, ser de for where you're from"
+    },
+    {
+        "id": "A1-IDN-004",
+        "level": "A1",
+        "category": "identity",
+        "pt": "Eu sou solteiro e não tenho filhos.",
+        "grammar_focus": [
+            "ser_marital_status",
+            "negation_não",
+            "ter_possession"
+        ],
+        "teaches": "Personal status — ser for permanent states + ter for what you have/don't have"
+    },
+    {
+        "id": "A1-IDN-005",
+        "level": "A1",
+        "category": "identity",
+        "pt": "Ela é minha irmã. Ela é mais alta do que eu.",
+        "grammar_focus": [
+            "ser_relationship",
+            "possessive_minha",
+            "comparative_mais_do_que"
+        ],
+        "teaches": "Introducing someone + physical comparison with mais... do que"
+    },
+    {
+        "id": "A1-FOD-001",
+        "level": "A1",
+        "category": "food_drink",
+        "pt": "Eu gostaria de um café com leite, por favor.",
+        "grammar_focus": [
+            "conditional_gostaria_polite",
+            "partitive_de_um",
+            "preposition_com"
+        ],
+        "teaches": "Polite ordering — conditional as courtesy form, com for additions"
+    },
+    {
+        "id": "A1-FOD-003",
+        "level": "A1",
+        "category": "food_drink",
+        "pt": "Eu quero uma água sem gás e um suco de laranja.",
+        "grammar_focus": [
+            "querer_desire",
+            "indefinite_uma",
+            "sem_without",
+            "de_composition"
+        ],
+        "teaches": "Drink ordering — querer (direct, less polite than gostaria) + sem/com modifiers"
+    },
+    {
+        "id": "A1-FOD-004",
+        "level": "A1",
+        "category": "food_drink",
+        "pt": "Tem pão? Eu estou com fome.",
+        "grammar_focus": [
+            "ter_impersonal_availability",
+            "estar_com_physical_state"
+        ],
+        "teaches": "Availability check with impersonal ter + physical state with estar com"
+    },
+    {
+        "id": "A1-FOD-005",
+        "level": "A1",
+        "category": "food_drink",
+        "pt": "Isto é muito doce para mim. Tem algo sem açúcar?",
+        "grammar_focus": [
+            "demonstrative_isto",
+            "muito_intensifier",
+            "para_mim_beneficiary",
+            "sem_exclusion"
+        ],
+        "teaches": "Preference expression — too much + personal limit with para mim"
+    },
+    {
+        "id": "A1-FOD-006",
+        "level": "A1",
+        "category": "food_drink",
+        "pt": "Pode me recomendar um prato típico daqui?",
+        "grammar_focus": [
+            "modal_poder_request",
+            "pronoun_me_indirect",
+            "daqui_contraction"
+        ],
+        "teaches": "Recommendation request — indirect object pronoun me + de + aqui contracted"
+    },
+    {
+        "id": "A1-NAV-001",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "Como eu chego ao centro da cidade?",
+        "grammar_focus": [
+            "interrogative_como",
+            "chegar_a_contracted_ao",
+            "de_possession"
+        ],
+        "teaches": "Direction request — chegar a with contracted article (a + o = ao)"
+    },
+    {
+        "id": "A1-NAV-002",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "Este ônibus vai para a estação de trem?",
+        "grammar_focus": [
+            "demonstrative_este",
+            "ir_para_destination",
+            "compound_noun"
+        ],
+        "teaches": "Transport confirmation — ir para + destination"
+    },
+    {
+        "id": "A1-NAV-003",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "É longe daqui? Posso ir a pé?",
+        "grammar_focus": [
+            "ser_distance",
+            "daqui_reference_point",
+            "ir_a_pé_idiom"
+        ],
+        "teaches": "Distance check + walking option — ser for distances, a pé fixed expression"
+    },
+    {
+        "id": "A1-NAV-004",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "Vire à esquerda e depois siga em frente.",
+        "grammar_focus": [
+            "imperative_vire",
+            "preposition_à_contracted",
+            "sequencing_depois",
+            "seguir_direction"
+        ],
+        "teaches": "Understanding directions — imperative verbs + spatial vocabulary"
+    },
+    {
+        "id": "A1-NAV-005",
+        "level": "A1",
+        "category": "navigation",
+        "pt": "Eu estou perdido. Onde estamos no mapa?",
+        "grammar_focus": [
+            "estar_condition",
+            "interrogative_onde",
+            "first_person_plural_estamos"
+        ],
+        "teaches": "Lost scenario — estar for temporary condition + inclusive we"
+    },
+    {
+        "id": "A1-NUM-001",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Quanto custa isso? É muito caro.",
+        "grammar_focus": [
+            "interrogative_quanto",
+            "demonstrative_isso",
+            "ser_price",
+            "muito_intensifier"
+        ],
+        "teaches": "Price inquiry + value judgment — the commerce survival kit"
+    },
+    {
+        "id": "A1-NUM-002",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Que horas são? Eu tenho que sair às três.",
+        "grammar_focus": [
+            "ser_time",
+            "ter_que_obligation",
+            "preposition_a_contracted_às"
+        ],
+        "teaches": "Time telling + obligation — ter que + contracted preposition a + as = às"
+    },
+    {
+        "id": "A1-NUM-003",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Posso pagar com cartão ou só aceita dinheiro?",
+        "grammar_focus": [
+            "modal_poder",
+            "com_instrument",
+            "só_restriction",
+            "disjunctive_ou"
+        ],
+        "teaches": "Payment negotiation — modal + instrument with com + restriction with só"
+    },
+    {
+        "id": "A1-NUM-004",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Hoje é segunda-feira, dia dez de março.",
+        "grammar_focus": [
+            "ser_date",
+            "compound_noun_dia_semana",
+            "de_in_dates"
+        ],
+        "teaches": "Date expression — ser for dates, day-of-week compounds, de for month"
+    },
+    {
+        "id": "A1-NUM-005",
+        "level": "A1",
+        "category": "numbers_time_money",
+        "pt": "Onde posso trocar dinheiro? Qual é o câmbio hoje?",
+        "grammar_focus": [
+            "onde_poder_infinitive",
+            "interrogative_qual",
+            "ser_value"
+        ],
+        "teaches": "Currency exchange — onde + modal + infinitive chain, qual for which/what"
+    },
+    {
+        "id": "A1-HLT-001",
+        "level": "A1",
+        "category": "health",
+        "pt": "Eu sou alérgico a amendoim e frutos do mar.",
+        "grammar_focus": [
+            "ser_permanent_condition",
+            "preposition_a_trigger",
+            "enumeration_e"
+        ],
+        "teaches": "Allergy declaration — ser for permanent conditions + a for allergy triggers"
+    },
+    {
+        "id": "A1-HLT-002",
+        "level": "A1",
+        "category": "health",
+        "pt": "Eu preciso de um médico. Onde fica o hospital?",
+        "grammar_focus": [
+            "precisar_de",
+            "indefinite_um",
+            "onde_ficar_location"
+        ],
+        "teaches": "Medical emergency — combining need (precisar de) with location (onde fica)"
+    },
+    {
+        "id": "A1-HLT-003",
+        "level": "A1",
+        "category": "health",
+        "pt": "Eu estou com dor aqui. Dói muito.",
+        "grammar_focus": [
+            "estar_com_symptom",
+            "adverb_aqui_pointing",
+            "doer_impersonal"
+        ],
+        "teaches": "Pain description — estar com for symptoms + impersonal doer (it hurts)"
+    },
+    {
+        "id": "A1-HLT-004",
+        "level": "A1",
+        "category": "health",
+        "pt": "Eu tomo este remédio todos os dias.",
+        "grammar_focus": [
+            "present_habitual_tomar",
+            "demonstrative_este",
+            "frequency_todos_os"
+        ],
+        "teaches": "Medication routine — habitual present + frequency expression"
+    },
+    {
+        "id": "A1-SHP-001",
+        "level": "A1",
+        "category": "shopping",
+        "pt": "Tem este em outra cor? Eu quero o azul.",
+        "grammar_focus": [
+            "ter_availability",
+            "demonstrative_este",
+            "outro_alternative",
+            "definite_article_specific"
+        ],
+        "teaches": "Color/variant request — ter for stock + definite article for specific choice"
+    },
+    {
+        "id": "A1-SHP-002",
+        "level": "A1",
+        "category": "shopping",
+        "pt": "É muito grande para mim. Tem menor?",
+        "grammar_focus": [
+            "ser_characteristic",
+            "muito_excess",
+            "para_mim",
+            "comparative_menor"
+        ],
+        "teaches": "Size negotiation — ser for characteristics + irregular comparative menor"
+    },
+    {
+        "id": "A1-SHP-003",
+        "level": "A1",
+        "category": "shopping",
+        "pt": "Eu estou só olhando, obrigado.",
+        "grammar_focus": [
+            "estar_gerund_progressive",
+            "só_just",
+            "olhar_browsing"
+        ],
+        "teaches": "Browsing declaration — estar + gerund for current action, só to minimize"
+    },
+    {
+        "id": "A1-SHP-004",
+        "level": "A1",
+        "category": "shopping",
+        "pt": "Pode me dar uma sacola, por favor?",
+        "grammar_focus": [
+            "modal_poder_request",
+            "pronoun_me_indirect_object",
+            "dar_giving",
+            "indefinite_uma"
+        ],
+        "teaches": "Simple request — poder + indirect pronoun me + dar"
+    },
+    {
+        "id": "A1-ACC-001",
+        "level": "A1",
+        "category": "accommodation",
+        "pt": "Eu tenho uma reserva para duas noites.",
+        "grammar_focus": [
+            "ter_possession",
+            "indefinite_uma",
+            "para_duration",
+            "cardinal_duas"
+        ],
+        "teaches": "Hotel check-in — ter for having + para for duration"
+    },
+    {
+        "id": "A1-ACC-002",
+        "level": "A1",
+        "category": "accommodation",
+        "pt": "O quarto tem Wi-Fi? A que horas é o café da manhã?",
+        "grammar_focus": [
+            "ter_amenity",
+            "a_que_horas_time_question",
+            "ser_scheduled_event"
+        ],
+        "teaches": "Hotel inquiry — ter for amenities + ser for scheduled times"
+    },
+    {
+        "id": "A1-ACC-003",
+        "level": "A1",
+        "category": "accommodation",
+        "pt": "A chave não funciona. Pode me ajudar?",
+        "grammar_focus": [
+            "definite_article_specific",
+            "negation_não",
+            "funcionar_work",
+            "poder_me_request"
+        ],
+        "teaches": "Problem reporting — negation + request for help pattern"
+    },
+    {
+        "id": "A1-WEA-001",
+        "level": "A1",
+        "category": "weather_nature",
+        "pt": "Está frio hoje. Eu preciso de um casaco.",
+        "grammar_focus": [
+            "estar_weather",
+            "hoje_temporal",
+            "precisar_de_object"
+        ],
+        "teaches": "Weather comment + consequence — estar for weather, precisar de for needs"
+    },
+    {
+        "id": "A1-WEA-002",
+        "level": "A1",
+        "category": "weather_nature",
+        "pt": "Vai chover amanhã? Eu quero ir à praia.",
+        "grammar_focus": [
+            "ir_future_informal",
+            "chover_impersonal",
+            "querer_infinitive",
+            "ir_a_contracted_à"
+        ],
+        "teaches": "Future with ir + infinitive (informal future) + desire with querer"
+    },
+    {
+        "id": "A1-TRN-001",
+        "level": "A1",
+        "category": "transport",
+        "pt": "Eu quero um bilhete de ida e volta para Lisboa.",
+        "grammar_focus": [
+            "querer_request",
+            "compound_noun_ida_e_volta",
+            "para_destination"
+        ],
+        "teaches": "Ticket purchase — compound noun ida e volta + para for destination"
+    },
+    {
+        "id": "A1-TRN-002",
+        "level": "A1",
+        "category": "transport",
+        "pt": "De que plataforma sai o trem?",
+        "grammar_focus": [
+            "interrogative_de_que",
+            "sair_departure",
+            "definite_article_o"
+        ],
+        "teaches": "Departure inquiry — de que for 'from which' + sair for departures"
+    },
+    {
+        "id": "A1-TRN-003",
+        "level": "A1",
+        "category": "transport",
+        "pt": "Pode chamar um táxi para mim?",
+        "grammar_focus": [
+            "modal_poder",
+            "chamar_summon",
+            "para_mim_beneficiary"
+        ],
+        "teaches": "Service request — poder + chamar (to call/summon) + beneficiary"
+    },
+    {
+        "id": "A1-TRN-004",
+        "level": "A1",
+        "category": "transport",
+        "pt": "Quanto tempo demora até o aeroporto?",
+        "grammar_focus": [
+            "quanto_tempo_duration",
+            "demorar_duration",
+            "até_destination"
+        ],
+        "teaches": "Travel time question — quanto tempo + demorar + até"
+    },
+    {
+        "id": "A1-SOC-001",
+        "level": "A1",
+        "category": "social_basics",
+        "pt": "Eu gosto muito de música. E você?",
+        "grammar_focus": [
+            "gostar_de",
+            "muito_intensifier",
+            "tag_question_e_você"
+        ],
+        "teaches": "Likes with gostar de + bouncing the conversation back with e você"
+    },
+    {
+        "id": "A1-SOC-002",
+        "level": "A1",
+        "category": "social_basics",
+        "pt": "Eu não gosto de acordar cedo.",
+        "grammar_focus": [
+            "negation_gostar",
+            "gostar_de_infinitive",
+            "adverb_cedo"
+        ],
+        "teaches": "Dislike expression — negation of gostar de + infinitive complement"
+    },
+    {
+        "id": "A1-SOC-003",
+        "level": "A1",
+        "category": "social_basics",
+        "pt": "Você tem animais de estimação? Eu tenho um cachorro.",
+        "grammar_focus": [
+            "ter_possession",
+            "compound_noun_animal_estimação",
+            "indefinite_um"
+        ],
+        "teaches": "Small talk about pets — ter for possession + compound noun"
+    },
+    {
+        "id": "A1-SOC-004",
+        "level": "A1",
+        "category": "social_basics",
+        "pt": "Esta é a minha amiga Ana. Ela é professora.",
+        "grammar_focus": [
+            "demonstrative_esta",
+            "possessive_minha",
+            "ser_profession_no_article"
+        ],
+        "teaches": "Introducing others — demonstrative + possessive + profession without article"
+    },
+    {
+        "id": "A1-SOC-005",
+        "level": "A1",
+        "category": "social_basics",
+        "pt": "Você quer sair hoje à noite?",
+        "grammar_focus": [
+            "querer_infinitive_invitation",
+            "sair_going_out",
+            "à_noite_time_expression"
+        ],
+        "teaches": "Casual invitation — querer + infinitive for suggesting plans"
+    },
+    {
+        "id": "A1-DLY-001",
+        "level": "A1",
+        "category": "daily_actions",
+        "pt": "Eu acordo às sete e tomo café às oito.",
+        "grammar_focus": [
+            "reflexive_acordar",
+            "preposition_às_time",
+            "sequential_present"
+        ],
+        "teaches": "Morning routine — reflexive verb + contracted time preposition"
+    },
+    {
+        "id": "A1-DLY-002",
+        "level": "A1",
+        "category": "daily_actions",
+        "pt": "Eu como no restaurante porque não sei cozinhar.",
+        "grammar_focus": [
+            "comer_em",
+            "porque_reason",
+            "saber_infinitive_ability"
+        ],
+        "teaches": "Reason giving — porque + saber for ability (know how to)"
+    },
+    {
+        "id": "A1-DLY-003",
+        "level": "A1",
+        "category": "daily_actions",
+        "pt": "Eu vou ao supermercado comprar leite e pão.",
+        "grammar_focus": [
+            "ir_a_contracted_ao",
+            "purpose_infinitive_without_para",
+            "enumeration"
+        ],
+        "teaches": "Purpose of movement — ir + infinitive (purpose without para in informal speech)"
+    },
+    {
+        "id": "A1-DLY-004",
+        "level": "A1",
+        "category": "daily_actions",
+        "pt": "Eu estudo português à noite depois do trabalho.",
+        "grammar_focus": [
+            "present_habitual",
+            "à_noite_time",
+            "depois_de_contracted_do"
+        ],
+        "teaches": "Study routine — habitual present + depois de with contracted article"
+    },
+    {
+        "id": "A1-DLY-005",
+        "level": "A1",
+        "category": "daily_actions",
+        "pt": "Eu durmo cedo porque trabalho de manhã.",
+        "grammar_focus": [
+            "dormir_irregular",
+            "porque_causal",
+            "de_manhã_time_period"
+        ],
+        "teaches": "Sleep schedule — irregular verb dormir + cause-effect with porque"
+    },
+    {
+        "id": "A1-HOM-001",
+        "level": "A1",
+        "category": "home_objects",
+        "pt": "A minha casa tem dois quartos e um banheiro.",
+        "grammar_focus": [
+            "ter_description",
+            "cardinal_dois",
+            "indefinite_article_um"
+        ],
+        "teaches": "Home description — ter for rooms/features + number agreement (dois/duas)"
+    },
+    {
+        "id": "A1-HOM-002",
+        "level": "A1",
+        "category": "home_objects",
+        "pt": "Onde está o meu telefone? Estava na mesa.",
+        "grammar_focus": [
+            "estar_location",
+            "possessive_meu",
+            "imperfect_estava_recent_past"
+        ],
+        "teaches": "Lost object — estar for location + estava for 'it was just at'"
+    },
+    {
+        "id": "A1-HOM-003",
+        "level": "A1",
+        "category": "home_objects",
+        "pt": "Eu preciso de uma toalha limpa, por favor.",
+        "grammar_focus": [
+            "precisar_de",
+            "indefinite_uma",
+            "adjective_after_noun"
+        ],
+        "teaches": "Object request — adjective placement after noun (toalha limpa, not limpa toalha)"
+    },
+    {
+        "id": "A1-PLN-001",
+        "level": "A1",
+        "category": "plans_wishes",
+        "pt": "Eu quero aprender alemão este ano.",
+        "grammar_focus": [
+            "querer_infinitive",
+            "demonstrative_este",
+            "temporal_este_ano"
+        ],
+        "teaches": "Goal statement — querer + infinitive for desires and plans"
+    },
+    {
+        "id": "A1-PLN-002",
+        "level": "A1",
+        "category": "plans_wishes",
+        "pt": "No próximo mês eu vou viajar para a Alemanha.",
+        "grammar_focus": [
+            "ir_future_perifrástico",
+            "para_destination_country",
+            "temporal_no_próximo"
+        ],
+        "teaches": "Future plans with ir + infinitive — the informal future tense"
+    },
+    {
+        "id": "A1-PLN-003",
+        "level": "A1",
+        "category": "plans_wishes",
+        "pt": "Eu não posso ir hoje, mas talvez amanhã.",
+        "grammar_focus": [
+            "modal_poder_negated",
+            "adversative_mas",
+            "talvez_possibility"
+        ],
+        "teaches": "Declining + alternative — negated modal + but + maybe"
+    },
+    {
+        "id": "A1-FLG-001",
+        "level": "A1",
+        "category": "feelings_states",
+        "pt": "Eu estou cansado. Eu quero dormir.",
+        "grammar_focus": [
+            "estar_temporary_feeling",
+            "querer_infinitive"
+        ],
+        "teaches": "Physical state — estar for temporary condition + desire"
+    },
+    {
+        "id": "A1-FLG-002",
+        "level": "A1",
+        "category": "feelings_states",
+        "pt": "Eu estou feliz porque hoje é sexta-feira!",
+        "grammar_focus": [
+            "estar_emotion",
+            "porque_reason",
+            "ser_day_of_week"
+        ],
+        "teaches": "Emotion + reason — estar for feelings + porque for cause"
+    },
+    {
+        "id": "A1-FLG-003",
+        "level": "A1",
+        "category": "feelings_states",
+        "pt": "Eu tenho medo de avião.",
+        "grammar_focus": [
+            "ter_medo_de_idiom",
+            "de_trigger"
+        ],
+        "teaches": "Fear with ter medo de — ter for emotions/states (not estar)"
+    },
+    {
+        "id": "A1-FLG-004",
+        "level": "A1",
+        "category": "feelings_states",
+        "pt": "Eu estou com sede. Tem água?",
+        "grammar_focus": [
+            "estar_com_physical_need",
+            "ter_impersonal_availability"
+        ],
+        "teaches": "Physical need + availability — estar com for thirst/hunger, ter for 'is there'"
+    },
+    {
+        "id": "A1-POL-001",
+        "level": "A1",
+        "category": "politeness",
+        "pt": "Com licença, posso passar?",
+        "grammar_focus": [
+            "fixed_expression_com_licença",
+            "modal_poder_permission"
+        ],
+        "teaches": "Permission request — com licença (excuse me) + poder for permission"
+    },
+    {
+        "id": "A1-POL-002",
+        "level": "A1",
+        "category": "politeness",
+        "pt": "Muito obrigado pela sua ajuda!",
+        "grammar_focus": [
+            "muito_intensifier",
+            "por_contracted_pela",
+            "possessive_sua"
+        ],
+        "teaches": "Gratitude — muito obrigado + por contracted with article (por + a = pela)"
+    },
+    {
+        "id": "A1-POL-003",
+        "level": "A1",
+        "category": "politeness",
+        "pt": "Desculpe o atraso. O trânsito estava horrível.",
+        "grammar_focus": [
+            "imperative_desculpe",
+            "definite_article_abstract",
+            "estar_past_condition"
+        ],
+        "teaches": "Apologizing — desculpe + reason with estava for past temporary state"
+    },
+    {
+        "id": "A1-POL-004",
+        "level": "A1",
+        "category": "politeness",
+        "pt": "Não se preocupe, não tem problema.",
+        "grammar_focus": [
+            "negative_imperative_reflexive",
+            "ter_problema_fixed"
+        ],
+        "teaches": "Reassuring — negative imperative of reflexive verb + fixed expression"
+    },
+    {
+        "id": "A1-TEC-001",
+        "level": "A1",
+        "category": "technology",
+        "pt": "Qual é a senha do Wi-Fi?",
+        "grammar_focus": [
+            "interrogative_qual",
+            "ser_identification",
+            "de_contracted_do"
+        ],
+        "teaches": "Essential tech question — qual for 'what is' + contracted preposition"
+    },
+    {
+        "id": "A1-TEC-002",
+        "level": "A1",
+        "category": "technology",
+        "pt": "Eu posso carregar meu celular aqui?",
+        "grammar_focus": [
+            "modal_poder_permission",
+            "carregar_charge",
+            "possessive_meu",
+            "aqui_location"
+        ],
+        "teaches": "Permission in public spaces — poder for 'may I' + possessive"
+    },
+    {
+        "id": "A1-TEC-003",
+        "level": "A1",
+        "category": "technology",
+        "pt": "Meu celular não está funcionando. Tem uma tomada perto?",
+        "grammar_focus": [
+            "estar_gerund_progressive",
+            "negation_progressive",
+            "ter_existence_nearby"
+        ],
+        "teaches": "Tech problem — negative progressive (não está funcionando) + nearby check"
+    },
+    {
+        "id": "A1-FAM-001",
+        "level": "A1",
+        "category": "family_people",
+        "pt": "Este é o meu pai e esta é a minha mãe.",
+        "grammar_focus": [
+            "demonstrative_este_esta_gender",
+            "possessive_meu_minha_gender",
+            "ser_identity"
+        ],
+        "teaches": "Family introduction — gender agreement in demonstratives and possessives"
+    },
+    {
+        "id": "A1-FAM-002",
+        "level": "A1",
+        "category": "family_people",
+        "pt": "Eu tenho dois irmãos e uma irmã.",
+        "grammar_focus": [
+            "ter_family",
+            "cardinal_number_gender_agreement",
+            "enumeration_e"
+        ],
+        "teaches": "Family counting — number-gender agreement (dois/duas, um/uma)"
+    },
+    {
+        "id": "A1-FAM-003",
+        "level": "A1",
+        "category": "family_people",
+        "pt": "Os meus pais moram no Brasil, mas eu moro na Alemanha.",
+        "grammar_focus": [
+            "definite_article_possessive",
+            "morar_em_contracted_no_na",
+            "adversative_mas"
+        ],
+        "teaches": "Family location — em contracted with article (em + o = no, em + a = na)"
+    },
+    {
+        "id": "A1-DSC-001",
+        "level": "A1",
+        "category": "descriptions",
+        "pt": "O gato é preto e muito pequeno.",
+        "grammar_focus": [
+            "ser_physical_description",
+            "adjective_agreement",
+            "muito_modifier"
+        ],
+        "teaches": "Physical description — ser for characteristics + adjective agreement"
+    },
+    {
+        "id": "A1-DSC-002",
+        "level": "A1",
+        "category": "descriptions",
+        "pt": "A cidade é bonita, mas é muito quente no verão.",
+        "grammar_focus": [
+            "ser_quality",
+            "adversative_mas",
+            "ser_climate",
+            "em_contracted_no_season"
+        ],
+        "teaches": "Place description — ser for qualities + climate + seasons with contracted preposition"
+    },
+    {
+        "id": "A1-DSC-003",
+        "level": "A1",
+        "category": "descriptions",
+        "pt": "A comida aqui é boa e barata.",
+        "grammar_focus": [
+            "ser_evaluation",
+            "aqui_specification",
+            "adjective_pair_coordinated"
+        ],
+        "teaches": "Evaluation — ser for judgments + coordinated adjectives"
+    },
+    {
+        "id": "A1-PRB-001",
+        "level": "A1",
+        "category": "problems",
+        "pt": "Eu não encontro a minha mala.",
+        "grammar_focus": [
+            "negation_present",
+            "encontrar_find",
+            "definite_possessive_a_minha"
+        ],
+        "teaches": "Lost item report — present tense for current problem + possessive with article"
+    },
+    {
+        "id": "A1-PRB-002",
+        "level": "A1",
+        "category": "problems",
+        "pt": "Tem um erro na minha conta. Pode verificar?",
+        "grammar_focus": [
+            "ter_existence",
+            "indefinite_um",
+            "em_contracted_na",
+            "poder_verificar_request"
+        ],
+        "teaches": "Error reporting — ter for existence of problem + request to check"
+    },
+    {
+        "id": "A1-PRB-003",
+        "level": "A1",
+        "category": "problems",
+        "pt": "Isto não é o que eu pedi.",
+        "grammar_focus": [
+            "demonstrative_isto",
+            "negation_ser",
+            "relative_o_que",
+            "preterite_pedir"
+        ],
+        "teaches": "Complaint — demonstrative + negation + what I ordered (first contact with past tense)"
+    },
+    {
+        "id": "A1-CMP-001",
+        "level": "A1",
+        "category": "comparisons",
+        "pt": "Este hotel é melhor do que aquele, mas é mais caro.",
+        "grammar_focus": [
+            "irregular_comparative_melhor",
+            "demonstrative_contrast_este_aquele",
+            "regular_comparative_mais"
+        ],
+        "teaches": "Comparison — irregular comparative melhor vs regular mais caro + demonstrative distance"
+    },
+    {
+        "id": "A1-CMP-002",
+        "level": "A1",
+        "category": "comparisons",
+        "pt": "Aqui é mais frio do que no meu país.",
+        "grammar_focus": [
+            "aqui_location",
+            "comparative_mais_do_que",
+            "possessive_meu",
+            "em_contracted_no"
+        ],
+        "teaches": "Climate comparison — comparing places with mais... do que"
+    },
+    {
+        "id": "A1-QTY-001",
+        "level": "A1",
+        "category": "quantities",
+        "pt": "Eu quero um pouco de arroz e muita salada.",
+        "grammar_focus": [
+            "um_pouco_de_partitive",
+            "muito_muita_agreement",
+            "enumeration"
+        ],
+        "teaches": "Quantity expression — um pouco de for small amounts + muito/a gender agreement"
+    },
+    {
+        "id": "A1-QTY-002",
+        "level": "A1",
+        "category": "quantities",
+        "pt": "Não tem nenhum lugar livre? Está tudo ocupado?",
+        "grammar_focus": [
+            "double_negation_não_nenhum",
+            "tudo_everything",
+            "estar_state"
+        ],
+        "teaches": "Double negation — não + nenhum pattern + tudo with estar"
+    },
+    {
+        "id": "A1-OPN-001",
+        "level": "A1",
+        "category": "basic_opinions",
+        "pt": "Eu acho bonito. Você gosta?",
+        "grammar_focus": [
+            "achar_opinion",
+            "adjective_predicate",
+            "gostar_yes_no"
+        ],
+        "teaches": "Simple opinion — achar for 'I think/find' + bouncing back with gostar"
+    },
+    {
+        "id": "A1-OPN-002",
+        "level": "A1",
+        "category": "basic_opinions",
+        "pt": "Eu prefiro chá. Café é muito forte para mim.",
+        "grammar_focus": [
+            "preferir_preference",
+            "ser_characteristic",
+            "para_mim_personal_limit"
+        ],
+        "teaches": "Preference + justification — preferir + reason with para mim"
+    }
+]

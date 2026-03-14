@@ -1,0 +1,3 @@
+ALTER TABLE "ChunkRegistry"
+ADD COLUMN IF NOT EXISTS "grammarFocus" JSONB,
+ADD COLUMN IF NOT EXISTS "teaches" TEXT;

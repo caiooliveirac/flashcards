@@ -1,0 +1,306 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ─── ENUMS ─────────────────────────────────────────────
+
+enum CardType {
+  chunk
+  padrao
+  discriminacao
+  cloze
+}
+
+enum Nivel {
+  a1
+  a2
+  b1
+  b2
+  c1
+}
+
+enum Categoria {
+  apresentacao
+  polidez
+  reparo_conversacional
+  pedido
+  direcao
+  transporte
+  emergencia
+  trabalho
+  socializacao
+  comida
+  hospedagem
+  compras
+  saude
+  tempo
+  numeros
+  sentimentos
+  opiniao
+  comparacao
+  descricao
+  rotina
+}
+
+enum CardSource {
+  haiku_auto
+  haiku_manual
+  opus_gold
+  manual
+  import_tsv
+}
+
+enum CardQuality {
+  raw
+  reviewed
+  edited
+  gold
+  deprecated
+  suspicious
+}
+
+enum DifficultyLevel {
+  easy
+  medium
+  hard
+  blocked
+}
+
+enum DifficultyType {
+  pronuncia
+  escrita
+  gramatica
+  vocabulario
+  interferencia
+  tom
+  caso
+  ordem
+}
+
+enum GenerationStatus {
+  pending
+  running
+  validating
+  done
+  failed
+  rejected
+}
+
+// ─── CARD ──────────────────────────────────────────────
+
+model Card {
+  id                  String       @id @default(cuid())
+  seq                 Int          @unique @default(autoincrement())
+  tipo                CardType
+  contexto            String
+  frentePt            String
+  frentePtNorm        String       @unique
+  notaGlobal          String
+
+  // ─── Alvo didático ───
+  objetivo            String
+  idiomasPrincipais   String[]
+  familiaContraste    String?
+  nivel               Nivel
+  categoria           Categoria
+
+  // ─── Rastreabilidade ───
+  source              CardSource   @default(haiku_auto)
+  quality             CardQuality  @default(raw)
+  sourceModel         String?
+  sourcePromptVersion String?
+  reviewedBy          String?
+  reviewedAt          DateTime?
+
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  blocos              LangBloco[]
+  reviews             Review[]
+  difficulties        LangDifficulty[]
+  tags                CardTag[]
+
+  @@index([quality])
+  @@index([categoria])
+  @@index([nivel])
+  @@index([source])
+}
+
+// ─── TAGS (normalizadas) ───────────────────────────────
+
+model Tag {
+  id    String    @id @default(cuid())
+  name  String    @unique
+  cards CardTag[]
+}
+
+model CardTag {
+  cardId String
+  tagId  String
+  card   Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  tag    Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([cardId, tagId])
+  @@index([tagId])
+}
+
+// ─── BLOCO DE IDIOMA ───────────────────────────────────
+
+model LangBloco {
+  id                 String @id @default(cuid())
+  cardId             String
+  card               Card   @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  langCode           String
+
+  // ─── Core ───
+  natural            String
+  romanizacao        String  @default("—")
+  variacaoNativa     String?
+  literal            String
+
+  // ─── Análise ───
+  padrao             String
+  gramatica          String?
+  obs                String
+
+  // ─── Armadilhas ───
+  erroTipico         String
+  contraste          String
+  armadilha          String
+  padraoReutilizavel String
+
+  // ─── Thesaurus ───
+  sinonimos          String?
+  antonimo           String?
+  collocations       String?
+  campoSemantico     String?
+  registroVariacoes  String?
+
+  // ─── Meta ───
+  gatilho            String
+  registro           String
+
+  @@unique([cardId, langCode])
+  @@index([langCode])
+}
+
+// ─── REVIEW (FSRS) ─────────────────────────────────────
+
+model Review {
+  id         String   @id @default(cuid())
+  cardId     String
+  card       Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  langCode   String?
+  rating     Int
+
+  // FSRS state
+  stability  Float    @default(0)
+  difficulty Float    @default(0)
+  due        DateTime @default(now())
+  interval   Float    @default(0)
+  reps       Int      @default(0)
+  lapses     Int      @default(0)
+  state      Int      @default(0)
+
+  reviewedAt DateTime @default(now())
+
+  @@index([due])
+  @@index([cardId, langCode])
+  @@index([langCode, state])
+  @@index([langCode, due])
+}
+
+// ─── DIFICULDADE POR IDIOMA ────────────────────────────
+
+model LangDifficulty {
+  id        String           @id @default(cuid())
+  cardId    String
+  card      Card             @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  langCode  String
+  level     DifficultyLevel
+  types     DifficultyType[]
+  note      String?
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@unique([cardId, langCode])
+  @@index([langCode, level])
+  @@index([level])
+}
+
+// ─── GERAÇÃO ───────────────────────────────────────────
+
+model GenerationJob {
+  id               String           @id @default(cuid())
+  chunkPt          String
+  categoria        Categoria
+  nivel            Nivel
+  familyBatch      String?
+  status           GenerationStatus @default(pending)
+  rawTsv           String?
+  error            String?
+  model            String           @default("claude-haiku-4-5-20251001")
+  promptVersion    String?
+  inputTokens      Int?
+  outputTokens     Int?
+  cachedTokens     Int?
+  cost             Float?
+  retryCount       Int              @default(0)
+  qaScore          Float?
+  qaFlags          String[]
+  qaChecks         Json?
+  durationMs       Int?
+  cardId           String?
+  createdAt        DateTime         @default(now())
+  completedAt      DateTime?
+
+  batches          GenerationBatch[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([chunkPt])
+}
+
+model GenerationBatch {
+  id              String         @id @default(cuid())
+  jobId           String
+  job             GenerationJob  @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  family          String
+  status          String         @default("pending")
+  inputTokens     Int            @default(0)
+  outputTokens    Int            @default(0)
+  cachedTokens    Int            @default(0)
+  costUsd         Float          @default(0)
+  durationMs      Int            @default(0)
+  langsGenerated  String[]
+  rawResponse     String?
+  error           String?
+  createdAt       DateTime       @default(now())
+
+  @@index([jobId])
+}
+
+// ─── FILA DE CHUNKS ────────────────────────────────────
+
+model ChunkRegistry {
+  id          String    @id @default(cuid())
+  chunkPt     String    @unique
+  categoria   Categoria
+  nivel       Nivel
+  variacao    String?
+  parentChunk String?
+  gerado      Boolean   @default(false)
+  grammarFocus Json?
+  teaches     String?
+  cardId      String?
+  prioridade  Int       @default(0)
+  createdAt   DateTime  @default(now())
+
+  @@index([gerado, prioridade])
+  @@index([categoria, nivel])
+}

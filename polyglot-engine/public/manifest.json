@@ -1,0 +1,10 @@
+{
+    "name": "PolyGlot Engine",
+    "short_name": "PolyGlot",
+    "description": "Plataforma pessoal de flashcards multilíngues com geração automatizada",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#2563eb",
+    "icons": []
+}

@@ -1,0 +1,27 @@
+services:
+  polyglot-app:
+    build:
+      context: .
+      args:
+        - NEXT_PUBLIC_BASE_PATH=/polyglot
+    container_name: polyglot-app
+    restart: unless-stopped
+    networks:
+      - repo_default
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://polyglot:${POLYGLOT_DB_PASSWORD}@host.docker.internal:5432/polyglot_db
+      - NEXT_PUBLIC_BASE_PATH=/polyglot
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/polyglot/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  repo_default:
+    external: true
