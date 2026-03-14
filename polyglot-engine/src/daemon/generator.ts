@@ -110,11 +110,12 @@ function parseJSONOutput(raw: string): {
     };
 }
 
-/** Estimate max output tokens for a batch. JSON format is richer than the old pipe format.
- *  ~1000 tokens/lang avg + JSON structural overhead + optional nota_global. */
+/** Estimate max output tokens for a batch. Non-Latin scripts (CJK, Arabic,
+ *  Hebrew, Greek, Thai) generate ~40% more tokens due to romanization in
+ *  every thesaurus entry. Budget ~1300 tokens/lang + overhead. */
 function maxTokensForBatch(langCount: number, includeNota: boolean): number {
     const notaTokens = includeNota ? 500 : 0;
-    return Math.min(8192, Math.ceil(langCount * 1000 * 1.15) + notaTokens + 800);
+    return Math.min(8192, Math.ceil(langCount * 1300 * 1.15) + notaTokens + 400);
 }
 
 async function callHaiku(
