@@ -25,6 +25,7 @@ export interface BatchOutput {
     raw: string;
     parsed: Record<string, Record<string, string>>; // langCode -> field -> value
     notaGlobal?: string;
+    stopReason: string;
     usage: {
         input_tokens: number;
         output_tokens: number;
@@ -34,30 +35,132 @@ export interface BatchOutput {
     durationMs: number;
 }
 
-/** Parse JSON output from Haiku into a per-language flat field map. */
-function parseJSONOutput(raw: string): {
+/** Attempt to repair common JSON issues from model output:
+ *  - Markdown code fences (```json ... ```)
+ *  - Unescaped control characters inside strings (newlines, tabs)
+ *  - Trailing commas before } or ]
+ */
+function stripMarkdownFences(text: string): string {
+    // Remove ```json ... ``` wrapping (complete response)
+    const fenced = text.match(/```(?:json)?\s*\n?([\s\S]*?)```/);
+    if (fenced) return fenced[1].trim();
+    // Handle truncated response: opening fence present but closing fence was cut off
+    const openOnly = text.match(/^```(?:json)?\s*\n?([\s\S]*)/);
+    if (openOnly) return openOnly[1].trim();
+    return text.trim();
+}
+
+function sanitizeJson(text: string): string {
+    // 1. Fix unescaped control characters inside JSON string values
+    let result = "";
+    let inString = false;
+    let i = 0;
+    while (i < text.length) {
+        const ch = text[i];
+        if (inString) {
+            if (ch === "\\" && i + 1 < text.length) {
+                result += ch + text[i + 1];
+                i += 2;
+                continue;
+            }
+            if (ch === '"') {
+                const rest = text.substring(i + 1).trimStart();
+                if (
+                    rest.length === 0 ||
+                    rest[0] === "," || rest[0] === "}" || rest[0] === "]" ||
+                    rest[0] === ":"
+                ) {
+                    result += ch;
+                    inString = false;
+                } else {
+                    result += '\\"';
+                }
+                i++;
+                continue;
+            }
+            if (ch === "\n") { result += "\\n"; i++; continue; }
+            if (ch === "\r") { result += "\\r"; i++; continue; }
+            if (ch === "\t") { result += "\\t"; i++; continue; }
+            result += ch;
+        } else {
+            if (ch === '"') { inString = true; }
+            result += ch;
+        }
+        i++;
+    }
+    // 2. Remove trailing commas before } or ]
+    result = result.replace(/,(\s*[}\]])/g, "$1");
+    return result;
+}
+
+/** Try to complete truncated JSON by closing all open braces/brackets. */
+function closeOpenBraces(text: string): string {
+    const opens: string[] = [];
+    let inStr = false;
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (inStr) {
+            if (ch === "\\" && i + 1 < text.length) { i++; continue; }
+            if (ch === '"') inStr = false;
+            continue;
+        }
+        if (ch === '"') { inStr = true; continue; }
+        if (ch === "{") opens.push("}");
+        else if (ch === "[") opens.push("]");
+        else if (ch === "}" || ch === "]") opens.pop();
+    }
+    // Remove trailing partial string/key/value (anything after last complete value)
+    let trimmed = text.replace(/,?\s*"[^"]*$/, "");       // partial key or string value
+    trimmed = trimmed.replace(/,?\s*"[^"]*":\s*$/, "");   // key with no value
+    return trimmed + opens.reverse().join("");
+}
+
+type ModelOutput = {
+    nota_global?: string;
+    tag_line?: string;
+    translations?: Record<string, Record<string, unknown>>;
+};
+
+/** Parse JSON output from Haiku into a per-language flat field map.
+ *  Exported so it can be called from assembler (deferred parse). */
+export function parseJSONOutput(raw: string, truncated: boolean = false): {
     parsed: Record<string, Record<string, string>>;
     notaGlobal?: string;
 } {
-    type ModelOutput = {
-        nota_global?: string;
-        tag_line?: string;
-        translations?: Record<string, Record<string, unknown>>;
-    };
+
+    // Step 0: Strip markdown fences if present
+    let text = stripMarkdownFences(raw);
 
     let json: ModelOutput;
     try {
-        json = JSON.parse(raw) as ModelOutput;
-    } catch {
-        // Fallback: extract the first complete JSON object from the response
-        // in case the model prepended or appended stray text.
-        const match = raw.match(/\{[\s\S]*\}/);
-        if (!match) {
-            throw new Error(
-                `Model output is not JSON. First 300 chars: ${raw.substring(0, 300)}`
-            );
+        json = JSON.parse(text) as ModelOutput;
+    } catch (firstErr) {
+        // Step 1: Sanitize (fix unescaped chars, trailing commas)
+        let cleaned = sanitizeJson(text);
+        try {
+            json = JSON.parse(cleaned) as ModelOutput;
+        } catch {
+            // Step 2: Extract JSON object via regex
+            const match = cleaned.match(/\{[\s\S]*\}/);
+            if (match) cleaned = match[0];
+
+            // Step 3: If truncated, try closing open braces
+            if (truncated) {
+                cleaned = closeOpenBraces(cleaned);
+            }
+
+            try {
+                json = JSON.parse(cleaned) as ModelOutput;
+                console.warn("[GEN] JSON parsed via deep recovery");
+            } catch (finalErr) {
+                const posMatch = String(finalErr).match(/position (\d+)/);
+                if (posMatch) {
+                    const pos = parseInt(posMatch[1], 10);
+                    console.error(`[GEN] JSON error at pos ${pos}: ...${cleaned.substring(Math.max(0, pos - 80), pos + 80)}...`);
+                }
+                throw firstErr;
+            }
         }
-        json = JSON.parse(match[0]) as ModelOutput;
     }
 
     const parsed: Record<string, Record<string, string>> = {};
@@ -125,8 +228,9 @@ async function callHaiku(
     batchName: string,
     includeNota: boolean = false,
     grammarFocus?: string[],
-    teaches?: string
-): Promise<{ text: string; usage: { input_tokens: number; output_tokens: number; cache_read_input_tokens: number; cache_creation_input_tokens: number } }> {
+    teaches?: string,
+    maxTokensOverride?: number
+): Promise<{ text: string; stopReason: string; usage: { input_tokens: number; output_tokens: number; cache_read_input_tokens: number; cache_creation_input_tokens: number } }> {
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
 
@@ -153,7 +257,7 @@ NOTA: ${includeNota ? "yes" : "no"}`;
         },
         body: JSON.stringify({
             model: "claude-haiku-4-5-20251001",
-            max_tokens: maxTokensForBatch(batchLangs.length, includeNota),
+            max_tokens: maxTokensOverride ?? maxTokensForBatch(batchLangs.length, includeNota),
             temperature: 0,
             system: [
                 {
@@ -175,7 +279,7 @@ NOTA: ${includeNota ? "yes" : "no"}`;
             const waitMs = Math.max(retryAfter * 1000, 30_000);
             console.warn(`[GEN] ${batchName}: rate limited, waiting ${waitMs / 1000}s...`);
             await new Promise((r) => setTimeout(r, waitMs));
-            return callHaiku(chunkPt, contexto, batchLangs, batchName, includeNota, grammarFocus, teaches);
+            return callHaiku(chunkPt, contexto, batchLangs, batchName, includeNota, grammarFocus, teaches, maxTokensOverride);
         }
 
         throw new Error(`Anthropic API ${response.status}: ${errBody}`);
@@ -183,18 +287,33 @@ NOTA: ${includeNota ? "yes" : "no"}`;
 
     const data = (await response.json()) as {
         content: Array<{ type: string; text?: string }>;
+        stop_reason: string;
         usage: { input_tokens: number; output_tokens: number; cache_read_input_tokens?: number; cache_creation_input_tokens?: number };
     };
 
     const text = data.content.find((c) => c.type === "text")?.text ?? "";
 
+    const truncated = data.stop_reason === "max_tokens";
     console.log(
         `[GEN] ${batchName}: ${data.usage.input_tokens}in/${data.usage.output_tokens}out` +
-        (data.usage.cache_read_input_tokens ? ` (${data.usage.cache_read_input_tokens} cached)` : "")
+        (data.usage.cache_read_input_tokens ? ` (${data.usage.cache_read_input_tokens} cached)` : "") +
+        (truncated ? " ⚠️TRUNCATED" : "")
     );
+
+    // Retry once with max budget (8192) when truncated and we haven't already done so
+    if (truncated && !maxTokensOverride) {
+        console.warn(`[GEN] ${batchName}: truncated at ${data.usage.output_tokens} tokens — retrying with 8192`);
+        const retry = await callHaiku(chunkPt, contexto, batchLangs, batchName, includeNota, grammarFocus, teaches, 8192);
+        // Merge token usage: first call + retry call
+        retry.usage.input_tokens += data.usage.input_tokens;
+        retry.usage.cache_read_input_tokens += data.usage.cache_read_input_tokens ?? 0;
+        retry.usage.cache_creation_input_tokens += data.usage.cache_creation_input_tokens ?? 0;
+        return retry;
+    }
 
     return {
         text,
+        stopReason: data.stop_reason ?? "end_turn",
         usage: {
             input_tokens: data.usage.input_tokens,
             output_tokens: data.usage.output_tokens,
@@ -219,16 +338,30 @@ export async function generateBatch(
     const result = await callHaiku(chunkPt, contexto, batch.langs, batch.name, includeNota, grammarFocus, teaches);
     const durationMs = Date.now() - start;
 
-    const { parsed, notaGlobal } = parseJSONOutput(result.text);
+    // Parse is deferred to assembler — raw is saved to DB first by daemon.
+    // We still try parsing here to report notaGlobal, but failure is NOT fatal.
+    const truncated = result.stopReason === "max_tokens";
+    let parsed: Record<string, Record<string, string>> = {};
+    let notaGlobal: string | undefined;
 
-    if (notaGlobal) {
-        console.log(`[GEN] ${batch.name}: notaGlobal extracted (${notaGlobal.length} chars)`);
+    try {
+        const result2 = parseJSONOutput(result.text, truncated);
+        parsed = result2.parsed;
+        notaGlobal = result2.notaGlobal;
+        if (notaGlobal) {
+            console.log(`[GEN] ${batch.name}: notaGlobal extracted (${notaGlobal.length} chars)`);
+        }
+    } catch (parseErr) {
+        // Not fatal — raw will be saved to DB and can be re-parsed later
+        console.warn(`[GEN] ${batch.name}: parse deferred (${parseErr instanceof Error ? parseErr.message.substring(0, 80) : "unknown"})`);
     }
 
-    // Verify all expected langs are present
-    const missing = batch.langs.filter((l) => !parsed[l]);
-    if (missing.length > 0) {
-        console.warn(`[GEN] ${batch.name}: missing langs: ${missing.join(", ")}`);
+    // Verify all expected langs are present (only if parsed succeeded)
+    if (Object.keys(parsed).length > 0) {
+        const missing = batch.langs.filter((l) => !parsed[l]);
+        if (missing.length > 0) {
+            console.warn(`[GEN] ${batch.name}: missing langs: ${missing.join(", ")}`);
+        }
     }
 
     return {
@@ -237,6 +370,7 @@ export async function generateBatch(
         raw: result.text,
         parsed,
         notaGlobal,
+        stopReason: result.stopReason,
         usage: result.usage,
         durationMs,
     };

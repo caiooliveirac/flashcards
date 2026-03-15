@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { generateAllBatches } from "./generator";
+import { generateAllBatches, parseJSONOutput } from "./generator";
+import type { BatchOutput } from "./generator";
 import { assembleCard } from "./assembler";
 import { getNextChunk, registerChunk, markChunkFailed } from "../lib/queue";
 import { sendNotification } from "./notifier";
@@ -68,10 +69,9 @@ async function generateOne(): Promise<boolean> {
     });
 
     try {
-        // Generate all 5 family batches
+        // ═══ PHASE 1: Call API and save raw responses immediately ═══
         const batches = await generateAllBatches(chunkPt, contexto, grammarFocus, teaches);
 
-        // Persist GenerationBatch records for each batch
         let totalInput = 0;
         let totalOutput = 0;
         let totalCached = 0;
@@ -84,18 +84,19 @@ async function generateOne(): Promise<boolean> {
             totalCached += batch.usage.cache_read_input_tokens;
             totalCost += cost;
 
+            // Save raw FIRST — before any parsing attempt
             await prisma.generationBatch.create({
                 data: {
                     jobId: job.id,
                     family: batch.batchName,
-                    status: "ok",
+                    status: batch.stopReason === "max_tokens" ? "truncated" : "ok",
                     inputTokens: batch.usage.input_tokens,
                     outputTokens: batch.usage.output_tokens,
                     cachedTokens: batch.usage.cache_read_input_tokens,
                     costUsd: cost,
                     durationMs: batch.durationMs,
                     langsGenerated: Object.keys(batch.parsed),
-                    rawResponse: batch.raw.substring(0, 5000),
+                    rawResponse: batch.raw.substring(0, 15000),
                 },
             });
         }
@@ -114,8 +115,27 @@ async function generateOne(): Promise<boolean> {
             },
         });
 
-        // Assemble into card
-        const result = await assembleCard(chunkPt, contexto, batches, job.id, teaches);
+        // ═══ PHASE 2: Parse — if any batch failed to parse in generator, try again ═══
+        const parsedBatches: BatchOutput[] = [];
+        for (const batch of batches) {
+            if (Object.keys(batch.parsed).length > 0) {
+                parsedBatches.push(batch);
+                continue;
+            }
+            // Deferred parse: batch raw was saved, now try with full recovery
+            try {
+                const truncated = batch.stopReason === "max_tokens";
+                const { parsed, notaGlobal } = parseJSONOutput(batch.raw, truncated);
+                parsedBatches.push({ ...batch, parsed, notaGlobal });
+                console.log(`[GEN] ${batch.batchName}: deferred parse recovered ${Object.keys(parsed).length} langs`);
+            } catch (parseErr) {
+                console.error(`[GEN] ${batch.batchName}: parse failed even on retry — ${parseErr instanceof Error ? parseErr.message.substring(0, 80) : "unknown"}`);
+                parsedBatches.push(batch); // push with empty parsed — assembler will reject
+            }
+        }
+
+        // ═══ PHASE 3: Assemble card ═══
+        const result = await assembleCard(chunkPt, contexto, parsedBatches, job.id, teaches);
 
         // Update job with cardId
         if (result.cardId) {
@@ -133,7 +153,7 @@ async function generateOne(): Promise<boolean> {
         const seqLabel = card ? `#${String(card.seq).padStart(3, "0")}` : "";
         const durationSec = (jobDurationMs / 1000).toFixed(1);
         const costLabel = `$${totalCost.toFixed(3)}`;
-        const langsCount = Object.keys(batches.reduce((acc: Record<string, boolean>, b) => {
+        const langsCount = Object.keys(parsedBatches.reduce((acc: Record<string, boolean>, b) => {
             for (const k of Object.keys(b.parsed)) acc[k] = true;
             return acc;
         }, {})).length;

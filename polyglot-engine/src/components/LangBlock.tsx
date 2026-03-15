@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TtsButton from "./TtsButton";
 import type { LangCode } from "@/lib/types";
+import { langFlag, langName } from "@/lib/langFlags";
 
 interface LangBlocoData {
     langCode: string;
@@ -25,6 +26,7 @@ interface LangBlocoData {
     collocations?: string | null;
     campoSemantico?: string | null;
     registroVariacoes?: string | null;
+    insight?: string | null;
 }
 
 const TIER_COLORS: Record<string, string> = {
@@ -67,6 +69,7 @@ export default function LangBlock({
     defaultExpanded?: boolean;
 }) {
     const [expanded, setExpanded] = useState(defaultExpanded);
+    const [showInsight, setShowInsight] = useState(false);
     const tierLetter = getTierLetter(bloco.langCode);
     const tierClass = TIER_COLORS[tierLetter] || TIER_COLORS.D;
 
@@ -79,8 +82,11 @@ export default function LangBlock({
                 onClick={() => setExpanded(!expanded)}
                 className="tap-scale flex w-full items-center gap-2.5 px-3 py-2.5 text-left"
             >
-                <span className={`shrink-0 rounded-md border px-2 py-0.5 text-xs font-bold ${tierClass}`}>
-                    {bloco.langCode}
+                <span
+                    className={`shrink-0 rounded-md border px-1.5 py-0.5 text-base leading-none ${tierClass}`}
+                    title={langName(bloco.langCode)}
+                >
+                    {langFlag(bloco.langCode)}
                 </span>
                 <div className="min-w-0 flex-1">
                     <p className="truncate text-[15px] font-medium">{bloco.natural}</p>
@@ -89,10 +95,41 @@ export default function LangBlock({
                     )}
                 </div>
                 <TtsButton text={bloco.natural} langCode={bloco.langCode as LangCode} size="sm" />
+                {bloco.insight && (
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setShowInsight(!showInsight);
+                        }}
+                        className={`shrink-0 text-base transition-all ${showInsight ? "scale-110 drop-shadow-[0_0_6px_rgba(250,204,21,0.5)]" : "opacity-60 hover:opacity-100"}`}
+                        title="Insight cross-linguístico"
+                    >
+                        💡
+                    </button>
+                )}
                 <span className={`text-xs text-gray-500 transition-transform ${expanded ? "rotate-180" : ""}`}>
                     ▼
                 </span>
             </button>
+
+            {/* Insight tooltip */}
+            <AnimatePresence>
+                {showInsight && bloco.insight && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.15 }}
+                        className="overflow-hidden"
+                    >
+                        <div className="border-t border-yellow-500/20 bg-yellow-500/5 px-3 py-2">
+                            <p className="text-[13px] leading-relaxed text-yellow-200/90">
+                                💡 {bloco.insight}
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Expanded details */}
             <AnimatePresence>

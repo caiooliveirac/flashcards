@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LangBlock from "./LangBlock";
+import LangRailNav from "./LangRailNav";
 import DifficultyMarker from "./DifficultyMarker";
 import type { LangCode } from "@/lib/types";
 
@@ -46,16 +47,26 @@ interface CardData {
     }>;
 }
 
+const TIER_LANGS: Record<string, string[]> = {
+    S: ["DE", "EN", "FR", "IT", "ES"],
+    A: ["JA", "KO", "ZH", "RU", "AR"],
+    B: ["SV", "NO", "NL", "DA", "FI"],
+    C: ["BCS", "HU", "CS", "PL", "TR"],
+    D: ["TH", "VI", "HE", "EL", "ID"],
+};
+
 export default function StudyCard({
     card,
     onReveal,
     onDifficulty,
     focusLang,
+    focusTier,
 }: {
     card: CardData;
     onReveal: () => void;
     onDifficulty?: (langCode: string, level: string, types: string[]) => void;
     focusLang?: string | null;
+    focusTier?: string | null;
 }) {
     const [revealed, setRevealed] = useState(false);
     const [diffLang, setDiffLang] = useState<string | null>(null);
@@ -65,18 +76,32 @@ export default function StudyCard({
         onReveal();
     };
 
-    // Sort blocos: focused lang first, then principal, then tier order
-    const sortedBlocos = [...card.blocos].sort((a, b) => {
+    // Determine lens: which langs to show
+    const lensLangs: string[] | null = focusLang
+        ? [focusLang]
+        : focusTier && TIER_LANGS[focusTier.toUpperCase()]
+            ? TIER_LANGS[focusTier.toUpperCase()]
+            : null;
+
+    // Filter blocos to lens, then sort by tier order
+    const TIER_ORDER = ["DE", "EN", "FR", "IT", "ES", "JA", "KO", "ZH", "RU", "AR", "SV", "NO", "NL", "DA", "FI", "BCS", "HU", "CS", "PL", "TR", "TH", "VI", "HE", "EL", "ID"];
+    const tierMap = Object.fromEntries(TIER_ORDER.map((l, i) => [l, i]));
+
+    const filteredBlocos = lensLangs
+        ? card.blocos.filter((b) => lensLangs.includes(b.langCode))
+        : card.blocos;
+
+    const sortedBlocos = [...filteredBlocos].sort((a, b) => {
         if (focusLang) {
             if (a.langCode === focusLang) return -1;
             if (b.langCode === focusLang) return 1;
         }
-        const aPrincipal = card.idiomasPrincipais.includes(a.langCode);
-        const bPrincipal = card.idiomasPrincipais.includes(b.langCode);
-        if (aPrincipal && !bPrincipal) return -1;
-        if (!aPrincipal && bPrincipal) return 1;
-        return 0;
+        const ia = tierMap[a.langCode] ?? 999;
+        const ib = tierMap[b.langCode] ?? 999;
+        return ia - ib;
     });
+
+    const sortedLangs = sortedBlocos.map((b) => b.langCode);
 
     const getDiff = (langCode: string) =>
         card.difficulties?.find((d) => d.langCode === langCode);
@@ -123,29 +148,28 @@ export default function StudyCard({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="mt-3 space-y-2"
+                        className="mt-3 space-y-2 pr-10"
                     >
+                        <LangRailNav langs={sortedLangs} />
                         {/* Global note */}
-                        <p className="rounded-xl bg-white/5 px-3 py-2 text-sm italic text-gray-400 leading-snug">
-                            💡 {card.notaGlobal}
-                        </p>
+                        <div className="group relative rounded-xl bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-500/30 hover:border-blue-400/50 px-4 py-3 transition-all duration-200">
+                            <p className="text-sm font-medium leading-relaxed text-blue-50 opacity-95">
+                                <span className="mr-2">💡</span>
+                                {card.notaGlobal}
+                            </p>
+                            <div className="absolute inset-0 rounded-xl bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+                        </div>
 
                         {/* Lang blocks */}
-                        {sortedBlocos.map((bloco, i) => {
+                        {sortedBlocos.map((bloco) => {
                             const diff = getDiff(bloco.langCode);
-                            const isPrincipal = card.idiomasPrincipais.includes(bloco.langCode);
                             const isFocused = focusLang === bloco.langCode;
 
                             return (
-                                <div key={bloco.langCode}>
-                                    {isPrincipal && i === 0 && (
-                                        <p className="mb-1 text-[10px] uppercase tracking-widest text-yellow-500/60 pl-1">
-                                            ★ Idiomas principais
-                                        </p>
-                                    )}
+                                <div key={bloco.langCode} id={`lang-${bloco.langCode}`}>
                                     <LangBlock
                                         bloco={bloco}
-                                        defaultExpanded={isFocused || isPrincipal}
+                                        defaultExpanded={isFocused}
                                     />
 
                                     {/* Difficulty marker toggle */}

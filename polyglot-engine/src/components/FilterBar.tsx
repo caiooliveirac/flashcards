@@ -1,14 +1,39 @@
 "use client";
 
 import { LANG_CODES } from "@/lib/types";
+import { langFlag, langName } from "@/lib/langFlags";
 
 const TIER_OPTIONS = ["S", "A", "B", "C", "D"];
 const NIVEL_OPTIONS = ["a1", "a2", "b1", "b2", "c1"];
+
+const CATEGORIA_OPTIONS: { value: string; label: string }[] = [
+    { value: "apresentacao", label: "👋 Apresentação" },
+    { value: "polidez", label: "🙏 Polidez" },
+    { value: "reparo_conversacional", label: "🔧 Reparo" },
+    { value: "pedido", label: "🛎️ Pedido" },
+    { value: "direcao", label: "🧭 Direção" },
+    { value: "transporte", label: "🚌 Transporte" },
+    { value: "emergencia", label: "🚨 Emergência" },
+    { value: "trabalho", label: "💼 Trabalho" },
+    { value: "socializacao", label: "🍻 Socialização" },
+    { value: "comida", label: "🍽️ Comida" },
+    { value: "hospedagem", label: "🏨 Hospedagem" },
+    { value: "compras", label: "🛒 Compras" },
+    { value: "saude", label: "🏥 Saúde" },
+    { value: "tempo", label: "⛅ Tempo" },
+    { value: "numeros", label: "🔢 Números" },
+    { value: "sentimentos", label: "💭 Sentimentos" },
+    { value: "opiniao", label: "💬 Opinião" },
+    { value: "comparacao", label: "⚖️ Comparação" },
+    { value: "descricao", label: "🎨 Descrição" },
+    { value: "rotina", label: "🔄 Rotina" },
+];
 
 interface Filters {
     lang?: string;
     tier?: string;
     nivel?: string;
+    categoria?: string;
     q?: string;
 }
 
@@ -72,8 +97,9 @@ export default function FilterBar({
                         key={l}
                         onClick={() => onChange({ ...filters, lang: filters.lang === l ? undefined : l })}
                         className={chipClass(filters.lang === l)}
+                        title={langName(l)}
                     >
-                        {l}
+                        <span className="text-base leading-none">{langFlag(l)}</span>
                     </button>
                 ))}
             </div>
@@ -93,6 +119,25 @@ export default function FilterBar({
                         className={chipClass(filters.nivel === n)}
                     >
                         {n.toUpperCase()}
+                    </button>
+                ))}
+            </div>
+
+            {/* Categoria chips — horizontal scroll */}
+            <div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
+                <button
+                    onClick={() => onChange({ ...filters, categoria: undefined })}
+                    className={chipClass(!filters.categoria)}
+                >
+                    📂 Todas
+                </button>
+                {CATEGORIA_OPTIONS.map((c) => (
+                    <button
+                        key={c.value}
+                        onClick={() => onChange({ ...filters, categoria: filters.categoria === c.value ? undefined : c.value })}
+                        className={chipClass(filters.categoria === c.value)}
+                    >
+                        {c.label}
                     </button>
                 ))}
             </div>

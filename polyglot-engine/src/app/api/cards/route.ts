@@ -57,31 +57,29 @@ export async function GET(request: NextRequest) {
     const tier = url.searchParams.get("tier");
     const lang = url.searchParams.get("lang");
 
+    const tierMap: Record<string, string[]> = {
+        S: ["DE", "EN", "FR", "IT", "ES"],
+        A: ["JA", "KO", "ZH", "RU", "AR"],
+        B: ["SV", "NO", "NL", "DA", "FI"],
+        C: ["BCS", "HU", "CS", "PL", "TR"],
+        D: ["TH", "VI", "HE", "EL", "ID"],
+    };
+
+    // Determine which langs to show as "lens" (preview blocos)
+    const lensLangs: string[] | null = lang
+        ? [lang]
+        : tier && tierMap[tier.toUpperCase()]
+            ? tierMap[tier.toUpperCase()]
+            : null;
+
     const where: Record<string, unknown> = {};
     if (quality) where.quality = quality;
     if (categoria) where.categoria = categoria;
     if (nivel) where.nivel = nivel;
     if (search) where.frentePt = { contains: search, mode: "insensitive" };
 
-    // Filter by tier: cards that have blocos for tier languages
-    if (tier) {
-        const tierMap: Record<string, string[]> = {
-            S: ["DE", "EN", "FR", "IT", "ES"],
-            A: ["JA", "KO", "ZH", "RU", "AR"],
-            B: ["SV", "NO", "NL", "DA", "FI"],
-            C: ["BCS", "HU", "CS", "PL", "TR"],
-            D: ["TH", "VI", "HE", "EL", "ID"],
-        };
-        const tierLangs = tierMap[tier.toUpperCase()];
-        if (tierLangs) {
-            where.idiomasPrincipais = { hasSome: tierLangs };
-        }
-    }
-
-    // Filter by lang: cards with difficulties for that language marked as hard
-    if (lang) {
-        where.difficulties = { some: { langCode: lang, level: "hard" } };
-    }
+    // No exclusion for tier/lang — all cards always returned.
+    // Priority ordering: cards with matching idiomasPrincipais first.
 
     // Sort options
     let orderBy: Record<string, string>;
@@ -95,7 +93,9 @@ export async function GET(request: NextRequest) {
         prisma.card.findMany({
             where,
             include: {
-                blocos: { where: { langCode: { in: ["DE", "EN", "FR", "IT", "ES"] } } },
+                blocos: lensLangs
+                    ? { where: { langCode: { in: lensLangs } } }
+                    : { where: { langCode: { in: ["DE", "EN", "FR", "IT", "ES"] } } },
                 tags: { include: { tag: true } },
                 _count: { select: { reviews: true, blocos: true } },
             },
@@ -106,7 +106,16 @@ export async function GET(request: NextRequest) {
         prisma.card.count({ where }),
     ]);
 
-    return NextResponse.json({ cards, total, page, limit });
+    // Re-sort: prioritize cards whose idiomasPrincipais overlap with selected lens
+    if (lensLangs && sort === "newest") {
+        cards.sort((a, b) => {
+            const aHas = a.idiomasPrincipais?.some((l: string) => lensLangs.includes(l)) ? 1 : 0;
+            const bHas = b.idiomasPrincipais?.some((l: string) => lensLangs.includes(l)) ? 1 : 0;
+            return bHas - aHas; // principal first
+        });
+    }
+
+    return NextResponse.json({ cards, total, page, limit, lensLangs });
 }
 
 export async function POST(request: NextRequest) {

@@ -60,6 +60,7 @@ enum CardQuality {
   reviewed
   edited
   gold
+  enriched
   deprecated
   suspicious
 }
@@ -185,6 +186,9 @@ model LangBloco {
   gatilho            String
   registro           String
 
+  // ─── Insight cross-linguístico (gerado por Opus) ───
+  insight            String?
+
   @@unique([cardId, langCode])
   @@index([langCode])
 }
@@ -290,6 +294,7 @@ model GenerationBatch {
 model ChunkRegistry {
   id          String    @id @default(cuid())
   chunkPt     String    @unique
+  rawPt       String?
   categoria   Categoria
   nivel       Nivel
   variacao    String?

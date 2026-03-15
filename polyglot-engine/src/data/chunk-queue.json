@@ -1,1310 +1,1310 @@
 [
-    {
-        "id": "A1-GRT-010",
-        "level": "A1",
-        "category": "greetings",
-        "pt": "Oi! De onde você é?",
-        "grammar_focus": [
-            "informal_greeting_oi",
-            "interrogative_de_onde",
-            "ser_origin"
-        ],
-        "teaches": "Casual greeting + origin question — de onde + ser"
-    },
-    {
-        "id": "A1-GRT-011",
-        "level": "A1",
-        "category": "greetings",
-        "pt": "Faz tempo que a gente não se vê!",
-        "grammar_focus": [
-            "fazer_temporal",
-            "a_gente_informal_we",
-            "reflexive_se_ver"
-        ],
-        "teaches": "Reunion greeting — fazer + tempo for elapsed time, a gente as informal nós"
-    },
-    {
-        "id": "A1-GRT-012",
-        "level": "A1",
-        "category": "greetings",
-        "pt": "Boa tarde! Posso sentar aqui?",
-        "grammar_focus": [
-            "time_greeting_tarde",
-            "modal_poder_permission",
-            "sentar_reflexive_dropped"
-        ],
-        "teaches": "Afternoon greeting + permission — poder for polite request in social settings"
-    },
-    {
-        "id": "A1-GRT-013",
-        "level": "A1",
-        "category": "greetings",
-        "pt": "Nos vemos na próxima semana, então!",
-        "grammar_focus": [
-            "reflexive_nos_vemos",
-            "preposition_em_contracted_na",
-            "discourse_marker_então"
-        ],
-        "teaches": "Farewell with future plan — reflexive nos + em contracted with article"
-    },
-    {
-        "id": "A1-SRV-010",
-        "level": "A1",
-        "category": "survival",
-        "pt": "Pode escrever isso para mim, por favor?",
-        "grammar_focus": [
-            "modal_poder_request",
-            "demonstrative_isso",
-            "para_mim_beneficiary"
-        ],
-        "teaches": "Written clarification request — essential when you can hear but not spell"
-    },
-    {
-        "id": "A1-SRV-011",
-        "level": "A1",
-        "category": "survival",
-        "pt": "Eu não sei ler este cardápio. Está em que idioma?",
-        "grammar_focus": [
-            "saber_ability",
-            "demonstrative_este",
-            "estar_em_state",
-            "interrogative_que"
-        ],
-        "teaches": "Reading difficulty — saber for skills + estar em for written in"
-    },
-    {
-        "id": "A1-SRV-012",
-        "level": "A1",
-        "category": "survival",
-        "pt": "Tem alguém aqui que fala português?",
-        "grammar_focus": [
-            "ter_impersonal_someone",
-            "relative_que",
-            "falar_language"
-        ],
-        "teaches": "Language help — impersonal ter + relative clause for finding a speaker"
-    },
-    {
-        "id": "A1-SRV-013",
-        "level": "A1",
-        "category": "survival",
-        "pt": "Eu me perdi. Pode me mostrar no mapa?",
-        "grammar_focus": [
-            "reflexive_perder_se",
-            "pronoun_me_double",
-            "preposition_em_contracted_no"
-        ],
-        "teaches": "Lost + help request — reflexive perder-se + double me (indirect + request)"
-    },
-    {
-        "id": "A1-IDN-010",
-        "level": "A1",
-        "category": "identity",
-        "pt": "Eu nasci no Brasil, mas cresci na Europa.",
-        "grammar_focus": [
-            "preterite_nascer",
-            "preterite_crescer",
-            "em_contracted_no_na",
-            "adversative_mas"
-        ],
-        "teaches": "Birth vs upbringing — two past tense verbs + contrasting locations with em"
-    },
-    {
-        "id": "A1-IDN-011",
-        "level": "A1",
-        "category": "identity",
-        "pt": "Eu falo três idiomas: português, inglês e um pouco de alemão.",
-        "grammar_focus": [
-            "falar_language",
-            "cardinal_três",
-            "enumeration_colon",
-            "um_pouco_de_partial"
-        ],
-        "teaches": "Language skills — enumeration with colon + partial ability with um pouco de"
-    },
-    {
-        "id": "A1-IDN-012",
-        "level": "A1",
-        "category": "identity",
-        "pt": "A minha namorada é italiana, mas mora no Brasil.",
-        "grammar_focus": [
-            "possessive_with_article",
-            "ser_nationality_feminine",
-            "morar_em_contracted",
-            "adversative_mas"
-        ],
-        "teaches": "Partner description — nationality with ser + residence with morar em"
-    },
-    {
-        "id": "A1-FOD-010",
-        "level": "A1",
-        "category": "food_drink",
-        "pt": "Eu não como carne. Tem opções vegetarianas?",
-        "grammar_focus": [
-            "negation_habitual",
-            "comer_transitive",
-            "ter_availability_question"
-        ],
-        "teaches": "Dietary restriction — negated habitual for lifestyle + availability check"
-    },
-    {
-        "id": "A1-FOD-011",
-        "level": "A1",
-        "category": "food_drink",
-        "pt": "A conta, por favor. Podemos dividir?",
-        "grammar_focus": [
-            "definite_article_specific",
-            "modal_poder_nós",
-            "dividir_split"
-        ],
-        "teaches": "Bill request + splitting — definite article for the bill + first person plural modal"
-    },
-    {
-        "id": "A1-FOD-012",
-        "level": "A1",
-        "category": "food_drink",
-        "pt": "Este prato leva glúten? Eu sou celíaco.",
-        "grammar_focus": [
-            "levar_contain_ingredient",
-            "ser_medical_condition"
-        ],
-        "teaches": "Ingredient check — levar for contains (idiomatic) + ser for medical conditions"
-    },
-    {
-        "id": "A1-FOD-013",
-        "level": "A1",
-        "category": "food_drink",
-        "pt": "Estava delicioso! Qual é o nome deste prato?",
-        "grammar_focus": [
-            "estar_past_impression",
-            "interrogative_qual",
-            "demonstrative_deste_contracted"
-        ],
-        "teaches": "Complimenting food — estar (not ser) for taste impression + de + este contracted"
-    },
-    {
-        "id": "A1-NAV-010",
-        "level": "A1",
-        "category": "navigation",
-        "pt": "Tem uma estação de metrô perto daqui?",
-        "grammar_focus": [
-            "ter_existence_nearby",
-            "compound_noun_metrô",
-            "perto_de_contracted"
-        ],
-        "teaches": "Nearby search — impersonal ter + perto de + aqui contracted"
-    },
-    {
-        "id": "A1-NAV-011",
-        "level": "A1",
-        "category": "navigation",
-        "pt": "Eu preciso ir ao aeroporto até às dez horas.",
-        "grammar_focus": [
-            "precisar_infinitive",
-            "ir_a_contracted_ao",
-            "até_deadline",
-            "às_time"
-        ],
-        "teaches": "Deadline expression — precisar + infinitive + até for time limit"
-    },
-    {
-        "id": "A1-NAV-012",
-        "level": "A1",
-        "category": "navigation",
-        "pt": "Qual é o caminho mais rápido a pé?",
-        "grammar_focus": [
-            "interrogative_qual",
-            "superlative_mais_rápido",
-            "a_pé_fixed"
-        ],
-        "teaches": "Route optimization — qual + superlative + mode of transport"
-    },
-    {
-        "id": "A1-NUM-010",
-        "level": "A1",
-        "category": "numbers_time_money",
-        "pt": "São duas e meia da tarde. A loja fecha às seis.",
-        "grammar_focus": [
-            "ser_time_plural",
-            "meia_half",
-            "fechar_scheduled",
-            "às_time"
-        ],
-        "teaches": "Half hours + store schedules — ser plural for times past one + meia"
-    },
-    {
-        "id": "A1-NUM-011",
-        "level": "A1",
-        "category": "numbers_time_money",
-        "pt": "Cem gramas de queijo e meio quilo de presunto, por favor.",
-        "grammar_focus": [
-            "measure_words_grama_quilo",
-            "de_partitive",
-            "meio_agreement"
-        ],
-        "teaches": "Market quantities — measure + de + noun, meio/meia gender agreement"
-    },
-    {
-        "id": "A1-NUM-012",
-        "level": "A1",
-        "category": "numbers_time_money",
-        "pt": "O troco está errado. Eu dei vinte e recebi cinco de volta.",
-        "grammar_focus": [
-            "estar_state_errado",
-            "preterite_dar_irregular",
-            "preterite_receber",
-            "de_volta_idiom"
-        ],
-        "teaches": "Money dispute — estar for states + irregular past dar/receber + de volta"
-    },
-    {
-        "id": "A1-HLT-010",
-        "level": "A1",
-        "category": "health",
-        "pt": "Eu não me sinto bem. Acho que vou desmaiar.",
-        "grammar_focus": [
-            "reflexive_sentir_se",
-            "achar_que_supposition",
-            "ir_future_immediate"
-        ],
-        "teaches": "Feeling unwell — reflexive sentir-se + achar que for suspicion + ir future"
-    },
-    {
-        "id": "A1-HLT-011",
-        "level": "A1",
-        "category": "health",
-        "pt": "Eu tenho diabetes. Preciso comer a cada três horas.",
-        "grammar_focus": [
-            "ter_condition",
-            "precisar_infinitive",
-            "a_cada_distributive"
-        ],
-        "teaches": "Chronic condition — ter for diseases + a cada for regular intervals"
-    },
-    {
-        "id": "A1-SHP-010",
-        "level": "A1",
-        "category": "shopping",
-        "pt": "Vocês fazem entrega? Eu moro longe daqui.",
-        "grammar_focus": [
-            "vocês_formal_plural",
-            "fazer_entrega_idiom",
-            "morar_longe_de"
-        ],
-        "teaches": "Delivery inquiry — vocês for businesses + fazer + noun idiom"
-    },
-    {
-        "id": "A1-SHP-011",
-        "level": "A1",
-        "category": "shopping",
-        "pt": "Posso devolver se não servir? Qual é a política de troca?",
-        "grammar_focus": [
-            "modal_poder_conditional",
-            "se_conditional",
-            "servir_fit",
-            "interrogative_qual"
-        ],
-        "teaches": "Return policy — conditional se + servir for if it does not fit"
-    },
-    {
-        "id": "A1-ACC-010",
-        "level": "A1",
-        "category": "accommodation",
-        "pt": "O ar-condicionado não está gelando. Pode mandar alguém ver?",
-        "grammar_focus": [
-            "progressive_estar_gerund",
-            "negation_progressive",
-            "mandar_causative"
-        ],
-        "teaches": "Complaint + causative — mandar + alguém + infinitive (have someone do)"
-    },
-    {
-        "id": "A1-ACC-011",
-        "level": "A1",
-        "category": "accommodation",
-        "pt": "Tem um quarto com vista para o mar?",
-        "grammar_focus": [
-            "ter_availability",
-            "com_accompaniment",
-            "para_direction_view"
-        ],
-        "teaches": "Room preference — com for features + para for view direction"
-    },
-    {
-        "id": "A1-WEA-010",
-        "level": "A1",
-        "category": "weather_nature",
-        "pt": "Está muito abafado hoje. Tem previsão de chuva?",
-        "grammar_focus": [
-            "estar_weather_sensation",
-            "ter_forecast",
-            "de_specification"
-        ],
-        "teaches": "Weather complaint + forecast — estar for felt weather + ter for is there a forecast"
-    },
-    {
-        "id": "A1-WEA-011",
-        "level": "A1",
-        "category": "weather_nature",
-        "pt": "No inverno escurece muito cedo aqui.",
-        "grammar_focus": [
-            "em_contracted_no_season",
-            "escurecer_impersonal",
-            "adverb_cedo"
-        ],
-        "teaches": "Seasonal observation — impersonal verb escurecer + seasonal em contracted"
-    },
-    {
-        "id": "A1-TRN-010",
-        "level": "A1",
-        "category": "transport",
-        "pt": "Este trem para em todas as estações ou é direto?",
-        "grammar_focus": [
-            "parar_em_stop_at",
-            "todo_agreement_todas",
-            "disjunctive_ou",
-            "ser_classification"
-        ],
-        "teaches": "Train type — parar em + todo/a/os/as agreement + alternative question"
-    },
-    {
-        "id": "A1-TRN-011",
-        "level": "A1",
-        "category": "transport",
-        "pt": "Perdi o ônibus. Quando passa o próximo?",
-        "grammar_focus": [
-            "preterite_perder_no_pronoun",
-            "quando_interrogative",
-            "passar_transit"
-        ],
-        "teaches": "Missed transport — perder without reflexive for miss + quando for next one"
-    },
-    {
-        "id": "A1-SOC-010",
-        "level": "A1",
-        "category": "social_basics",
-        "pt": "Você conhece algum restaurante bom por aqui?",
-        "grammar_focus": [
-            "conhecer_familiarity",
-            "algum_indefinite",
-            "adjective_after_noun_bom",
-            "por_aqui_area"
-        ],
-        "teaches": "Recommendation request — conhecer for know of + algum + por aqui"
-    },
-    {
-        "id": "A1-SOC-011",
-        "level": "A1",
-        "category": "social_basics",
-        "pt": "Eu adoro futebol, mas nunca joguei num time.",
-        "grammar_focus": [
-            "adorar_strong_like",
-            "nunca_negation",
-            "preterite_jogar",
-            "em_contracted_num"
-        ],
-        "teaches": "Like vs experience — adorar for strong likes + nunca + past tense contrast"
-    },
-    {
-        "id": "A1-DLY-010",
-        "level": "A1",
-        "category": "daily_actions",
-        "pt": "Eu sempre levo marmita para o trabalho.",
-        "grammar_focus": [
-            "sempre_frequency",
-            "levar_carry",
-            "para_destination_purpose"
-        ],
-        "teaches": "Routine with sempre — frequency adverb + levar for carrying + para"
-    },
-    {
-        "id": "A1-DLY-011",
-        "level": "A1",
-        "category": "daily_actions",
-        "pt": "Às vezes eu pego Uber em vez de ônibus.",
-        "grammar_focus": [
-            "às_vezes_sometimes",
-            "pegar_take_transport",
-            "em_vez_de_instead"
-        ],
-        "teaches": "Transport choice — às vezes for frequency + pegar for informal take + em vez de"
-    },
-    {
-        "id": "A1-HOM-010",
-        "level": "A1",
-        "category": "home_objects",
-        "pt": "A geladeira está vazia. Preciso ir ao mercado.",
-        "grammar_focus": [
-            "estar_temporary_state",
-            "vazia_adjective_agreement_fem",
-            "precisar_infinitive",
-            "ir_a_contracted"
-        ],
-        "teaches": "Need from observation — estar for current state + precisar + infinitive chain"
-    },
-    {
-        "id": "A1-HOM-011",
-        "level": "A1",
-        "category": "home_objects",
-        "pt": "A luz do banheiro queimou. Onde eu compro uma lâmpada?",
-        "grammar_focus": [
-            "de_possession_location",
-            "preterite_queimar",
-            "interrogative_onde_action"
-        ],
-        "teaches": "Household problem — past tense for sudden events + onde for action location"
-    },
-    {
-        "id": "A1-PLN-010",
-        "level": "A1",
-        "category": "plans_wishes",
-        "pt": "Eu pretendo fazer um intercâmbio no ano que vem.",
-        "grammar_focus": [
-            "pretender_intend",
-            "fazer_intercâmbio_idiom",
-            "no_ano_que_vem_future"
-        ],
-        "teaches": "Future intention — pretender for plans + fazer + compound time expression"
-    },
-    {
-        "id": "A1-PLN-011",
-        "level": "A1",
-        "category": "plans_wishes",
-        "pt": "Se eu tiver dinheiro, vou comprar um carro usado.",
-        "grammar_focus": [
-            "se_conditional",
-            "futuro_subjuntivo_tiver",
-            "ir_future",
-            "adjective_usado"
-        ],
-        "teaches": "Conditional plan — se + future subjunctive (tiver) + ir future — first contact with subjunctive"
-    },
-    {
-        "id": "A1-FLG-010",
-        "level": "A1",
-        "category": "feelings_states",
-        "pt": "Eu fico nervoso quando falo em público.",
-        "grammar_focus": [
-            "ficar_become_state",
-            "quando_temporal",
-            "falar_em_público_idiom"
-        ],
-        "teaches": "Emotional trigger — ficar for become/get emotional + quando for trigger"
-    },
-    {
-        "id": "A1-FLG-011",
-        "level": "A1",
-        "category": "feelings_states",
-        "pt": "Que saudade de casa! Faz três meses que eu saí.",
-        "grammar_focus": [
-            "que_exclamative",
-            "saudade_untranslatable",
-            "fazer_temporal_elapsed",
-            "preterite_sair"
-        ],
-        "teaches": "Homesickness — saudade (untranslatable) + fazer for elapsed time since event"
-    },
-    {
-        "id": "A1-POL-010",
-        "level": "A1",
-        "category": "politeness",
-        "pt": "Fique à vontade! A casa é sua.",
-        "grammar_focus": [
-            "imperativo_ficar",
-            "à_vontade_fixed_expression",
-            "possessive_predicative_sua"
-        ],
-        "teaches": "Welcoming — imperative ficar + fixed expression + possessive as predicate"
-    },
-    {
-        "id": "A1-POL-011",
-        "level": "A1",
-        "category": "politeness",
-        "pt": "Não precisa se incomodar, já estou de saída.",
-        "grammar_focus": [
-            "precisar_negative_polite",
-            "reflexive_incomodar_se",
-            "estar_de_saída_idiom"
-        ],
-        "teaches": "Polite departure — não precisa + infinitive for you do not need to + idiom"
-    },
-    {
-        "id": "A1-TEC-010",
-        "level": "A1",
-        "category": "technology",
-        "pt": "Eu não consigo entrar na minha conta. Esqueci a senha.",
-        "grammar_focus": [
-            "conseguir_manage_to",
-            "entrar_em_contracted_na",
-            "preterite_esquecer"
-        ],
-        "teaches": "Login trouble — conseguir for manage to + entrar em + past esquecer"
-    },
-    {
-        "id": "A1-TEC-011",
-        "level": "A1",
-        "category": "technology",
-        "pt": "Pode me mandar por mensagem? Eu não anotei.",
-        "grammar_focus": [
-            "modal_poder_request",
-            "por_via_means",
-            "preterite_anotar_negated"
-        ],
-        "teaches": "Communication request — por for via/through + past tense for reason"
-    },
-    {
-        "id": "A1-FAM-010",
-        "level": "A1",
-        "category": "family_people",
-        "pt": "Meu avô tem oitenta anos e ainda dirige todo dia.",
-        "grammar_focus": [
-            "ter_age",
-            "ainda_still",
-            "dirigir_irregular",
-            "todo_dia_frequency"
-        ],
-        "teaches": "Elder description — ter for age + ainda for persistence + irregular dirigir"
-    },
-    {
-        "id": "A1-FAM-011",
-        "level": "A1",
-        "category": "family_people",
-        "pt": "Minha sobrinha nasceu ontem! Ela pesa três quilos.",
-        "grammar_focus": [
-            "preterite_nascer",
-            "temporal_ontem",
-            "pesar_weigh",
-            "measure_quilos"
-        ],
-        "teaches": "Birth announcement — past nascer + present pesar for current weight"
-    },
-    {
-        "id": "A1-DSC-010",
-        "level": "A1",
-        "category": "descriptions",
-        "pt": "O prédio da esquina é o mais alto do bairro.",
-        "grammar_focus": [
-            "de_location_esquina",
-            "superlative_o_mais",
-            "de_contracted_do_scope"
-        ],
-        "teaches": "Superlative — o mais + adjective + do/da for scope of comparison"
-    },
-    {
-        "id": "A1-DSC-011",
-        "level": "A1",
-        "category": "descriptions",
-        "pt": "Este parque fica lindo quando as árvores florescem.",
-        "grammar_focus": [
-            "ficar_become_adjective",
-            "quando_temporal_trigger",
-            "definite_generic_as_árvores"
-        ],
-        "teaches": "Seasonal beauty — ficar for becomes + quando + generic definite article"
-    },
-    {
-        "id": "A1-PRB-010",
-        "level": "A1",
-        "category": "problems",
-        "pt": "Alguém roubou a minha carteira no metrô.",
-        "grammar_focus": [
-            "indefinite_alguém",
-            "preterite_roubar",
-            "possessive_with_article",
-            "em_contracted_no_location"
-        ],
-        "teaches": "Theft report — indefinite subject + past tense + location with em contracted"
-    },
-    {
-        "id": "A1-PRB-011",
-        "level": "A1",
-        "category": "problems",
-        "pt": "A torneira está pingando a noite inteira. Não consigo dormir.",
-        "grammar_focus": [
-            "progressive_estar_gerund",
-            "a_noite_inteira_duration",
-            "conseguir_negated"
-        ],
-        "teaches": "Ongoing problem — progressive for continuous annoyance + não consigo for inability"
-    },
-    {
-        "id": "A1-CMP-010",
-        "level": "A1",
-        "category": "comparisons",
-        "pt": "Este café é tão bom quanto o da padaria perto do meu trabalho.",
-        "grammar_focus": [
-            "tão_quanto_equality",
-            "pronoun_o_da_referent",
-            "perto_de_contracted"
-        ],
-        "teaches": "Equality comparison — tão + adj + quanto + pronoun referent o da"
-    },
-    {
-        "id": "A1-QTY-010",
-        "level": "A1",
-        "category": "quantities",
-        "pt": "Sobrou bastante comida. Você quer levar para casa?",
-        "grammar_focus": [
-            "sobrar_leftover",
-            "bastante_plenty",
-            "querer_infinitive_offer",
-            "para_destination"
-        ],
-        "teaches": "Offering leftovers — sobrar for remainders + bastante + offer with querer"
-    },
-    {
-        "id": "A1-OPN-010",
-        "level": "A1",
-        "category": "basic_opinions",
-        "pt": "Na minha opinião, vale a pena esperar. Não é tão urgente assim.",
-        "grammar_focus": [
-            "na_minha_opinião_discourse",
-            "valer_a_pena_idiom",
-            "tão_assim_intensifier"
-        ],
-        "teaches": "Opinion framing — na minha opinião + valer a pena idiom + attenuation with tão...assim"
-    },
-    {
-        "id": "A1-OPN-011",
-        "level": "A1",
-        "category": "basic_opinions",
-        "pt": "Eu concordo com você, mas acho que tem um jeito melhor.",
-        "grammar_focus": [
-            "concordar_com",
-            "achar_que_opinion",
-            "ter_existence",
-            "jeito_way"
-        ],
-        "teaches": "Partial agreement — concordar com + mas + achar que for counterpoint"
-    },
-    {
-        "id": "A2-SOC-010",
-        "level": "A2",
-        "category": "social",
-        "pt": "Quando você se mudou para cá? Já se acostumou?",
-        "grammar_focus": [
-            "reflexive_mudar_se",
-            "para_cá_direction",
-            "já_completion",
-            "reflexive_acostumar_se"
-        ],
-        "teaches": "Expatriate talk — reflexive verbs mudar-se/acostumar-se + já for already"
-    },
-    {
-        "id": "A2-SOC-011",
-        "level": "A2",
-        "category": "social",
-        "pt": "Eu costumava morar no campo, mas agora prefiro a cidade.",
-        "grammar_focus": [
-            "costumar_imperfect_habitual",
-            "morar_em_contracted",
-            "agora_contrast",
-            "preferir_present"
-        ],
-        "teaches": "Past habit — costumava + infinitive for used to + contrast with present"
-    },
-    {
-        "id": "A2-SOC-012",
-        "level": "A2",
-        "category": "social",
-        "pt": "A gente pode combinar de se encontrar no final de semana.",
-        "grammar_focus": [
-            "a_gente_informal_we",
-            "combinar_de_arrange",
-            "reflexive_encontrar_se",
-            "no_final_de_temporal"
-        ],
-        "teaches": "Making plans — a gente + combinar de + reflexive for meet up"
-    },
-    {
-        "id": "A2-TRV-010",
-        "level": "A2",
-        "category": "travel",
-        "pt": "O voo atrasou duas horas e eu perdi a conexão.",
-        "grammar_focus": [
-            "preterite_atrasar",
-            "duration_duas_horas",
-            "preterite_perder_miss"
-        ],
-        "teaches": "Travel disruption — sequence of past events with consequences"
-    },
-    {
-        "id": "A2-TRV-011",
-        "level": "A2",
-        "category": "travel",
-        "pt": "Vocês têm mapa da cidade? Quero conhecer os pontos turísticos.",
-        "grammar_focus": [
-            "vocês_formal_establishment",
-            "ter_stock",
-            "conhecer_visit",
-            "definite_generic_os"
-        ],
-        "teaches": "Tourist information — ter for do you have + conhecer for visit/get to know"
-    },
-    {
-        "id": "A2-TRV-012",
-        "level": "A2",
-        "category": "travel",
-        "pt": "A bagagem de mão pode ter até dez quilos, né?",
-        "grammar_focus": [
-            "compound_noun_bagagem_de_mão",
-            "modal_poder_rule",
-            "até_limit",
-            "né_tag"
-        ],
-        "teaches": "Travel rules — poder for what is allowed + até for limits + né confirmation tag"
-    },
-    {
-        "id": "A2-SHP-010",
-        "level": "A2",
-        "category": "shopping",
-        "pt": "Isso sai mais barato se eu pagar à vista?",
-        "grammar_focus": [
-            "sair_result_price",
-            "se_conditional",
-            "pagar_à_vista_idiom"
-        ],
-        "teaches": "Bargaining — sair for come out as + conditional se + payment idiom à vista"
-    },
-    {
-        "id": "A2-SHP-011",
-        "level": "A2",
-        "category": "shopping",
-        "pt": "Eu comprei pela internet, mas veio o tamanho errado.",
-        "grammar_focus": [
-            "preterite_comprar",
-            "por_contracted_pela_means",
-            "preterite_vir_irregular",
-            "adjective_errado"
-        ],
-        "teaches": "Online shopping complaint — pela for via + irregular past vir"
-    },
-    {
-        "id": "A2-HLT-010",
-        "level": "A2",
-        "category": "health",
-        "pt": "Eu torci o tornozelo jogando futebol. Está inchado.",
-        "grammar_focus": [
-            "preterite_torcer",
-            "gerund_cause_jogando",
-            "estar_current_state"
-        ],
-        "teaches": "Injury description — past cause + gerund for while doing + current state"
-    },
-    {
-        "id": "A2-HLT-011",
-        "level": "A2",
-        "category": "health",
-        "pt": "Eu tenho alergia a poeira e rinite. Espirro o dia inteiro.",
-        "grammar_focus": [
-            "ter_alergia_a",
-            "enumeration_e",
-            "present_habitual_espirrar",
-            "o_dia_inteiro_duration"
-        ],
-        "teaches": "Chronic symptoms — ter for conditions + habitual present for recurring symptoms"
-    },
-    {
-        "id": "A2-WRK-010",
-        "level": "A2",
-        "category": "daily_routine",
-        "pt": "Eu trabalho de casa três dias por semana e vou ao escritório nos outros dois.",
-        "grammar_focus": [
-            "trabalhar_de_casa",
-            "por_frequency",
-            "ir_a_contracted_ao",
-            "em_contracted_nos"
-        ],
-        "teaches": "Hybrid work — de casa for from home + por for frequency + contrasting schedule"
-    },
-    {
-        "id": "A2-WRK-011",
-        "level": "A2",
-        "category": "daily_routine",
-        "pt": "Depois do plantão eu só quero tomar um banho e deitar.",
-        "grammar_focus": [
-            "depois_de_contracted_do",
-            "só_just",
-            "querer_infinitive_chain",
-            "tomar_banho_idiom"
-        ],
-        "teaches": "Post-shift routine — depois de + só querer + infinitive sequence + idiom tomar banho"
-    },
-    {
-        "id": "A2-WRK-012",
-        "level": "A2",
-        "category": "daily_routine",
-        "pt": "Eu almoço correndo porque só tenho meia hora de intervalo.",
-        "grammar_focus": [
-            "almoçar_intransitive",
-            "gerund_manner_correndo",
-            "só_restriction",
-            "de_specification"
-        ],
-        "teaches": "Time pressure — gerund for manner (correndo = in a rush) + só for limitation"
-    },
-    {
-        "id": "A2-EMO-001",
-        "level": "A2",
-        "category": "emotions_reactions",
-        "pt": "Eu fiquei surpreso quando soube da notícia.",
-        "grammar_focus": [
-            "ficar_reaction",
-            "quando_temporal",
-            "saber_preterite_irregular",
-            "de_contracted_da"
-        ],
-        "teaches": "Emotional reaction — ficar for became/reacted + irregular past saber"
-    },
-    {
-        "id": "A2-EMO-002",
-        "level": "A2",
-        "category": "emotions_reactions",
-        "pt": "Isso me deixa triste. Eu esperava um resultado diferente.",
-        "grammar_focus": [
-            "deixar_causative_emotion",
-            "pronoun_me_affected",
-            "imperfect_esperar",
-            "adjective_diferente"
-        ],
-        "teaches": "Disappointment — deixar as causative + imperfect for unfulfilled expectation"
-    },
-    {
-        "id": "A2-EMO-003",
-        "level": "A2",
-        "category": "emotions_reactions",
-        "pt": "Que orgulho! Você merece tudo de bom.",
-        "grammar_focus": [
-            "que_exclamative_emotion",
-            "merecer_deserve",
-            "tudo_de_bom_idiom"
-        ],
-        "teaches": "Congratulating — exclamative que + merecer + fixed expression tudo de bom"
-    },
-    {
-        "id": "A2-NAR-001",
-        "level": "A2",
-        "category": "narrating_past",
-        "pt": "Ontem eu estava no mercado quando começou a chover.",
-        "grammar_focus": [
-            "imperfect_estar_background",
-            "quando_interruption",
-            "começar_a_infinitive"
-        ],
-        "teaches": "Past narration — imperfect for background + preterite for interrupting event"
-    },
-    {
-        "id": "A2-NAR-002",
-        "level": "A2",
-        "category": "narrating_past",
-        "pt": "Quando eu era criança, passava as férias na casa da minha avó.",
-        "grammar_focus": [
-            "imperfect_ser_description",
-            "imperfect_habitual_passar",
-            "de_contracted_da_possession"
-        ],
-        "teaches": "Childhood memories — double imperfect for habitual past + possession chain"
-    },
-    {
-        "id": "A2-NAR-003",
-        "level": "A2",
-        "category": "narrating_past",
-        "pt": "Eu ia ligar para você, mas a bateria do celular acabou.",
-        "grammar_focus": [
-            "ir_imperfect_intention",
-            "ligar_para",
-            "acabar_run_out"
-        ],
-        "teaches": "Unfulfilled intention — ia + infinitive for was going to + mas for obstacle"
-    },
-    {
-        "id": "A2-NAR-004",
-        "level": "A2",
-        "category": "narrating_past",
-        "pt": "Primeiro fomos ao museu, depois almoçamos e à noite assistimos a um show.",
-        "grammar_focus": [
-            "sequencing_primeiro_depois",
-            "preterite_ir_irregular_fomos",
-            "assistir_a"
-        ],
-        "teaches": "Day narration — sequencers + multiple past tenses + assistir a (regency)"
-    },
-    {
-        "id": "A2-ADV-001",
-        "level": "A2",
-        "category": "advice_suggestions",
-        "pt": "Você deveria descansar mais. Está com cara de cansado.",
-        "grammar_focus": [
-            "dever_conditional_advice",
-            "comparative_mais",
-            "estar_com_cara_de_idiom"
-        ],
-        "teaches": "Giving advice — deveria for should + estar com cara de for looking like"
-    },
-    {
-        "id": "A2-ADV-002",
-        "level": "A2",
-        "category": "advice_suggestions",
-        "pt": "Se eu fosse você, não aceitava essa proposta.",
-        "grammar_focus": [
-            "se_counterfactual",
-            "subjuntivo_imperfeito_fosse",
-            "imperfect_conditional_aceitava"
-        ],
-        "teaches": "Hypothetical advice — se + imperfeito do subjuntivo + imperfect as conditional"
-    },
-    {
-        "id": "A2-ADV-003",
-        "level": "A2",
-        "category": "advice_suggestions",
-        "pt": "Por que você não tenta falar com o gerente? Talvez ele resolva.",
-        "grammar_focus": [
-            "por_que_suggestion",
-            "tentar_infinitive",
-            "talvez_subjunctive_trigger"
-        ],
-        "teaches": "Suggesting action — por que não + infinitive + talvez + present subjunctive"
-    },
-    {
-        "id": "A2-CUL-001",
-        "level": "A2",
-        "category": "culture_customs",
-        "pt": "No Brasil a gente se cumprimenta com beijo no rosto.",
-        "grammar_focus": [
-            "em_contracted_no_country",
-            "a_gente_generic_we",
-            "reflexive_cumprimentar_se",
-            "com_manner"
-        ],
-        "teaches": "Cultural explanation — a gente for generic we/people + com for manner"
-    },
-    {
-        "id": "A2-CUL-002",
-        "level": "A2",
-        "category": "culture_customs",
-        "pt": "É verdade que vocês comem isso no café da manhã? Que diferente!",
-        "grammar_focus": [
-            "ser_verdade_que_confirmation",
-            "vocês_cultural_other",
-            "que_exclamative"
-        ],
-        "teaches": "Cultural curiosity — é verdade que for confirming + exclamative que"
-    },
-    {
-        "id": "A2-CUL-003",
-        "level": "A2",
-        "category": "culture_customs",
-        "pt": "Eu ainda não me acostumei com o fuso horário.",
-        "grammar_focus": [
-            "ainda_não_not_yet",
-            "reflexive_acostumar_se_com",
-            "definite_abstract_o_fuso"
-        ],
-        "teaches": "Adjustment — ainda não for not yet + acostumar-se com"
-    },
-    {
-        "id": "A2-WRK-020",
-        "level": "A2",
-        "category": "work_study",
-        "pt": "Eu tenho uma reunião às duas, mas deve acabar rápido.",
-        "grammar_focus": [
-            "ter_scheduled_event",
-            "às_time",
-            "dever_probability",
-            "acabar_end"
-        ],
-        "teaches": "Work schedule — ter for appointments + dever for probability (should)"
-    },
-    {
-        "id": "A2-WRK-021",
-        "level": "A2",
-        "category": "work_study",
-        "pt": "O prazo é até sexta. Será que dá tempo?",
-        "grammar_focus": [
-            "ser_deadline",
-            "até_limit",
-            "será_que_doubt",
-            "dar_tempo_idiom"
-        ],
-        "teaches": "Deadline pressure — ser for deadlines + será que for doubt + dar tempo idiom"
-    },
-    {
-        "id": "A2-WRK-022",
-        "level": "A2",
-        "category": "work_study",
-        "pt": "Eu preciso entregar este relatório amanhã e ainda não comecei.",
-        "grammar_focus": [
-            "precisar_infinitive_urgent",
-            "demonstrative_este",
-            "ainda_não_not_yet",
-            "preterite_começar"
-        ],
-        "teaches": "Procrastination confession — precisar urgency + ainda não + past começar"
-    },
-    {
-        "id": "A2-REL-001",
-        "level": "A2",
-        "category": "relationships",
-        "pt": "A gente está junto há quase dois anos.",
-        "grammar_focus": [
-            "a_gente_couple",
-            "estar_junto_relationship",
-            "há_duration",
-            "quase_approximation"
-        ],
-        "teaches": "Relationship duration — estar junto + há for duration + quase"
-    },
-    {
-        "id": "A2-REL-002",
-        "level": "A2",
-        "category": "relationships",
-        "pt": "Nós nos conhecemos numa festa e começamos a conversar.",
-        "grammar_focus": [
-            "reflexive_recíproco_nos_conhecemos",
-            "em_contracted_numa",
-            "começar_a_infinitive"
-        ],
-        "teaches": "Meeting story — reciprocal reflexive + em contracted + começar a"
-    },
-    {
-        "id": "A2-REL-003",
-        "level": "A2",
-        "category": "relationships",
-        "pt": "Eu sinto falta dos meus amigos de infância.",
-        "grammar_focus": [
-            "sentir_falta_de",
-            "de_contracted_dos",
-            "possessive_meus",
-            "de_origin_temporal"
-        ],
-        "teaches": "Missing someone — sentir falta de (alternative to saudade) + de for from childhood"
-    },
-    {
-        "id": "A2-HYP-001",
-        "level": "A2",
-        "category": "hypotheticals",
-        "pt": "Se eu ganhasse na loteria, largava tudo e ia morar na praia.",
-        "grammar_focus": [
-            "se_counterfactual",
-            "imperfeito_subjuntivo_ganhasse",
-            "imperfect_sequential_largava_ia"
-        ],
-        "teaches": "Dream scenario — se + imperfeito do subjuntivo + imperfect chain as conditional"
-    },
-    {
-        "id": "A2-HYP-002",
-        "level": "A2",
-        "category": "hypotheticals",
-        "pt": "E se a gente fosse de carro em vez de avião?",
-        "grammar_focus": [
-            "e_se_suggestion",
-            "subjuntivo_imperfeito_fosse",
-            "em_vez_de_alternative"
-        ],
-        "teaches": "Alternative proposal — e se for what if + imperfeito do subjuntivo"
-    },
-    {
-        "id": "A2-HYP-003",
-        "level": "A2",
-        "category": "hypotheticals",
-        "pt": "Eu queria poder ficar mais tempo, mas tenho que voltar.",
-        "grammar_focus": [
-            "querer_imperfect_wish",
-            "poder_infinitive_complement",
-            "ter_que_obligation"
-        ],
-        "teaches": "Unfulfilled wish — queria for soft wish + mas + ter que for obligation"
-    },
-    {
-        "id": "A2-NEG-001",
-        "level": "A2",
-        "category": "negotiation_conflict",
-        "pt": "Eu entendo o seu lado, mas não concordo com essa decisão.",
-        "grammar_focus": [
-            "entender_comprehension",
-            "possessive_seu",
-            "concordar_com_negated",
-            "demonstrative_essa"
-        ],
-        "teaches": "Respectful disagreement — entender + mas + não concordar com"
-    },
-    {
-        "id": "A2-NEG-002",
-        "level": "A2",
-        "category": "negotiation_conflict",
-        "pt": "Dá para abaixar o preço? Eu vi mais barato na loja ao lado.",
-        "grammar_focus": [
-            "dar_para_possibility",
-            "abaixar_lower",
-            "comparative_mais_barato",
-            "ao_lado_location"
-        ],
-        "teaches": "Price negotiation — dá para + infinitive + comparative + spatial reference"
-    },
-    {
-        "id": "A2-NEG-003",
-        "level": "A2",
-        "category": "negotiation_conflict",
-        "pt": "Desculpa pelo mal-entendido. Não era a minha intenção.",
-        "grammar_focus": [
-            "desculpa_informal",
-            "por_contracted_pelo",
-            "compound_noun_mal_entendido",
-            "ser_imperfect_intention"
-        ],
-        "teaches": "Apologizing for misunderstanding — por contracted + era for it was not my intention"
-    },
-    {
-        "id": "A2-ENV-001",
-        "level": "A2",
-        "category": "environment_city",
-        "pt": "O trânsito nesta cidade é horrível na hora do rush.",
-        "grammar_focus": [
-            "em_contracted_nesta",
-            "ser_characteristic",
-            "de_contracted_do_compound",
-            "hora_do_rush_loanword"
-        ],
-        "teaches": "City complaint — ser for permanent traits + nesta for proximity + loanword usage"
-    },
-    {
-        "id": "A2-ENV-002",
-        "level": "A2",
-        "category": "environment_city",
-        "pt": "Falta coleta de lixo nesta rua. Ninguém sabe a quem reclamar.",
-        "grammar_focus": [
-            "faltar_impersonal_lack",
-            "ninguém_negative_pronoun",
-            "saber_infinitive",
-            "a_quem_indirect"
-        ],
-        "teaches": "Public service complaint — faltar for there is a lack of + ninguém + a quem"
-    },
-    {
-        "id": "A2-ENV-003",
-        "level": "A2",
-        "category": "environment_city",
-        "pt": "Este bairro mudou muito nos últimos anos. Antes era mais tranquilo.",
-        "grammar_focus": [
-            "preterite_mudar",
-            "em_contracted_nos",
-            "últimos_superlative",
-            "imperfect_antes_era"
-        ],
-        "teaches": "Neighborhood change — preterite for change + antes + imperfect for how it was"
-    },
-    {
-        "id": "A2-COM-001",
-        "level": "A2",
-        "category": "communication",
-        "pt": "Você recebeu o e-mail que eu mandei ontem?",
-        "grammar_focus": [
-            "preterite_receber",
-            "relative_que_object",
-            "preterite_mandar"
-        ],
-        "teaches": "Follow-up — relative clause que + two past tenses for sent/received"
-    },
-    {
-        "id": "A2-COM-002",
-        "level": "A2",
-        "category": "communication",
-        "pt": "Me liga quando chegar, só para eu saber que está tudo bem.",
-        "grammar_focus": [
-            "imperativo_me_liga",
-            "quando_futuro_subjuntivo",
-            "só_para_purpose",
-            "saber_que"
-        ],
-        "teaches": "Care request — imperative + quando + future subjunctive (chegar) + purpose clause"
-    },
-    {
-        "id": "A2-COM-003",
-        "level": "A2",
-        "category": "communication",
-        "pt": "Eu tentei te ligar, mas dava ocupado toda hora.",
-        "grammar_focus": [
-            "preterite_tentar",
-            "pronoun_te_direct",
-            "imperfect_dar_repetition",
-            "toda_hora_frequency"
-        ],
-        "teaches": "Failed contact — preterite attempt + imperfect for repeated result"
-    },
-    {
-        "id": "A2-LEI-001",
-        "level": "A2",
-        "category": "leisure_entertainment",
-        "pt": "Você já assistiu a esse filme? Dizem que é muito bom.",
-        "grammar_focus": [
-            "já_experience",
-            "assistir_a_regency",
-            "demonstrative_esse",
-            "dizem_que_hearsay"
-        ],
-        "teaches": "Recommendation check — já for experience + dizem que for hearsay/reputation"
-    },
-    {
-        "id": "A2-LEI-002",
-        "level": "A2",
-        "category": "leisure_entertainment",
-        "pt": "Eu estou lendo um livro ótimo sobre a história do Japão.",
-        "grammar_focus": [
-            "progressive_estar_gerund",
-            "adjective_before_noun_ótimo",
-            "sobre_topic",
-            "de_contracted_do"
-        ],
-        "teaches": "Current activity — progressive for ongoing + ótimo (pre-nominal adj) + sobre for topic"
-    },
-    {
-        "id": "A2-LEI-003",
-        "level": "A2",
-        "category": "leisure_entertainment",
-        "pt": "Vamos ao cinema? Tem um documentário novo em cartaz.",
-        "grammar_focus": [
-            "vamos_invitation",
-            "ir_a_contracted_ao",
-            "em_cartaz_idiom"
-        ],
-        "teaches": "Invitation — vamos + a contracted + em cartaz for showing/playing"
-    },
-    {
-        "id": "A2-FUT-001",
-        "level": "A2",
-        "category": "future_plans",
-        "pt": "Quando eu me formar, quero trabalhar com pesquisa.",
-        "grammar_focus": [
-            "quando_future_subjunctive",
-            "reflexive_formar_se",
-            "querer_infinitive",
-            "com_field"
-        ],
-        "teaches": "Career plan — quando + future subjunctive + querer + trabalhar com"
-    },
-    {
-        "id": "A2-FUT-002",
-        "level": "A2",
-        "category": "future_plans",
-        "pt": "O plano é juntar dinheiro este semestre e viajar em dezembro.",
-        "grammar_focus": [
-            "ser_plan_definition",
-            "juntar_save",
-            "temporal_este_semestre",
-            "em_month"
-        ],
-        "teaches": "Concrete plan — o plano é + infinitive chain + time markers"
-    },
-    {
-        "id": "A2-FUT-003",
-        "level": "A2",
-        "category": "future_plans",
-        "pt": "Eu ainda não decidi se vou fazer mestrado ou procurar emprego.",
-        "grammar_focus": [
-            "ainda_não_not_yet",
-            "decidir_se_indirect_question",
-            "disjunctive_ou_choices"
-        ],
-        "teaches": "Indecision — ainda não + decidir se + ou for alternatives"
-    }
+  {
+    "id": "A1-GRT-010",
+    "level": "A1",
+    "category": "greetings",
+    "pt": "Oi! De onde você é?",
+    "grammar_focus": [
+      "informal_greeting_oi",
+      "interrogative_de_onde",
+      "ser_origin"
+    ],
+    "teaches": "Casual greeting + origin question — de onde + ser"
+  },
+  {
+    "id": "A1-GRT-011",
+    "level": "A1",
+    "category": "greetings",
+    "pt": "Faz tempo que a gente não se vê!",
+    "grammar_focus": [
+      "fazer_temporal",
+      "a_gente_informal_we",
+      "reflexive_se_ver"
+    ],
+    "teaches": "Reunion greeting — fazer + tempo for elapsed time, a gente as informal nós"
+  },
+  {
+    "id": "A1-GRT-012",
+    "level": "A1",
+    "category": "greetings",
+    "pt": "Boa tarde! Posso sentar aqui?",
+    "grammar_focus": [
+      "time_greeting_tarde",
+      "modal_poder_permission",
+      "sentar_reflexive_dropped"
+    ],
+    "teaches": "Afternoon greeting + permission — poder for polite request in social settings"
+  },
+  {
+    "id": "A1-GRT-013",
+    "level": "A1",
+    "category": "greetings",
+    "pt": "Nos vemos na próxima semana, então!",
+    "grammar_focus": [
+      "reflexive_nos_vemos",
+      "preposition_em_contracted_na",
+      "discourse_marker_então"
+    ],
+    "teaches": "Farewell with future plan — reflexive nos + em contracted with article"
+  },
+  {
+    "id": "A1-SRV-010",
+    "level": "A1",
+    "category": "survival",
+    "pt": "Pode escrever isso para mim, por favor?",
+    "grammar_focus": [
+      "modal_poder_request",
+      "demonstrative_isso",
+      "para_mim_beneficiary"
+    ],
+    "teaches": "Written clarification request — essential when you can hear but not spell"
+  },
+  {
+    "id": "A1-SRV-011",
+    "level": "A1",
+    "category": "survival",
+    "pt": "Eu não sei ler este cardápio. Está em que idioma?",
+    "grammar_focus": [
+      "saber_ability",
+      "demonstrative_este",
+      "estar_em_state",
+      "interrogative_que"
+    ],
+    "teaches": "Reading difficulty — saber for skills + estar em for written in"
+  },
+  {
+    "id": "A1-SRV-012",
+    "level": "A1",
+    "category": "survival",
+    "pt": "Tem alguém aqui que fala português?",
+    "grammar_focus": [
+      "ter_impersonal_someone",
+      "relative_que",
+      "falar_language"
+    ],
+    "teaches": "Language help — impersonal ter + relative clause for finding a speaker"
+  },
+  {
+    "id": "A1-SRV-013",
+    "level": "A1",
+    "category": "survival",
+    "pt": "Eu me perdi. Pode me mostrar no mapa?",
+    "grammar_focus": [
+      "reflexive_perder_se",
+      "pronoun_me_double",
+      "preposition_em_contracted_no"
+    ],
+    "teaches": "Lost + help request — reflexive perder-se + double me (indirect + request)"
+  },
+  {
+    "id": "A1-IDN-010",
+    "level": "A1",
+    "category": "identity",
+    "pt": "Eu nasci no Brasil, mas cresci na Europa.",
+    "grammar_focus": [
+      "preterite_nascer",
+      "preterite_crescer",
+      "em_contracted_no_na",
+      "adversative_mas"
+    ],
+    "teaches": "Birth vs upbringing — two past tense verbs + contrasting locations with em"
+  },
+  {
+    "id": "A1-IDN-011",
+    "level": "A1",
+    "category": "identity",
+    "pt": "Eu falo três idiomas: português, inglês e um pouco de alemão.",
+    "grammar_focus": [
+      "falar_language",
+      "cardinal_três",
+      "enumeration_colon",
+      "um_pouco_de_partial"
+    ],
+    "teaches": "Language skills — enumeration with colon + partial ability with um pouco de"
+  },
+  {
+    "id": "A1-IDN-012",
+    "level": "A1",
+    "category": "identity",
+    "pt": "A minha namorada é italiana, mas mora no Brasil.",
+    "grammar_focus": [
+      "possessive_with_article",
+      "ser_nationality_feminine",
+      "morar_em_contracted",
+      "adversative_mas"
+    ],
+    "teaches": "Partner description — nationality with ser + residence with morar em"
+  },
+  {
+    "id": "A1-FOD-010",
+    "level": "A1",
+    "category": "food_drink",
+    "pt": "Eu não como carne. Tem opções vegetarianas?",
+    "grammar_focus": [
+      "negation_habitual",
+      "comer_transitive",
+      "ter_availability_question"
+    ],
+    "teaches": "Dietary restriction — negated habitual for lifestyle + availability check"
+  },
+  {
+    "id": "A1-FOD-011",
+    "level": "A1",
+    "category": "food_drink",
+    "pt": "A conta, por favor. Podemos dividir?",
+    "grammar_focus": [
+      "definite_article_specific",
+      "modal_poder_nós",
+      "dividir_split"
+    ],
+    "teaches": "Bill request + splitting — definite article for the bill + first person plural modal"
+  },
+  {
+    "id": "A1-FOD-012",
+    "level": "A1",
+    "category": "food_drink",
+    "pt": "Este prato leva glúten? Eu sou celíaco.",
+    "grammar_focus": [
+      "levar_contain_ingredient",
+      "ser_medical_condition"
+    ],
+    "teaches": "Ingredient check — levar for contains (idiomatic) + ser for medical conditions"
+  },
+  {
+    "id": "A1-FOD-013",
+    "level": "A1",
+    "category": "food_drink",
+    "pt": "Estava delicioso! Qual é o nome deste prato?",
+    "grammar_focus": [
+      "estar_past_impression",
+      "interrogative_qual",
+      "demonstrative_deste_contracted"
+    ],
+    "teaches": "Complimenting food — estar (not ser) for taste impression + de + este contracted"
+  },
+  {
+    "id": "A1-NAV-010",
+    "level": "A1",
+    "category": "navigation",
+    "pt": "Tem uma estação de metrô perto daqui?",
+    "grammar_focus": [
+      "ter_existence_nearby",
+      "compound_noun_metrô",
+      "perto_de_contracted"
+    ],
+    "teaches": "Nearby search — impersonal ter + perto de + aqui contracted"
+  },
+  {
+    "id": "A1-NAV-011",
+    "level": "A1",
+    "category": "navigation",
+    "pt": "Eu preciso ir ao aeroporto até às dez horas.",
+    "grammar_focus": [
+      "precisar_infinitive",
+      "ir_a_contracted_ao",
+      "até_deadline",
+      "às_time"
+    ],
+    "teaches": "Deadline expression — precisar + infinitive + até for time limit"
+  },
+  {
+    "id": "A1-NAV-012",
+    "level": "A1",
+    "category": "navigation",
+    "pt": "Qual é o caminho mais rápido a pé?",
+    "grammar_focus": [
+      "interrogative_qual",
+      "superlative_mais_rápido",
+      "a_pé_fixed"
+    ],
+    "teaches": "Route optimization — qual + superlative + mode of transport"
+  },
+  {
+    "id": "A1-NUM-010",
+    "level": "A1",
+    "category": "numbers_time_money",
+    "pt": "São duas e meia da tarde. A loja fecha às seis.",
+    "grammar_focus": [
+      "ser_time_plural",
+      "meia_half",
+      "fechar_scheduled",
+      "às_time"
+    ],
+    "teaches": "Half hours + store schedules — ser plural for times past one + meia"
+  },
+  {
+    "id": "A1-NUM-011",
+    "level": "A1",
+    "category": "numbers_time_money",
+    "pt": "Cem gramas de queijo e meio quilo de presunto, por favor.",
+    "grammar_focus": [
+      "measure_words_grama_quilo",
+      "de_partitive",
+      "meio_agreement"
+    ],
+    "teaches": "Market quantities — measure + de + noun, meio/meia gender agreement"
+  },
+  {
+    "id": "A1-NUM-012",
+    "level": "A1",
+    "category": "numbers_time_money",
+    "pt": "O troco está errado. Eu dei vinte e recebi cinco de volta.",
+    "grammar_focus": [
+      "estar_state_errado",
+      "preterite_dar_irregular",
+      "preterite_receber",
+      "de_volta_idiom"
+    ],
+    "teaches": "Money dispute — estar for states + irregular past dar/receber + de volta"
+  },
+  {
+    "id": "A1-HLT-010",
+    "level": "A1",
+    "category": "health",
+    "pt": "Eu não me sinto bem. Acho que vou desmaiar.",
+    "grammar_focus": [
+      "reflexive_sentir_se",
+      "achar_que_supposition",
+      "ir_future_immediate"
+    ],
+    "teaches": "Feeling unwell — reflexive sentir-se + achar que for suspicion + ir future"
+  },
+  {
+    "id": "A1-HLT-011",
+    "level": "A1",
+    "category": "health",
+    "pt": "Eu tenho diabetes. Preciso comer a cada três horas.",
+    "grammar_focus": [
+      "ter_condition",
+      "precisar_infinitive",
+      "a_cada_distributive"
+    ],
+    "teaches": "Chronic condition — ter for diseases + a cada for regular intervals"
+  },
+  {
+    "id": "A1-SHP-010",
+    "level": "A1",
+    "category": "shopping",
+    "pt": "Vocês fazem entrega? Eu moro longe daqui.",
+    "grammar_focus": [
+      "vocês_formal_plural",
+      "fazer_entrega_idiom",
+      "morar_longe_de"
+    ],
+    "teaches": "Delivery inquiry — vocês for businesses + fazer + noun idiom"
+  },
+  {
+    "id": "A1-SHP-011",
+    "level": "A1",
+    "category": "shopping",
+    "pt": "Posso devolver se não servir? Qual é a política de troca?",
+    "grammar_focus": [
+      "modal_poder_conditional",
+      "se_conditional",
+      "servir_fit",
+      "interrogative_qual"
+    ],
+    "teaches": "Return policy — conditional se + servir for if it does not fit"
+  },
+  {
+    "id": "A1-ACC-010",
+    "level": "A1",
+    "category": "accommodation",
+    "pt": "O ar-condicionado não está gelando. Pode mandar alguém ver?",
+    "grammar_focus": [
+      "progressive_estar_gerund",
+      "negation_progressive",
+      "mandar_causative"
+    ],
+    "teaches": "Complaint + causative — mandar + alguém + infinitive (have someone do)"
+  },
+  {
+    "id": "A1-ACC-011",
+    "level": "A1",
+    "category": "accommodation",
+    "pt": "Tem um quarto com vista para o mar?",
+    "grammar_focus": [
+      "ter_availability",
+      "com_accompaniment",
+      "para_direction_view"
+    ],
+    "teaches": "Room preference — com for features + para for view direction"
+  },
+  {
+    "id": "A1-WEA-010",
+    "level": "A1",
+    "category": "weather_nature",
+    "pt": "Está muito abafado hoje. Tem previsão de chuva?",
+    "grammar_focus": [
+      "estar_weather_sensation",
+      "ter_forecast",
+      "de_specification"
+    ],
+    "teaches": "Weather complaint + forecast — estar for felt weather + ter for is there a forecast"
+  },
+  {
+    "id": "A1-WEA-011",
+    "level": "A1",
+    "category": "weather_nature",
+    "pt": "No inverno escurece muito cedo aqui.",
+    "grammar_focus": [
+      "em_contracted_no_season",
+      "escurecer_impersonal",
+      "adverb_cedo"
+    ],
+    "teaches": "Seasonal observation — impersonal verb escurecer + seasonal em contracted"
+  },
+  {
+    "id": "A1-TRN-010",
+    "level": "A1",
+    "category": "transport",
+    "pt": "Este trem para em todas as estações ou é direto?",
+    "grammar_focus": [
+      "parar_em_stop_at",
+      "todo_agreement_todas",
+      "disjunctive_ou",
+      "ser_classification"
+    ],
+    "teaches": "Train type — parar em + todo/a/os/as agreement + alternative question"
+  },
+  {
+    "id": "A1-TRN-011",
+    "level": "A1",
+    "category": "transport",
+    "pt": "Perdi o ônibus. Quando passa o próximo?",
+    "grammar_focus": [
+      "preterite_perder_no_pronoun",
+      "quando_interrogative",
+      "passar_transit"
+    ],
+    "teaches": "Missed transport — perder without reflexive for miss + quando for next one"
+  },
+  {
+    "id": "A1-SOC-010",
+    "level": "A1",
+    "category": "social_basics",
+    "pt": "Você conhece algum restaurante bom por aqui?",
+    "grammar_focus": [
+      "conhecer_familiarity",
+      "algum_indefinite",
+      "adjective_after_noun_bom",
+      "por_aqui_area"
+    ],
+    "teaches": "Recommendation request — conhecer for know of + algum + por aqui"
+  },
+  {
+    "id": "A1-SOC-011",
+    "level": "A1",
+    "category": "social_basics",
+    "pt": "Eu adoro futebol, mas nunca joguei num time.",
+    "grammar_focus": [
+      "adorar_strong_like",
+      "nunca_negation",
+      "preterite_jogar",
+      "em_contracted_num"
+    ],
+    "teaches": "Like vs experience — adorar for strong likes + nunca + past tense contrast"
+  },
+  {
+    "id": "A1-DLY-010",
+    "level": "A1",
+    "category": "daily_actions",
+    "pt": "Eu sempre levo marmita para o trabalho.",
+    "grammar_focus": [
+      "sempre_frequency",
+      "levar_carry",
+      "para_destination_purpose"
+    ],
+    "teaches": "Routine with sempre — frequency adverb + levar for carrying + para"
+  },
+  {
+    "id": "A1-DLY-011",
+    "level": "A1",
+    "category": "daily_actions",
+    "pt": "Às vezes eu pego Uber em vez de ônibus.",
+    "grammar_focus": [
+      "às_vezes_sometimes",
+      "pegar_take_transport",
+      "em_vez_de_instead"
+    ],
+    "teaches": "Transport choice — às vezes for frequency + pegar for informal take + em vez de"
+  },
+  {
+    "id": "A1-HOM-010",
+    "level": "A1",
+    "category": "home_objects",
+    "pt": "A geladeira está vazia. Preciso ir ao mercado.",
+    "grammar_focus": [
+      "estar_temporary_state",
+      "vazia_adjective_agreement_fem",
+      "precisar_infinitive",
+      "ir_a_contracted"
+    ],
+    "teaches": "Need from observation — estar for current state + precisar + infinitive chain"
+  },
+  {
+    "id": "A1-HOM-011",
+    "level": "A1",
+    "category": "home_objects",
+    "pt": "A luz do banheiro queimou. Onde eu compro uma lâmpada?",
+    "grammar_focus": [
+      "de_possession_location",
+      "preterite_queimar",
+      "interrogative_onde_action"
+    ],
+    "teaches": "Household problem — past tense for sudden events + onde for action location"
+  },
+  {
+    "id": "A1-PLN-010",
+    "level": "A1",
+    "category": "plans_wishes",
+    "pt": "Eu pretendo fazer um intercâmbio no ano que vem.",
+    "grammar_focus": [
+      "pretender_intend",
+      "fazer_intercâmbio_idiom",
+      "no_ano_que_vem_future"
+    ],
+    "teaches": "Future intention — pretender for plans + fazer + compound time expression"
+  },
+  {
+    "id": "A1-PLN-011",
+    "level": "A1",
+    "category": "plans_wishes",
+    "pt": "Se eu tiver dinheiro, vou comprar um carro usado.",
+    "grammar_focus": [
+      "se_conditional",
+      "futuro_subjuntivo_tiver",
+      "ir_future",
+      "adjective_usado"
+    ],
+    "teaches": "Conditional plan — se + future subjunctive (tiver) + ir future — first contact with subjunctive"
+  },
+  {
+    "id": "A1-FLG-010",
+    "level": "A1",
+    "category": "feelings_states",
+    "pt": "Eu fico nervoso quando falo em público.",
+    "grammar_focus": [
+      "ficar_become_state",
+      "quando_temporal",
+      "falar_em_público_idiom"
+    ],
+    "teaches": "Emotional trigger — ficar for become/get emotional + quando for trigger"
+  },
+  {
+    "id": "A1-FLG-011",
+    "level": "A1",
+    "category": "feelings_states",
+    "pt": "Que saudade de casa! Faz três meses que eu saí.",
+    "grammar_focus": [
+      "que_exclamative",
+      "saudade_untranslatable",
+      "fazer_temporal_elapsed",
+      "preterite_sair"
+    ],
+    "teaches": "Homesickness — saudade (untranslatable) + fazer for elapsed time since event"
+  },
+  {
+    "id": "A1-POL-010",
+    "level": "A1",
+    "category": "politeness",
+    "pt": "Fique à vontade! A casa é sua.",
+    "grammar_focus": [
+      "imperativo_ficar",
+      "à_vontade_fixed_expression",
+      "possessive_predicative_sua"
+    ],
+    "teaches": "Welcoming — imperative ficar + fixed expression + possessive as predicate"
+  },
+  {
+    "id": "A1-POL-011",
+    "level": "A1",
+    "category": "politeness",
+    "pt": "Não precisa se incomodar, já estou de saída.",
+    "grammar_focus": [
+      "precisar_negative_polite",
+      "reflexive_incomodar_se",
+      "estar_de_saída_idiom"
+    ],
+    "teaches": "Polite departure — não precisa + infinitive for you do not need to + idiom"
+  },
+  {
+    "id": "A1-TEC-010",
+    "level": "A1",
+    "category": "technology",
+    "pt": "Eu não consigo entrar na minha conta. Esqueci a senha.",
+    "grammar_focus": [
+      "conseguir_manage_to",
+      "entrar_em_contracted_na",
+      "preterite_esquecer"
+    ],
+    "teaches": "Login trouble — conseguir for manage to + entrar em + past esquecer"
+  },
+  {
+    "id": "A1-TEC-011",
+    "level": "A1",
+    "category": "technology",
+    "pt": "Pode me mandar por mensagem? Eu não anotei.",
+    "grammar_focus": [
+      "modal_poder_request",
+      "por_via_means",
+      "preterite_anotar_negated"
+    ],
+    "teaches": "Communication request — por for via/through + past tense for reason"
+  },
+  {
+    "id": "A1-FAM-010",
+    "level": "A1",
+    "category": "family_people",
+    "pt": "Meu avô tem oitenta anos e ainda dirige todo dia.",
+    "grammar_focus": [
+      "ter_age",
+      "ainda_still",
+      "dirigir_irregular",
+      "todo_dia_frequency"
+    ],
+    "teaches": "Elder description — ter for age + ainda for persistence + irregular dirigir"
+  },
+  {
+    "id": "A1-FAM-011",
+    "level": "A1",
+    "category": "family_people",
+    "pt": "Minha sobrinha nasceu ontem! Ela pesa três quilos.",
+    "grammar_focus": [
+      "preterite_nascer",
+      "temporal_ontem",
+      "pesar_weigh",
+      "measure_quilos"
+    ],
+    "teaches": "Birth announcement — past nascer + present pesar for current weight"
+  },
+  {
+    "id": "A1-DSC-010",
+    "level": "A1",
+    "category": "descriptions",
+    "pt": "O prédio da esquina é o mais alto do bairro.",
+    "grammar_focus": [
+      "de_location_esquina",
+      "superlative_o_mais",
+      "de_contracted_do_scope"
+    ],
+    "teaches": "Superlative — o mais + adjective + do/da for scope of comparison"
+  },
+  {
+    "id": "A1-DSC-011",
+    "level": "A1",
+    "category": "descriptions",
+    "pt": "Este parque fica lindo quando as árvores florescem.",
+    "grammar_focus": [
+      "ficar_become_adjective",
+      "quando_temporal_trigger",
+      "definite_generic_as_árvores"
+    ],
+    "teaches": "Seasonal beauty — ficar for becomes + quando + generic definite article"
+  },
+  {
+    "id": "A1-PRB-010",
+    "level": "A1",
+    "category": "problems",
+    "pt": "Alguém roubou a minha carteira no metrô.",
+    "grammar_focus": [
+      "indefinite_alguém",
+      "preterite_roubar",
+      "possessive_with_article",
+      "em_contracted_no_location"
+    ],
+    "teaches": "Theft report — indefinite subject + past tense + location with em contracted"
+  },
+  {
+    "id": "A1-PRB-011",
+    "level": "A1",
+    "category": "problems",
+    "pt": "A torneira está pingando a noite inteira. Não consigo dormir.",
+    "grammar_focus": [
+      "progressive_estar_gerund",
+      "a_noite_inteira_duration",
+      "conseguir_negated"
+    ],
+    "teaches": "Ongoing problem — progressive for continuous annoyance + não consigo for inability"
+  },
+  {
+    "id": "A1-CMP-010",
+    "level": "A1",
+    "category": "comparisons",
+    "pt": "Este café é tão bom quanto o da padaria perto do meu trabalho.",
+    "grammar_focus": [
+      "tão_quanto_equality",
+      "pronoun_o_da_referent",
+      "perto_de_contracted"
+    ],
+    "teaches": "Equality comparison — tão + adj + quanto + pronoun referent o da"
+  },
+  {
+    "id": "A1-QTY-010",
+    "level": "A1",
+    "category": "quantities",
+    "pt": "Sobrou bastante comida. Você quer levar para casa?",
+    "grammar_focus": [
+      "sobrar_leftover",
+      "bastante_plenty",
+      "querer_infinitive_offer",
+      "para_destination"
+    ],
+    "teaches": "Offering leftovers — sobrar for remainders + bastante + offer with querer"
+  },
+  {
+    "id": "A1-OPN-010",
+    "level": "A1",
+    "category": "basic_opinions",
+    "pt": "Na minha opinião, vale a pena esperar. Não é tão urgente assim.",
+    "grammar_focus": [
+      "na_minha_opinião_discourse",
+      "valer_a_pena_idiom",
+      "tão_assim_intensifier"
+    ],
+    "teaches": "Opinion framing — na minha opinião + valer a pena idiom + attenuation with tão...assim"
+  },
+  {
+    "id": "A1-OPN-011",
+    "level": "A1",
+    "category": "basic_opinions",
+    "pt": "Eu concordo com você, mas acho que tem um jeito melhor.",
+    "grammar_focus": [
+      "concordar_com",
+      "achar_que_opinion",
+      "ter_existence",
+      "jeito_way"
+    ],
+    "teaches": "Partial agreement — concordar com + mas + achar que for counterpoint"
+  },
+  {
+    "id": "A2-SOC-010",
+    "level": "A2",
+    "category": "social",
+    "pt": "Quando você se mudou para cá? Já se acostumou?",
+    "grammar_focus": [
+      "reflexive_mudar_se",
+      "para_cá_direction",
+      "já_completion",
+      "reflexive_acostumar_se"
+    ],
+    "teaches": "Expatriate talk — reflexive verbs mudar-se/acostumar-se + já for already"
+  },
+  {
+    "id": "A2-SOC-011",
+    "level": "A2",
+    "category": "social",
+    "pt": "Eu costumava morar no campo, mas agora prefiro a cidade.",
+    "grammar_focus": [
+      "costumar_imperfect_habitual",
+      "morar_em_contracted",
+      "agora_contrast",
+      "preferir_present"
+    ],
+    "teaches": "Past habit — costumava + infinitive for used to + contrast with present"
+  },
+  {
+    "id": "A2-SOC-012",
+    "level": "A2",
+    "category": "social",
+    "pt": "A gente pode combinar de se encontrar no final de semana.",
+    "grammar_focus": [
+      "a_gente_informal_we",
+      "combinar_de_arrange",
+      "reflexive_encontrar_se",
+      "no_final_de_temporal"
+    ],
+    "teaches": "Making plans — a gente + combinar de + reflexive for meet up"
+  },
+  {
+    "id": "A2-TRV-010",
+    "level": "A2",
+    "category": "travel",
+    "pt": "O voo atrasou duas horas e eu perdi a conexão.",
+    "grammar_focus": [
+      "preterite_atrasar",
+      "duration_duas_horas",
+      "preterite_perder_miss"
+    ],
+    "teaches": "Travel disruption — sequence of past events with consequences"
+  },
+  {
+    "id": "A2-TRV-011",
+    "level": "A2",
+    "category": "travel",
+    "pt": "Vocês têm mapa da cidade? Quero conhecer os pontos turísticos.",
+    "grammar_focus": [
+      "vocês_formal_establishment",
+      "ter_stock",
+      "conhecer_visit",
+      "definite_generic_os"
+    ],
+    "teaches": "Tourist information — ter for do you have + conhecer for visit/get to know"
+  },
+  {
+    "id": "A2-TRV-012",
+    "level": "A2",
+    "category": "travel",
+    "pt": "A bagagem de mão pode ter até dez quilos, né?",
+    "grammar_focus": [
+      "compound_noun_bagagem_de_mão",
+      "modal_poder_rule",
+      "até_limit",
+      "né_tag"
+    ],
+    "teaches": "Travel rules — poder for what is allowed + até for limits + né confirmation tag"
+  },
+  {
+    "id": "A2-SHP-010",
+    "level": "A2",
+    "category": "shopping",
+    "pt": "Isso sai mais barato se eu pagar à vista?",
+    "grammar_focus": [
+      "sair_result_price",
+      "se_conditional",
+      "pagar_à_vista_idiom"
+    ],
+    "teaches": "Bargaining — sair for come out as + conditional se + payment idiom à vista"
+  },
+  {
+    "id": "A2-SHP-011",
+    "level": "A2",
+    "category": "shopping",
+    "pt": "Eu comprei pela internet, mas veio o tamanho errado.",
+    "grammar_focus": [
+      "preterite_comprar",
+      "por_contracted_pela_means",
+      "preterite_vir_irregular",
+      "adjective_errado"
+    ],
+    "teaches": "Online shopping complaint — pela for via + irregular past vir"
+  },
+  {
+    "id": "A2-HLT-010",
+    "level": "A2",
+    "category": "health",
+    "pt": "Eu torci o tornozelo jogando futebol. Está inchado.",
+    "grammar_focus": [
+      "preterite_torcer",
+      "gerund_cause_jogando",
+      "estar_current_state"
+    ],
+    "teaches": "Injury description — past cause + gerund for while doing + current state"
+  },
+  {
+    "id": "A2-HLT-011",
+    "level": "A2",
+    "category": "health",
+    "pt": "Eu tenho alergia a poeira e rinite. Espirro o dia inteiro.",
+    "grammar_focus": [
+      "ter_alergia_a",
+      "enumeration_e",
+      "present_habitual_espirrar",
+      "o_dia_inteiro_duration"
+    ],
+    "teaches": "Chronic symptoms — ter for conditions + habitual present for recurring symptoms"
+  },
+  {
+    "id": "A2-WRK-010",
+    "level": "A2",
+    "category": "daily_routine",
+    "pt": "Eu trabalho de casa três dias por semana e vou ao escritório nos outros dois.",
+    "grammar_focus": [
+      "trabalhar_de_casa",
+      "por_frequency",
+      "ir_a_contracted_ao",
+      "em_contracted_nos"
+    ],
+    "teaches": "Hybrid work — de casa for from home + por for frequency + contrasting schedule"
+  },
+  {
+    "id": "A2-WRK-011",
+    "level": "A2",
+    "category": "daily_routine",
+    "pt": "Depois do plantão eu só quero tomar um banho e deitar.",
+    "grammar_focus": [
+      "depois_de_contracted_do",
+      "só_just",
+      "querer_infinitive_chain",
+      "tomar_banho_idiom"
+    ],
+    "teaches": "Post-shift routine — depois de + só querer + infinitive sequence + idiom tomar banho"
+  },
+  {
+    "id": "A2-WRK-012",
+    "level": "A2",
+    "category": "daily_routine",
+    "pt": "Eu almoço correndo porque só tenho meia hora de intervalo.",
+    "grammar_focus": [
+      "almoçar_intransitive",
+      "gerund_manner_correndo",
+      "só_restriction",
+      "de_specification"
+    ],
+    "teaches": "Time pressure — gerund for manner (correndo = in a rush) + só for limitation"
+  },
+  {
+    "id": "A2-EMO-001",
+    "level": "A2",
+    "category": "emotions_reactions",
+    "pt": "Eu fiquei surpreso quando soube da notícia.",
+    "grammar_focus": [
+      "ficar_reaction",
+      "quando_temporal",
+      "saber_preterite_irregular",
+      "de_contracted_da"
+    ],
+    "teaches": "Emotional reaction — ficar for became/reacted + irregular past saber"
+  },
+  {
+    "id": "A2-EMO-002",
+    "level": "A2",
+    "category": "emotions_reactions",
+    "pt": "Isso me deixa triste. Eu esperava um resultado diferente.",
+    "grammar_focus": [
+      "deixar_causative_emotion",
+      "pronoun_me_affected",
+      "imperfect_esperar",
+      "adjective_diferente"
+    ],
+    "teaches": "Disappointment — deixar as causative + imperfect for unfulfilled expectation"
+  },
+  {
+    "id": "A2-EMO-003",
+    "level": "A2",
+    "category": "emotions_reactions",
+    "pt": "Que orgulho! Você merece tudo de bom.",
+    "grammar_focus": [
+      "que_exclamative_emotion",
+      "merecer_deserve",
+      "tudo_de_bom_idiom"
+    ],
+    "teaches": "Congratulating — exclamative que + merecer + fixed expression tudo de bom"
+  },
+  {
+    "id": "A2-NAR-001",
+    "level": "A2",
+    "category": "narrating_past",
+    "pt": "Ontem eu estava no mercado quando começou a chover.",
+    "grammar_focus": [
+      "imperfect_estar_background",
+      "quando_interruption",
+      "começar_a_infinitive"
+    ],
+    "teaches": "Past narration — imperfect for background + preterite for interrupting event"
+  },
+  {
+    "id": "A2-NAR-002",
+    "level": "A2",
+    "category": "narrating_past",
+    "pt": "Quando eu era criança, passava as férias na casa da minha avó.",
+    "grammar_focus": [
+      "imperfect_ser_description",
+      "imperfect_habitual_passar",
+      "de_contracted_da_possession"
+    ],
+    "teaches": "Childhood memories — double imperfect for habitual past + possession chain"
+  },
+  {
+    "id": "A2-NAR-003",
+    "level": "A2",
+    "category": "narrating_past",
+    "pt": "Eu ia ligar para você, mas a bateria do celular acabou.",
+    "grammar_focus": [
+      "ir_imperfect_intention",
+      "ligar_para",
+      "acabar_run_out"
+    ],
+    "teaches": "Unfulfilled intention — ia + infinitive for was going to + mas for obstacle"
+  },
+  {
+    "id": "A2-NAR-004",
+    "level": "A2",
+    "category": "narrating_past",
+    "pt": "Primeiro fomos ao museu, depois almoçamos e à noite assistimos a um show.",
+    "grammar_focus": [
+      "sequencing_primeiro_depois",
+      "preterite_ir_irregular_fomos",
+      "assistir_a"
+    ],
+    "teaches": "Day narration — sequencers + multiple past tenses + assistir a (regency)"
+  },
+  {
+    "id": "A2-ADV-001",
+    "level": "A2",
+    "category": "advice_suggestions",
+    "pt": "Você deveria descansar mais. Está com cara de cansado.",
+    "grammar_focus": [
+      "dever_conditional_advice",
+      "comparative_mais",
+      "estar_com_cara_de_idiom"
+    ],
+    "teaches": "Giving advice — deveria for should + estar com cara de for looking like"
+  },
+  {
+    "id": "A2-ADV-002",
+    "level": "A2",
+    "category": "advice_suggestions",
+    "pt": "Se eu fosse você, não aceitava essa proposta.",
+    "grammar_focus": [
+      "se_counterfactual",
+      "subjuntivo_imperfeito_fosse",
+      "imperfect_conditional_aceitava"
+    ],
+    "teaches": "Hypothetical advice — se + imperfeito do subjuntivo + imperfect as conditional"
+  },
+  {
+    "id": "A2-ADV-003",
+    "level": "A2",
+    "category": "advice_suggestions",
+    "pt": "Por que você não tenta falar com o gerente? Talvez ele resolva.",
+    "grammar_focus": [
+      "por_que_suggestion",
+      "tentar_infinitive",
+      "talvez_subjunctive_trigger"
+    ],
+    "teaches": "Suggesting action — por que não + infinitive + talvez + present subjunctive"
+  },
+  {
+    "id": "A2-CUL-001",
+    "level": "A2",
+    "category": "culture_customs",
+    "pt": "No Brasil a gente se cumprimenta com beijo no rosto.",
+    "grammar_focus": [
+      "em_contracted_no_country",
+      "a_gente_generic_we",
+      "reflexive_cumprimentar_se",
+      "com_manner"
+    ],
+    "teaches": "Cultural explanation — a gente for generic we/people + com for manner"
+  },
+  {
+    "id": "A2-CUL-002",
+    "level": "A2",
+    "category": "culture_customs",
+    "pt": "É verdade que vocês comem isso no café da manhã? Que diferente!",
+    "grammar_focus": [
+      "ser_verdade_que_confirmation",
+      "vocês_cultural_other",
+      "que_exclamative"
+    ],
+    "teaches": "Cultural curiosity — é verdade que for confirming + exclamative que"
+  },
+  {
+    "id": "A2-CUL-003",
+    "level": "A2",
+    "category": "culture_customs",
+    "pt": "Eu ainda não me acostumei com o fuso horário.",
+    "grammar_focus": [
+      "ainda_não_not_yet",
+      "reflexive_acostumar_se_com",
+      "definite_abstract_o_fuso"
+    ],
+    "teaches": "Adjustment — ainda não for not yet + acostumar-se com"
+  },
+  {
+    "id": "A2-WRK-020",
+    "level": "A2",
+    "category": "work_study",
+    "pt": "Eu tenho uma reunião às duas, mas deve acabar rápido.",
+    "grammar_focus": [
+      "ter_scheduled_event",
+      "às_time",
+      "dever_probability",
+      "acabar_end"
+    ],
+    "teaches": "Work schedule — ter for appointments + dever for probability (should)"
+  },
+  {
+    "id": "A2-WRK-021",
+    "level": "A2",
+    "category": "work_study",
+    "pt": "O prazo é até sexta. Será que dá tempo?",
+    "grammar_focus": [
+      "ser_deadline",
+      "até_limit",
+      "será_que_doubt",
+      "dar_tempo_idiom"
+    ],
+    "teaches": "Deadline pressure — ser for deadlines + será que for doubt + dar tempo idiom"
+  },
+  {
+    "id": "A2-WRK-022",
+    "level": "A2",
+    "category": "work_study",
+    "pt": "Eu preciso entregar este relatório amanhã e ainda não comecei.",
+    "grammar_focus": [
+      "precisar_infinitive_urgent",
+      "demonstrative_este",
+      "ainda_não_not_yet",
+      "preterite_começar"
+    ],
+    "teaches": "Procrastination confession — precisar urgency + ainda não + past começar"
+  },
+  {
+    "id": "A2-REL-001",
+    "level": "A2",
+    "category": "relationships",
+    "pt": "A gente está junto há quase dois anos.",
+    "grammar_focus": [
+      "a_gente_couple",
+      "estar_junto_relationship",
+      "há_duration",
+      "quase_approximation"
+    ],
+    "teaches": "Relationship duration — estar junto + há for duration + quase"
+  },
+  {
+    "id": "A2-REL-002",
+    "level": "A2",
+    "category": "relationships",
+    "pt": "Nós nos conhecemos numa festa e começamos a conversar.",
+    "grammar_focus": [
+      "reflexive_recíproco_nos_conhecemos",
+      "em_contracted_numa",
+      "começar_a_infinitive"
+    ],
+    "teaches": "Meeting story — reciprocal reflexive + em contracted + começar a"
+  },
+  {
+    "id": "A2-REL-003",
+    "level": "A2",
+    "category": "relationships",
+    "pt": "Eu sinto falta dos meus amigos de infância.",
+    "grammar_focus": [
+      "sentir_falta_de",
+      "de_contracted_dos",
+      "possessive_meus",
+      "de_origin_temporal"
+    ],
+    "teaches": "Missing someone — sentir falta de (alternative to saudade) + de for from childhood"
+  },
+  {
+    "id": "A2-HYP-001",
+    "level": "A2",
+    "category": "hypotheticals",
+    "pt": "Se eu ganhasse na loteria, largava tudo e ia morar na praia.",
+    "grammar_focus": [
+      "se_counterfactual",
+      "imperfeito_subjuntivo_ganhasse",
+      "imperfect_sequential_largava_ia"
+    ],
+    "teaches": "Dream scenario — se + imperfeito do subjuntivo + imperfect chain as conditional"
+  },
+  {
+    "id": "A2-HYP-002",
+    "level": "A2",
+    "category": "hypotheticals",
+    "pt": "E se a gente fosse de carro em vez de avião?",
+    "grammar_focus": [
+      "e_se_suggestion",
+      "subjuntivo_imperfeito_fosse",
+      "em_vez_de_alternative"
+    ],
+    "teaches": "Alternative proposal — e se for what if + imperfeito do subjuntivo"
+  },
+  {
+    "id": "A2-HYP-003",
+    "level": "A2",
+    "category": "hypotheticals",
+    "pt": "Eu queria poder ficar mais tempo, mas tenho que voltar.",
+    "grammar_focus": [
+      "querer_imperfect_wish",
+      "poder_infinitive_complement",
+      "ter_que_obligation"
+    ],
+    "teaches": "Unfulfilled wish — queria for soft wish + mas + ter que for obligation"
+  },
+  {
+    "id": "A2-NEG-001",
+    "level": "A2",
+    "category": "negotiation_conflict",
+    "pt": "Eu entendo o seu lado, mas não concordo com essa decisão.",
+    "grammar_focus": [
+      "entender_comprehension",
+      "possessive_seu",
+      "concordar_com_negated",
+      "demonstrative_essa"
+    ],
+    "teaches": "Respectful disagreement — entender + mas + não concordar com"
+  },
+  {
+    "id": "A2-NEG-002",
+    "level": "A2",
+    "category": "negotiation_conflict",
+    "pt": "Dá para abaixar o preço? Eu vi mais barato na loja ao lado.",
+    "grammar_focus": [
+      "dar_para_possibility",
+      "abaixar_lower",
+      "comparative_mais_barato",
+      "ao_lado_location"
+    ],
+    "teaches": "Price negotiation — dá para + infinitive + comparative + spatial reference"
+  },
+  {
+    "id": "A2-NEG-003",
+    "level": "A2",
+    "category": "negotiation_conflict",
+    "pt": "Desculpa pelo mal-entendido. Não era a minha intenção.",
+    "grammar_focus": [
+      "desculpa_informal",
+      "por_contracted_pelo",
+      "compound_noun_mal_entendido",
+      "ser_imperfect_intention"
+    ],
+    "teaches": "Apologizing for misunderstanding — por contracted + era for it was not my intention"
+  },
+  {
+    "id": "A2-ENV-001",
+    "level": "A2",
+    "category": "environment_city",
+    "pt": "O trânsito nesta cidade é horrível na hora do rush.",
+    "grammar_focus": [
+      "em_contracted_nesta",
+      "ser_characteristic",
+      "de_contracted_do_compound",
+      "hora_do_rush_loanword"
+    ],
+    "teaches": "City complaint — ser for permanent traits + nesta for proximity + loanword usage"
+  },
+  {
+    "id": "A2-ENV-002",
+    "level": "A2",
+    "category": "environment_city",
+    "pt": "Falta coleta de lixo nesta rua. Ninguém sabe a quem reclamar.",
+    "grammar_focus": [
+      "faltar_impersonal_lack",
+      "ninguém_negative_pronoun",
+      "saber_infinitive",
+      "a_quem_indirect"
+    ],
+    "teaches": "Public service complaint — faltar for there is a lack of + ninguém + a quem"
+  },
+  {
+    "id": "A2-ENV-003",
+    "level": "A2",
+    "category": "environment_city",
+    "pt": "Este bairro mudou muito nos últimos anos. Antes era mais tranquilo.",
+    "grammar_focus": [
+      "preterite_mudar",
+      "em_contracted_nos",
+      "últimos_superlative",
+      "imperfect_antes_era"
+    ],
+    "teaches": "Neighborhood change — preterite for change + antes + imperfect for how it was"
+  },
+  {
+    "id": "A2-COM-001",
+    "level": "A2",
+    "category": "communication",
+    "pt": "Você recebeu o e-mail que eu mandei ontem?",
+    "grammar_focus": [
+      "preterite_receber",
+      "relative_que_object",
+      "preterite_mandar"
+    ],
+    "teaches": "Follow-up — relative clause que + two past tenses for sent/received"
+  },
+  {
+    "id": "A2-COM-002",
+    "level": "A2",
+    "category": "communication",
+    "pt": "Me liga quando chegar, só para eu saber que está tudo bem.",
+    "grammar_focus": [
+      "imperativo_me_liga",
+      "quando_futuro_subjuntivo",
+      "só_para_purpose",
+      "saber_que"
+    ],
+    "teaches": "Care request — imperative + quando + future subjunctive (chegar) + purpose clause"
+  },
+  {
+    "id": "A2-COM-003",
+    "level": "A2",
+    "category": "communication",
+    "pt": "Eu tentei te ligar, mas dava ocupado toda hora.",
+    "grammar_focus": [
+      "preterite_tentar",
+      "pronoun_te_direct",
+      "imperfect_dar_repetition",
+      "toda_hora_frequency"
+    ],
+    "teaches": "Failed contact — preterite attempt + imperfect for repeated result"
+  },
+  {
+    "id": "A2-LEI-001",
+    "level": "A2",
+    "category": "leisure_entertainment",
+    "pt": "Você já assistiu a esse filme? Dizem que é muito bom.",
+    "grammar_focus": [
+      "já_experience",
+      "assistir_a_regency",
+      "demonstrative_esse",
+      "dizem_que_hearsay"
+    ],
+    "teaches": "Recommendation check — já for experience + dizem que for hearsay/reputation"
+  },
+  {
+    "id": "A2-LEI-002",
+    "level": "A2",
+    "category": "leisure_entertainment",
+    "pt": "Eu estou lendo um livro ótimo sobre a história do Japão.",
+    "grammar_focus": [
+      "progressive_estar_gerund",
+      "adjective_before_noun_ótimo",
+      "sobre_topic",
+      "de_contracted_do"
+    ],
+    "teaches": "Current activity — progressive for ongoing + ótimo (pre-nominal adj) + sobre for topic"
+  },
+  {
+    "id": "A2-LEI-003",
+    "level": "A2",
+    "category": "leisure_entertainment",
+    "pt": "Vamos ao cinema? Tem um documentário novo em cartaz.",
+    "grammar_focus": [
+      "vamos_invitation",
+      "ir_a_contracted_ao",
+      "em_cartaz_idiom"
+    ],
+    "teaches": "Invitation — vamos + a contracted + em cartaz for showing/playing"
+  },
+  {
+    "id": "A2-FUT-001",
+    "level": "A2",
+    "category": "future_plans",
+    "pt": "Quando eu me formar, quero trabalhar com pesquisa.",
+    "grammar_focus": [
+      "quando_future_subjunctive",
+      "reflexive_formar_se",
+      "querer_infinitive",
+      "com_field"
+    ],
+    "teaches": "Career plan — quando + future subjunctive + querer + trabalhar com"
+  },
+  {
+    "id": "A2-FUT-002",
+    "level": "A2",
+    "category": "future_plans",
+    "pt": "O plano é juntar dinheiro este semestre e viajar em dezembro.",
+    "grammar_focus": [
+      "ser_plan_definition",
+      "juntar_save",
+      "temporal_este_semestre",
+      "em_month"
+    ],
+    "teaches": "Concrete plan — o plano é + infinitive chain + time markers"
+  },
+  {
+    "id": "A2-FUT-003",
+    "level": "A2",
+    "category": "future_plans",
+    "pt": "Eu ainda não decidi se vou fazer mestrado ou procurar emprego.",
+    "grammar_focus": [
+      "ainda_não_not_yet",
+      "decidir_se_indirect_question",
+      "disjunctive_ou_choices"
+    ],
+    "teaches": "Indecision — ainda não + decidir se + ou for alternatives"
+  }
 ]

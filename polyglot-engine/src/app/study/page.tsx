@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import StudyCard from "@/components/StudyCard";
 import RatingButtons from "@/components/RatingButtons";
@@ -11,6 +12,8 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 interface Filters {
     lang?: string;
     tier?: string;
+    categoria?: string;
+    nivel?: string;
 }
 
 interface CardData {
@@ -34,20 +37,36 @@ interface DueItem {
 }
 
 export default function StudyPage() {
+    return (
+        <Suspense>
+            <StudyPageInner />
+        </Suspense>
+    );
+}
+
+function StudyPageInner() {
+    const searchParams = useSearchParams();
+    const targetCardId = searchParams.get("card");
+    const initialTier = searchParams.get("tier");
+
     const [cards, setCards] = useState<CardData[]>([]);
     const [index, setIndex] = useState(0);
     const [revealed, setRevealed] = useState(false);
     const [rating, setRating] = useState(false);
-    const [filters, setFilters] = useState<Filters>({});
+    const [filters, setFilters] = useState<Filters>(
+        initialTier ? { tier: initialTier } : {}
+    );
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({ done: 0, total: 0 });
     const [showFilters, setShowFilters] = useState(false);
+    const [enrichedOnly, setEnrichedOnly] = useState(false);
 
     const fetchDue = useCallback(async () => {
         setLoading(true);
         const params = new URLSearchParams();
         if (filters.lang) params.set("lang", filters.lang);
         if (filters.tier) params.set("tier", filters.tier);
+        if (enrichedOnly) params.set("quality", "enriched");
         params.set("limit", "30");
 
         const res = await fetch(`${BASE}/api/study/due?${params}`);
@@ -66,13 +85,32 @@ export default function StudyPage() {
             }
         }
 
+        // If a specific card was requested via ?card=, fetch it and put it first
+        if (targetCardId) {
+            const alreadyIn = merged.find((c) => c.id === targetCardId);
+            if (!alreadyIn) {
+                try {
+                    const cardRes = await fetch(`${BASE}/api/cards/${targetCardId}`);
+                    if (cardRes.ok) {
+                        const cardData: CardData = await cardRes.json();
+                        merged.unshift(cardData);
+                    }
+                } catch { /* not found — fall through to normal queue */ }
+            } else {
+                // Move to front
+                const idx = merged.indexOf(alreadyIn);
+                merged.splice(idx, 1);
+                merged.unshift(alreadyIn);
+            }
+        }
+
         setCards(merged);
         setIndex(0);
         setRevealed(false);
         setRating(false);
         setStats({ done: 0, total: merged.length });
         setLoading(false);
-    }, [filters]);
+    }, [filters, targetCardId, enrichedOnly]);
 
     useEffect(() => {
         fetchDue();
@@ -183,13 +221,22 @@ export default function StudyPage() {
                         />
                     </div>
                 </div>
-                <button
-                    onClick={() => setShowFilters(!showFilters)}
-                    className={`tap-scale rounded-lg px-3 py-1.5 text-xs font-medium ${showFilters ? "bg-blue-600 text-white" : "bg-white/5 text-gray-400"
-                        }`}
-                >
-                    🎛️ Filtros
-                </button>
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => setEnrichedOnly(!enrichedOnly)}
+                        className={`tap-scale rounded-lg px-3 py-1.5 text-xs font-medium ${enrichedOnly ? "bg-yellow-600 text-white" : "bg-white/5 text-gray-400"
+                            }`}
+                    >
+                        🧠 Enriched
+                    </button>
+                    <button
+                        onClick={() => setShowFilters(!showFilters)}
+                        className={`tap-scale rounded-lg px-3 py-1.5 text-xs font-medium ${showFilters ? "bg-blue-600 text-white" : "bg-white/5 text-gray-400"
+                            }`}
+                    >
+                        🎛️ Filtros
+                    </button>
+                </div>
             </div>
 
             {/* Collapsible filters */}
@@ -244,6 +291,7 @@ export default function StudyPage() {
                                     onReveal={() => setRevealed(true)}
                                     onDifficulty={handleDifficulty}
                                     focusLang={filters.lang}
+                                    focusTier={filters.tier}
                                 />
                             </motion.div>
                         </AnimatePresence>

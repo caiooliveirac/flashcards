@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import FilterBar from "@/components/FilterBar";
 import QualityBadge from "@/components/QualityBadge";
+import { langFlag } from "@/lib/langFlags";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const QUALITY_OPTIONS = ["raw", "reviewed", "edited", "gold", "suspicious", "deprecated"];
+const QUALITY_OPTIONS = ["raw", "reviewed", "edited", "gold", "enriched", "suspicious", "deprecated"];
 const SORT_OPTIONS = [
     { value: "newest", label: "Mais recente" },
     { value: "oldest", label: "Mais antigo" },
@@ -33,6 +34,7 @@ interface Filters {
     lang?: string;
     tier?: string;
     nivel?: string;
+    categoria?: string;
     q?: string;
 }
 
@@ -53,6 +55,7 @@ export default function BrowsePage() {
         if (filters.nivel) params.set("nivel", filters.nivel);
         if (filters.tier) params.set("tier", filters.tier);
         if (filters.lang) params.set("lang", filters.lang);
+        if (filters.categoria) params.set("categoria", filters.categoria);
         if (quality) params.set("quality", quality);
         params.set("sort", sort);
         params.set("page", String(pageNum));
@@ -142,7 +145,7 @@ export default function BrowsePage() {
                                                     <div className="mt-1.5 space-y-0.5">
                                                         {card.blocos.slice(0, 3).map(b => (
                                                             <p key={b.langCode} className="text-[10px] text-zinc-400 truncate">
-                                                                <span className="text-zinc-500 font-medium">{b.langCode}</span> {b.natural}
+                                                                <span className="mr-0.5">{langFlag(b.langCode)}</span>{b.natural}
                                                             </p>
                                                         ))}
                                                     </div>

@@ -7,6 +7,7 @@ import Link from "next/link";
 import LangBlock from "@/components/LangBlock";
 import QualityBadge from "@/components/QualityBadge";
 import DifficultyMarker from "@/components/DifficultyMarker";
+import LangRailNav from "@/components/LangRailNav";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -96,8 +97,18 @@ export default function CardDetailPage() {
     const getDiff = (langCode: string) =>
         card.difficulties?.find((d) => d.langCode === langCode);
 
+    const TIER_ORDER = ["DE", "EN", "FR", "IT", "ES", "JA", "KO", "ZH", "RU", "AR", "SV", "NO", "NL", "DA", "FI", "BCS", "HU", "CS", "PL", "TR", "TH", "VI", "HE", "EL", "ID"];
+    const cardLangs = (card.blocos as Array<Record<string, unknown>>)
+        .map((b) => b.langCode as string)
+        .sort((a, b) => {
+            const ia = TIER_ORDER.indexOf(a);
+            const ib = TIER_ORDER.indexOf(b);
+            return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+        });
+
     return (
         <div className="space-y-4 pb-24">
+            <LangRailNav langs={cardLangs} />
             {/* Back button */}
             <Link
                 href="/browse"
@@ -172,7 +183,7 @@ export default function CardDetailPage() {
             )}
 
             {/* Lang blocks */}
-            <div className="space-y-2">
+            <div className="space-y-2 pr-10">
                 {(() => {
                     const tierOrder = [
                         "DE", "EN", "FR", "IT", "ES", // Tier S
@@ -197,10 +208,10 @@ export default function CardDetailPage() {
                             const langCode = bloco.langCode as string;
                             const diff = getDiff(langCode);
                             return (
-                                <div key={langCode}>
+                                <div key={langCode} id={`lang-${langCode}`}>
                                     <LangBlock
                                         bloco={bloco as unknown as Parameters<typeof LangBlock>[0]["bloco"]}
-                                        defaultExpanded={card.idiomasPrincipais.includes(langCode)}
+                                        defaultExpanded={false}
                                     />
                                     <div className="mt-1 flex items-center gap-2 px-1">
                                         <button

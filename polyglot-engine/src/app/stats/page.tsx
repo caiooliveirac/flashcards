@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { langFlag } from "@/lib/langFlags";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -13,10 +14,9 @@ interface Stats {
     qualityBreakdown: Array<{ quality: string; _count: number }>;
     categoryBreakdown: Array<{ categoria: string; _count: number }>;
     levelBreakdown: Array<{ nivel: string; _count: number }>;
-}
-
-interface DiffStats {
-    heatmap: Array<{ langCode: string; level: string; _count: number }>;
+    byTier?: Record<string, { total: number; due: number; reviewed_today: number }>;
+    generation?: { today: number; week: number; month: number; costMonth: number };
+    difficultyHeatmap?: Array<{ langCode: string; type: string; count: number }>;
 }
 
 const QUALITY_COLORS: Record<string, string> = {
@@ -56,18 +56,12 @@ function Bar({ label, value, total, color }: { label: string; value: number; tot
 
 export default function StatsPage() {
     const [stats, setStats] = useState<Stats | null>(null);
-    const [diffStats, setDiffStats] = useState<DiffStats | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        Promise.all([
-            fetch(`${BASE}/api/stats`).then((r) => r.json()),
-            fetch(`${BASE}/api/stats/difficulty`).then((r) => r.json()),
-        ]).then(([s, d]) => {
-            setStats(s);
-            setDiffStats(d);
-            setLoading(false);
-        }).catch(() => setLoading(false));
+        fetch(`${BASE}/api/stats`).then((r) => r.json())
+            .then((s) => { setStats(s); setLoading(false); })
+            .catch(() => setLoading(false));
     }, []);
 
     if (loading) {
@@ -161,18 +155,62 @@ export default function StatsPage() {
                 </div>
             </div>
 
+            {/* Generation stats */}
+            {stats.generation && (
+                <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-4">
+                    <p className="mb-3 text-xs text-gray-500 uppercase tracking-wide">Geração</p>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="bg-white/5 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold">{stats.generation.today}</p>
+                            <p className="text-[10px] text-gray-500">Hoje</p>
+                        </div>
+                        <div className="bg-white/5 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold">{stats.generation.week}</p>
+                            <p className="text-[10px] text-gray-500">Semana</p>
+                        </div>
+                        <div className="bg-white/5 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold">{stats.generation.month}</p>
+                            <p className="text-[10px] text-gray-500">Mês</p>
+                        </div>
+                        <div className="bg-white/5 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold text-yellow-400">${stats.generation.costMonth.toFixed(2)}</p>
+                            <p className="text-[10px] text-gray-500">Custo mês</p>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Tiers */}
+            {stats.byTier && (
+                <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-4">
+                    <p className="mb-3 text-xs text-gray-500 uppercase tracking-wide">Blocos por Tier</p>
+                    <div className="space-y-2">
+                        {Object.entries(stats.byTier).map(([tier, data]) => (
+                            <div key={tier} className="flex items-center justify-between text-xs">
+                                <span className="font-medium w-16">{tier}</span>
+                                <div className="flex gap-3 text-gray-400">
+                                    <span>{data.total} blocos</span>
+                                    <span className="text-blue-400">{data.due} due</span>
+                                    <span className="text-green-400">{data.reviewed_today} hoje</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
             {/* Difficulty heatmap */}
-            {diffStats?.heatmap && diffStats.heatmap.length > 0 && (
+            {stats.difficultyHeatmap && stats.difficultyHeatmap.length > 0 && (
                 <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-4">
                     <p className="mb-3 text-xs text-gray-500 uppercase tracking-wide">Dificuldade por Idioma</p>
                     <div className="space-y-1">
-                        {diffStats.heatmap.map((d) => (
-                            <div key={`${d.langCode}-${d.level}`} className="flex items-center gap-2">
-                                <span className="w-10 text-xs font-bold">{d.langCode}</span>
+                        {stats.difficultyHeatmap.map((d) => (
+                            <div key={`${d.langCode}-${d.type}`} className="flex items-center gap-2">
+                                <span className="w-7 text-lg leading-none">{d.langCode}</span>
                                 <span className="text-sm">
-                                    {d.level === "easy" ? "🟢" : d.level === "medium" ? "🟡" : d.level === "hard" ? "🔴" : "⬛"}
+                                    {d.type === "easy" ? "🟢" : d.type === "medium" ? "🟡" : d.type === "hard" ? "🔴" : "⬛"}
                                 </span>
-                                <span className="text-xs text-gray-400">{d._count}×</span>
+                                <span className="text-xs text-gray-400">{d.count}×</span>
                             </div>
                         ))}
                     </div>

@@ -95,22 +95,22 @@ export async function GET() {
     });
 
     return NextResponse.json({
-        total_cards: totalCards,
-        by_quality: byQuality,
-        by_categoria: byCategoria,
-        by_nivel: byNivel,
-        by_tier: byTier,
+        // Fields the frontend currently reads
+        totalCards: totalCards,
+        reviewsToday: reviewsToday,
+        dueNow: dueNow,
+        qualityBreakdown: qualityBreakdown.map(q => ({ quality: q.quality, _count: q._count })),
+        categoryBreakdown: categoryBreakdown.map(c => ({ categoria: c.categoria, _count: c._count })),
+        levelBreakdown: levelBreakdown.map(n => ({ nivel: n.nivel, _count: n._count })),
+
+        // Extra data for enriched stats view
+        byTier: byTier,
         generation: {
             today: todayGenerated,
             week: weekGenerated,
             month: monthGenerated,
-            cost_month: monthCost._sum.cost ?? 0,
+            costMonth: monthCost._sum.cost ?? 0,
         },
-        study: {
-            reviewed_today: reviewsToday,
-            streak: 0, // Would need historical calculation
-            due_now: dueNow,
-        },
-        difficulty_heatmap: difficultyHeatmap,
+        difficultyHeatmap: difficultyHeatmap,
     });
 }

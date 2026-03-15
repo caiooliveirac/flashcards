@@ -216,16 +216,18 @@ export async function registerChunk(
     await prisma.chunkRegistry.upsert({
         where: { chunkPt: norm },
         update: { gerado: true },
-        create: { chunkPt: norm, categoria: "pedido", nivel: "a1", gerado: true },
+        create: { chunkPt: norm, rawPt: chunkPt, categoria: "pedido", nivel: "a1", gerado: true },
     });
 }
 
 export async function markChunkFailed(chunkPt: string): Promise<void> {
     const norm = normalizeFrentePt(chunkPt);
+    // Mark gerado: true so getNextChunk never retries this chunk.
+    // Failed status is tracked via GenerationJob (status: "failed").
     await prisma.chunkRegistry.upsert({
         where: { chunkPt: norm },
-        update: { gerado: false },
-        create: { chunkPt: norm, categoria: "pedido", nivel: "a1", gerado: false },
+        update: { gerado: true },
+        create: { chunkPt: norm, rawPt: chunkPt, categoria: "pedido", nivel: "a1", gerado: true },
     });
 }
 
@@ -238,8 +240,8 @@ export async function getNextChunk(): Promise<ChunkResult | null> {
 
     if (priorityChunk) {
         return {
-            chunkPt: priorityChunk.chunkPt,
-            contexto: inferContexto(priorityChunk.chunkPt),
+            chunkPt: priorityChunk.rawPt ?? priorityChunk.chunkPt,
+            contexto: inferContexto(priorityChunk.rawPt ?? priorityChunk.chunkPt),
             source: "db_queue",
             nivel: priorityChunk.nivel,
             categoria: priorityChunk.categoria,
@@ -263,6 +265,7 @@ export async function getNextChunk(): Promise<ChunkResult | null> {
                 update: {},
                 create: {
                     chunkPt: normalizeFrentePt(chunk.pt),
+                    rawPt: chunk.pt,
                     categoria: (CATEGORY_TO_PRISMA[chunk.category] ?? "pedido") as "pedido",
                     nivel: (NIVEL_MAP[chunk.level] ?? "a1") as "a1",
                     gerado: true,
@@ -369,6 +372,7 @@ No markdown, no explanation.`;
             await prisma.chunkRegistry.create({
                 data: {
                     chunkPt: norm,
+                    rawPt: phrase.pt,
                     categoria: (CATEGORY_TO_PRISMA[category] ?? "pedido") as "pedido",
                     nivel: (NIVEL_MAP[level] ?? "a1") as "a1",
                     grammarFocus: phrase.grammar_focus,
@@ -390,8 +394,8 @@ No markdown, no explanation.`;
             });
             if (first) {
                 return {
-                    chunkPt: first.chunkPt,
-                    contexto: inferContexto(first.chunkPt),
+                    chunkPt: first.rawPt ?? first.chunkPt,
+                    contexto: inferContexto(first.rawPt ?? first.chunkPt),
                     source: "auto_refill",
                     nivel: first.nivel,
                     categoria: first.categoria,

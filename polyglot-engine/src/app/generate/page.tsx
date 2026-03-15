@@ -60,6 +60,13 @@ interface ChunkEntry {
     teaches?: string | null;
 }
 
+interface FailedChunk {
+    id: string;
+    chunkPt: string;
+    error: string | null;
+    createdAt: string;
+}
+
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const CATEGORIAS = [
@@ -79,7 +86,8 @@ export default function GeneratePage() {
     const [jobsFilter, setJobsFilter] = useState("");
     const [queue, setQueue] = useState<ChunkEntry[]>([]);
     const [queueGenerated, setQueueGenerated] = useState<ChunkEntry[]>([]);
-    const [queueTab, setQueueTab] = useState<"pending" | "generated">("pending");
+    const [queueFailed, setQueueFailed] = useState<FailedChunk[]>([]);
+    const [queueTab, setQueueTab] = useState<"pending" | "generated" | "failed">("pending");
 
     // Input states
     const [newChunk, setNewChunk] = useState("");
@@ -125,6 +133,7 @@ export default function GeneratePage() {
             const data = await res.json();
             setQueue(data.static_queue?.pending ?? []);
             setQueueGenerated(data.static_queue?.generated ?? []);
+            setQueueFailed(data.failed ?? []);
         } catch { /* ignore */ }
     }, []);
 
@@ -349,42 +358,68 @@ export default function GeneratePage() {
                     <span className="text-xs text-zinc-400">{q?.pending ?? 0} pendentes</span>
                 </div>
                 <div className="flex gap-1">
-                    {(["pending", "generated"] as const).map(tab => (
+                    {(["pending", "generated", "failed"] as const).map(tab => (
                         <button key={tab} onClick={() => setQueueTab(tab)}
-                            className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${queueTab === tab ? "bg-blue-600 text-white" : "bg-zinc-700 text-zinc-400"
+                            className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${queueTab === tab
+                                ? (tab === "failed" ? "bg-red-600 text-white" : "bg-blue-600 text-white")
+                                : "bg-zinc-700 text-zinc-400"
                                 }`}>
-                            {tab === "pending" ? `Pendentes (${queue.length})` : `Gerados (${queueGenerated.length})`}
+                            {tab === "pending" ? `Pendentes (${queue.length})`
+                                : tab === "generated" ? `Gerados (${queueGenerated.length})`
+                                    : `Falhou (${queueFailed.length})`}
                         </button>
                     ))}
                 </div>
                 <div className="space-y-1 max-h-60 overflow-y-auto">
-                    {(queueTab === "pending" ? queue : queueGenerated).map((c, i) => (
-                        <div key={c.id} className="bg-zinc-700/50 rounded-lg px-2 py-2 text-xs space-y-1">
-                            <div className="flex items-center justify-between gap-2">
-                                <div className="flex items-center gap-2 min-w-0">
-                                    <span className="text-zinc-500">{i + 1}.</span>
-                                    <span className="truncate">{c.chunkPt}</span>
-                                    <span className="text-[10px] bg-zinc-600 px-1 rounded">{c.nivel}</span>
-                                    <span className="text-[10px] bg-zinc-600 px-1 rounded">{c.categoria}</span>
-                                    {c.prioridade > 0 && <span className="text-[10px] text-orange-400">P{c.prioridade}</span>}
-                                </div>
-                                {queueTab === "pending" && (
-                                    <div className="flex gap-1 ml-2 shrink-0">
-                                        <button onClick={() => moveToTop(c.id)} className="text-blue-400 hover:text-blue-300" title="Mover para topo">⬆</button>
-                                        <button onClick={() => deleteChunk(c.id)} className="text-red-400 hover:text-red-300" title="Remover">✕</button>
+                    {queueTab === "failed" ? (
+                        <>
+                            {queueFailed.map((f, i) => (
+                                <div key={f.id} className="bg-red-900/20 border border-red-800/30 rounded-lg px-2 py-2 text-xs space-y-1">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-zinc-500">{i + 1}.</span>
+                                        <span className="truncate text-red-300">{f.chunkPt}</span>
                                     </div>
-                                )}
-                            </div>
-                            {c.grammarFocus && c.grammarFocus.length > 0 && (
-                                <p className="text-[11px] text-zinc-300">FOCO: {c.grammarFocus.join(", ")}</p>
+                                    {f.error && (
+                                        <p className="text-[10px] text-red-400/70 truncate">🔴 {f.error}</p>
+                                    )}
+                                    <p className="text-[9px] text-zinc-500">{new Date(f.createdAt).toLocaleString("pt-BR")}</p>
+                                </div>
+                            ))}
+                            {queueFailed.length === 0 && (
+                                <p className="text-xs text-zinc-500 text-center py-2">Nenhuma falha</p>
                             )}
-                            {c.teaches && (
-                                <p className="text-[11px] text-zinc-400">🎯 {c.teaches}</p>
+                        </>
+                    ) : (
+                        <>
+                            {(queueTab === "pending" ? queue : queueGenerated).map((c, i) => (
+                                <div key={c.id} className="bg-zinc-700/50 rounded-lg px-2 py-2 text-xs space-y-1">
+                                    <div className="flex items-center justify-between gap-2">
+                                        <div className="flex items-center gap-2 min-w-0">
+                                            <span className="text-zinc-500">{i + 1}.</span>
+                                            <span className="truncate">{c.chunkPt}</span>
+                                            <span className="text-[10px] bg-zinc-600 px-1 rounded">{c.nivel}</span>
+                                            <span className="text-[10px] bg-zinc-600 px-1 rounded">{c.categoria}</span>
+                                            {c.prioridade > 0 && <span className="text-[10px] text-orange-400">P{c.prioridade}</span>}
+                                        </div>
+                                        {queueTab === "pending" && (
+                                            <div className="flex gap-1 ml-2 shrink-0">
+                                                <button onClick={() => moveToTop(c.id)} className="text-blue-400 hover:text-blue-300" title="Mover para topo">⬆</button>
+                                                <button onClick={() => deleteChunk(c.id)} className="text-red-400 hover:text-red-300" title="Remover">✕</button>
+                                            </div>
+                                        )}
+                                    </div>
+                                    {c.grammarFocus && c.grammarFocus.length > 0 && (
+                                        <p className="text-[11px] text-zinc-300">FOCO: {c.grammarFocus.join(", ")}</p>
+                                    )}
+                                    {c.teaches && (
+                                        <p className="text-[11px] text-zinc-400">🎯 {c.teaches}</p>
+                                    )}
+                                </div>
+                            ))}
+                            {(queueTab === "pending" ? queue : queueGenerated).length === 0 && (
+                                <p className="text-xs text-zinc-500 text-center py-2">Vazia</p>
                             )}
-                        </div>
-                    ))}
-                    {(queueTab === "pending" ? queue : queueGenerated).length === 0 && (
-                        <p className="text-xs text-zinc-500 text-center py-2">Vazia</p>
+                        </>
                     )}
                 </div>
             </motion.div>

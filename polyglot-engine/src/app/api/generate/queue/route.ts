@@ -62,7 +62,7 @@ const addSingleSchema = z.object({
 });
 
 export async function GET() {
-    const [pending, generated] = await Promise.all([
+    const [pending, generated, failedJobs] = await Promise.all([
         prisma.chunkRegistry.findMany({
             where: { gerado: false },
             orderBy: [{ prioridade: "desc" }, { createdAt: "asc" }],
@@ -70,6 +70,12 @@ export async function GET() {
         prisma.chunkRegistry.findMany({
             where: { gerado: true },
             orderBy: { createdAt: "desc" },
+            take: 50,
+        }),
+        prisma.generationJob.findMany({
+            where: { status: "failed" },
+            orderBy: { createdAt: "desc" },
+            select: { id: true, chunkPt: true, error: true, createdAt: true },
             take: 50,
         }),
     ]);
@@ -84,6 +90,7 @@ export async function GET() {
             pending,
             generated,
         },
+        failed: failedJobs,
         variation_queue: {
             available: variationsAvailable,
             next_10: [], // variations are generated dynamically

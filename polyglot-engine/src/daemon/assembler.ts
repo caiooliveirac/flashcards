@@ -107,6 +107,12 @@ export async function assembleCard(
     // 2. Check if all 25 langs are present
     const missingLangs = LANG_CODES.filter((l) => !merged[l]);
     if (missingLangs.length > 0) {
+        if (jobId) {
+            await prisma.generationJob.update({
+                where: { id: jobId },
+                data: { status: "failed", error: `Missing ${missingLangs.length} languages: ${missingLangs.join(", ")}` },
+            });
+        }
         return {
             success: false,
             qaScore: 0,
