@@ -125,6 +125,7 @@ model Card {
   reviews             Review[]
   difficulties        LangDifficulty[]
   tags                CardTag[]
+  grammarLinks        CardGrammarLink[]
 
   @@index([quality])
   @@index([categoria])
@@ -308,4 +309,54 @@ model ChunkRegistry {
 
   @@index([gerado, prioridade])
   @@index([categoria, nivel])
+}
+
+// ─── GRAMMAR MODULES ──────────────────────────────────
+
+enum GrammarModuleStatus {
+  draft
+  generated
+  reviewed
+  gold
+}
+
+model GrammarModule {
+  id              String              @id             // e.g. "DE_STRUCT_KASUS_DATIV"
+  language        String                              // e.g. "DE"
+  cluster         String                              // e.g. "structure"
+  title           String                              // e.g. "Dativo (Dativ)"
+  subtitle        String?                             // e.g. "Quem recebe a ação"
+  level           String              @default("a2")  // a1..c1
+  content         Json                                // Full 6-section JSON
+  prerequisites   String[]                            // ["DE_STRUCT_KASUS_NOM"]
+  relatedCardIds  String[]                            // Card IDs that exercise this
+  status          GrammarModuleStatus @default(draft)
+  qualityScore    Float?
+  sourceModel     String?
+  inputTokens     Int?
+  outputTokens    Int?
+  cachedTokens    Int?
+  costUsd         Float?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  cardLinks       CardGrammarLink[]
+
+  @@index([language])
+  @@index([language, cluster])
+  @@index([status])
+}
+
+// ─── CARD ↔ GRAMMAR LINK ──────────────────────────────
+
+model CardGrammarLink {
+  cardId            String
+  grammarModuleId   String
+  relevance         Float   @default(1.0)
+
+  card              Card          @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  grammarModule     GrammarModule @relation(fields: [grammarModuleId], references: [id], onDelete: Cascade)
+
+  @@id([cardId, grammarModuleId])
+  @@index([grammarModuleId])
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import TtsButton from "./TtsButton";
 import type { LangCode } from "@/lib/types";
@@ -61,6 +62,26 @@ function Detail({ label, value }: { label: string; value?: string | null }) {
     );
 }
 
+/**
+ * Build a grammar module ID from langCode + grammar description text.
+ * Normalizes to format: {LANG}_{CLUSTER}_{TOPIC}
+ * e.g. "Wechselpräpositionen: Akkusativ vs Dativ" → "DE_GRAM_WECHSELPRAPOSITIONEN"
+ */
+function buildGrammarModuleId(langCode: string, grammarText: string): string {
+    const lang = langCode.toUpperCase();
+    // Take first meaningful segment before colon/dash/parenthesis
+    const mainTopic = grammarText.split(/[:\-—(]/)[0].trim();
+    // Normalize: remove diacritics, lowercase, replace spaces with underscore
+    const slug = mainTopic
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9\s]/g, "")
+        .trim()
+        .replace(/\s+/g, "_")
+        .toUpperCase()
+        .slice(0, 40);
+    return `${lang}_GRAM_${slug || "TOPIC"}`;
+}
+
 export default function LangBlock({
     bloco,
     defaultExpanded = false,
@@ -70,6 +91,7 @@ export default function LangBlock({
 }) {
     const [expanded, setExpanded] = useState(defaultExpanded);
     const [showInsight, setShowInsight] = useState(false);
+    const router = useRouter();
     const tierLetter = getTierLetter(bloco.langCode);
     const tierClass = TIER_COLORS[tierLetter] || TIER_COLORS.D;
 
@@ -149,7 +171,24 @@ export default function LangBlock({
                             )}
                             <Detail label="Literal" value={bloco.literal} />
                             <Detail label="Padrão" value={bloco.padrao} />
-                            <Detail label="Gramática" value={bloco.gramatica} />
+                            {bloco.gramatica && bloco.gramatica !== "—" && (
+                                <div className="py-1">
+                                    <span className="text-[11px] uppercase tracking-wide text-gray-500">Gramática</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            const moduleId = buildGrammarModuleId(bloco.langCode, bloco.gramatica!);
+                                            router.push(`/grammar/${encodeURIComponent(moduleId)}`);
+                                        }}
+                                        className="group mt-0.5 flex w-full items-center gap-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1.5 text-left transition-all hover:bg-indigo-500/20 hover:border-indigo-500/40 active:scale-[0.98]"
+                                    >
+                                        <span className="text-sm leading-snug text-indigo-300 group-hover:text-indigo-200 flex-1">
+                                            📖 {bloco.gramatica}
+                                        </span>
+                                        <span className="shrink-0 text-xs text-indigo-500 group-hover:text-indigo-400">→</span>
+                                    </button>
+                                </div>
+                            )}
                             <Detail label="Obs" value={bloco.obs} />
                             <Detail label="⚠️ Erro típico" value={bloco.erroTipico} />
                             <Detail label="🔀 Contraste" value={bloco.contraste} />
