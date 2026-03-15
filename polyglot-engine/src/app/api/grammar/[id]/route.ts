@@ -67,12 +67,28 @@ export async function POST(
         return NextResponse.json(existing);
     }
 
-    // Parse request body
+    // Parse request body (optional — can derive from moduleId)
     let body: GenerateRequest;
     try {
         body = await request.json();
     } catch {
-        return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+        body = {} as GenerateRequest;
+    }
+
+    // Derive language/cluster from moduleId if not in body
+    // Format: {LANG}_{CLUSTER}_{TOPIC} e.g. DE_STRUCT_WECHSELPRAP
+    const idParts = moduleId.split("_");
+    if (!body.language && idParts.length >= 2) {
+        body.language = idParts[0];
+    }
+    if (!body.cluster && idParts.length >= 3) {
+        body.cluster = idParts[1].toLowerCase();
+    }
+    if (!body.topic_name) {
+        body.topic_name = idParts.slice(2).join("_");
+    }
+    if (!body.topic_id) {
+        body.topic_id = moduleId;
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -143,7 +159,11 @@ export async function POST(
     // Parse JSON from Opus response
     let parsed: Record<string, unknown>;
     try {
-        const cleaned = rawContent.replace(/^[^{]*/, "").replace(/[^}]*$/, "");
+        const cleaned = rawContent
+            .replace(/^```(?:json)?\s*/m, "")
+            .replace(/\s*```\s*$/m, "")
+            .replace(/^[^{]*/, "")
+            .replace(/[^}]*$/, "");
         parsed = JSON.parse(cleaned);
     } catch (err) {
         console.error("[grammar-gen] JSON parse failed:", err, rawContent.slice(0, 500));
