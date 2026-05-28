@@ -24,7 +24,9 @@
 - Spec não define formato. Usado `postcss.config.js` com ESM export (compatível com Tailwind 3.4).
 
 ### 3. Rede Docker
-- Nginx roda no container `repo-nginx-1`, conectado a `repo_default`. Docker-compose usa `repo_default` como rede externa.
+- Gateway oficial atual roda em nginx no host (systemd).
+- `repo-nginx-1` e fluxo containerizado ficam apenas como fallback legado controlado.
+- Deploy da app continua em Docker, preferindo upstream host-bound (`127.0.0.1:porta`) no gateway.
 
 ### 4. Next.js security advisory
 - Next.js 14.2.x tem 2 advisories (GHSA-9g9p / GHSA-h25m), fix só em 16+. Ambas são DoS (não RCE) e app é pessoal. Mitigação: não usar Image Optimizer remotePatterns, RSC seguro. Documentado aqui, aceito o risco.

@@ -6,6 +6,8 @@ services:
         - NEXT_PUBLIC_BASE_PATH=/polyglot
     container_name: polyglot-app
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:3006:3000"
     networks:
       - repo_default
     env_file:
